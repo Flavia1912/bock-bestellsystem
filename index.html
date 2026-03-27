@@ -2168,25 +2168,6 @@ function renderStart(){
     </div>`;
   }
 
-  // Freitags-Erinnerung
-  const today_dow=new Date().getDay(); // 5=Freitag
-  if(today_dow===5){
-    const moISO=nextWeekMoISO();
-    const frISO=nextWeekFrISO();
-    const hatBaeko=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='baeko');
-    const hatHW=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='metro');
-    if(!hatBaeko||!hatHW){
-      const missing=[];
-      if(!hatBaeko)missing.push('🌾 BÄKO');
-      if(!hatHW)missing.push('📦 HW');
-      html=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
-        padding:14px 16px;margin-bottom:10px;font-size:13px">
-        🔔 <strong>Heute ist Freitag!</strong> Noch nicht bestellt: <strong>${missing.join(' · ')}</strong>
-        <div style="font-size:11px;opacity:.7;margin-top:3px">Bitte jetzt noch für nächste Woche (${nextWeekLabel()}) bestellen.</div>
-      </div>`+html;
-    }
-  }
-
   mc.innerHTML=`<div id="start-banner"></div>
     ${bestellStatusHTML}
     <div class="card">
@@ -2216,6 +2197,27 @@ function updateStartBanner(){
     if(fehlend.length)html+=`<div class="banner banner-red">⚠️ <strong>${fehlend.length} Bestellung(en)</strong> mit offenen Fehlmengen. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('vw-best')">Prüfen →</span></div>`;
     const abweichungen=db.bestellungen.filter(b=>b.hatAbweichung);
     if(abweichungen.length)html+=`<div class="banner banner-red">⚠️ <strong>${abweichungen.length} Lieferung(en)</strong> mit Abweichungen. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('bestellhistorie')">Ansehen →</span></div>`;
+  }
+
+  // Freitags-Erinnerung für alle Filialen
+  if(!['Verwaltung','Backstube'].includes(U)){
+    const today_dow=new Date().getDay();
+    if(today_dow===5){
+      const moISO=nextWeekMoISO();
+      const frISO=nextWeekFrISO();
+      const hatBaeko=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='baeko');
+      const hatHW=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='metro');
+      if(!hatBaeko||!hatHW){
+        const missing=[];
+        if(!hatBaeko)missing.push('🌾 BÄKO');
+        if(!hatHW)missing.push('📦 HW');
+        html+=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
+          padding:14px 16px;margin-bottom:10px;font-size:13px">
+          🔔 <strong>Heute ist Freitag!</strong> Noch nicht bestellt: <strong>${missing.join(' · ')}</strong>
+          <div style="font-size:11px;opacity:.7;margin-top:3px">Bitte noch für nächste Woche (${nextWeekLabel()}) bestellen.</div>
+        </div>`;
+      }
+    }
   }
 
   // Filiale: Lieferung unterwegs – bitte bestätigen
@@ -2254,6 +2256,28 @@ function updateStartBanner(){
         </div>`;
       }else{
         html+=`<div class="banner banner-ok">🌡️ Kühlpläne ${sObj?.name} ✅ abgeschlossen von <strong>${e.name}</strong></div>`;
+      }
+    }
+  }
+
+  // Freitags-Erinnerung
+  if(!['Verwaltung','Backstube'].includes(U)){
+    const today_dow=new Date().getDay();
+    if(today_dow===5){
+      const moISO=nextWeekMoISO();
+      const frISO=nextWeekFrISO();
+      const hatBaeko=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='baeko');
+      const hatHW=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='metro');
+      if(!hatBaeko||!hatHW){
+        const missing=[];
+        if(!hatBaeko)missing.push('🌾 BÄKO');
+        if(!hatHW)missing.push('📦 HW');
+        html+=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
+          padding:14px 16px;margin-bottom:10px;font-size:13px;cursor:pointer"
+          onclick="renderPanel(!${hatBaeko}?'baeko':'metro')">
+          🔔 <strong>Heute ist Freitag!</strong> Noch nicht bestellt: <strong>${missing.join(' · ')}</strong>
+          <div style="font-size:11px;opacity:.7;margin-top:3px">Woche ${nextWeekLabel()} · Jetzt bestellen →</div>
+        </div>`;
       }
     }
   }

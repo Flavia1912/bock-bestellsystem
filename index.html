@@ -308,6 +308,11 @@ const NAMEN={B1:'B1',B5:'B5',B7:'B7',B8:'B8',B11:'B11',B12:'B12',B16:'B16',Backs
 const ALLE_FIL=['B1','B5','B7','B8','B11','B12','B16'];
 const METRO_FIL=['B1','B5','B7','B8','B11','B12','B16'];
 const LAGER_ART=[
+  // Verpackung
+  {id:'lv01',name:'Pappteller 11x17,5',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'lv02',name:'Pappteller 13x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'lv03',name:'Pappteller 16x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'lv04',name:'To Go Becher',unit:'Pkg',min:2,kat:'Verpackung'},
   // Tee
   {id:'t01',name:'Apfeltee',unit:'Pkg',min:2,kat:'Tee'},
   {id:'t02',name:'Beerenzauber',unit:'Pkg',min:2,kat:'Tee'},
@@ -324,6 +329,11 @@ const LAGER_ART=[
   {id:'k01',name:'Cafe Crema',unit:'Btl.',min:2,kat:'Kaffee'},
   {id:'k02',name:'Espresso',unit:'Btl.',min:2,kat:'Kaffee'},
   {id:'k03',name:'Koffeinfrei',unit:'Btl.',min:1,kat:'Kaffee'},
+  // Verpackung
+  {id:'v01',name:'Pappteller 11x17,5',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'v02',name:'Pappteller 13x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'v03',name:'Pappteller 16x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'v04',name:'To Go Becher',unit:'Pkg',min:2,kat:'Verpackung'},
 ];
 const BAEKO_STATIC={
   "B1": [
@@ -1896,314 +1906,7 @@ const BAEKO_STATIC={
     }
   ]
 };
-const METRO_STATIC=[
-  {
-    "id": "m_t01",
-    "kat": "Tee",
-    "name": "Apfeltee",
-    "vpe": ""
-  },
-  {
-    "id": "m_t02",
-    "kat": "Tee",
-    "name": "Beerenzauber",
-    "vpe": ""
-  },
-  {
-    "id": "m_t03",
-    "kat": "Tee",
-    "name": "Black Chai",
-    "vpe": ""
-  },
-  {
-    "id": "m_t04",
-    "kat": "Tee",
-    "name": "China Gunpowder",
-    "vpe": ""
-  },
-  {
-    "id": "m_t05",
-    "kat": "Tee",
-    "name": "Darjeeling",
-    "vpe": ""
-  },
-  {
-    "id": "m_t06",
-    "kat": "Tee",
-    "name": "Earl Grey",
-    "vpe": ""
-  },
-  {
-    "id": "m_t07",
-    "kat": "Tee",
-    "name": "Ingwer Lemon",
-    "vpe": ""
-  },
-  {
-    "id": "m_t08",
-    "kat": "Tee",
-    "name": "Jasmintee",
-    "vpe": ""
-  },
-  {
-    "id": "m_t09",
-    "kat": "Tee",
-    "name": "Kamille",
-    "vpe": ""
-  },
-  {
-    "id": "m_t10",
-    "kat": "Tee",
-    "name": "Pfefferminze",
-    "vpe": ""
-  },
-  {
-    "id": "m_t11",
-    "kat": "Tee",
-    "name": "Rotbusch Pur",
-    "vpe": ""
-  },
-  {
-    "id": "m_k01",
-    "kat": "Kaffee",
-    "name": "Kaffee Crema",
-    "vpe": ""
-  },
-  {
-    "id": "m_k02",
-    "kat": "Kaffee",
-    "name": "Kaffee Espresso",
-    "vpe": ""
-  },
-  {
-    "id": "m_k03",
-    "kat": "Kaffee",
-    "name": "Koffeinfreier Kaffee",
-    "vpe": ""
-  },
-  {
-    "id": "m_v12",
-    "kat": "Verpackung",
-    "name": "Bowl Schale",
-    "vpe": ""
-  },
-  {
-    "id": "m_v01",
-    "kat": "Verpackung",
-    "name": "Krapfenkarton",
-    "vpe": ""
-  },
-  {
-    "id": "m_v02",
-    "kat": "Verpackung",
-    "name": "Pappteller 11 × 17,5 cm",
-    "vpe": ""
-  },
-  {
-    "id": "m_v03",
-    "kat": "Verpackung",
-    "name": "Pappteller 16 × 20 cm",
-    "vpe": ""
-  },
-  {
-    "id": "m_v04",
-    "kat": "Verpackung",
-    "name": "Pappteller 21 × 30 cm",
-    "vpe": ""
-  },
-  {
-    "id": "m_v05",
-    "kat": "Verpackung",
-    "name": "Recup Becher",
-    "vpe": ""
-  },
-  {
-    "id": "m_v06",
-    "kat": "Verpackung",
-    "name": "Recup Deckel",
-    "vpe": ""
-  },
-  {
-    "id": "m_v10",
-    "kat": "Verpackung",
-    "name": "Tortenkarton pink Prestige",
-    "vpe": ""
-  },
-  {
-    "id": "m_v11",
-    "kat": "Verpackung",
-    "name": "Träger To-Go",
-    "vpe": ""
-  },
-  {
-    "id": "m_v07",
-    "kat": "Verpackung",
-    "name": "to go Becher",
-    "vpe": ""
-  },
-  {
-    "id": "m_v08",
-    "kat": "Verpackung",
-    "name": "to go Deckel",
-    "vpe": ""
-  },
-  {
-    "id": "m_v09",
-    "kat": "Verpackung",
-    "name": "to go Espresso",
-    "vpe": ""
-  },
-  {
-    "id": "m_r01",
-    "kat": "Reinigung",
-    "name": "Allzweck-Reiniger",
-    "vpe": ""
-  },
-  {
-    "id": "m_r02",
-    "kat": "Reinigung",
-    "name": "Cremeseife",
-    "vpe": ""
-  },
-  {
-    "id": "m_r03",
-    "kat": "Reinigung",
-    "name": "Fettlöser",
-    "vpe": ""
-  },
-  {
-    "id": "m_r04",
-    "kat": "Reinigung",
-    "name": "Klarspüler",
-    "vpe": ""
-  },
-  {
-    "id": "m_r05",
-    "kat": "Reinigung",
-    "name": "Kraftreiniger",
-    "vpe": ""
-  },
-  {
-    "id": "m_r06",
-    "kat": "Reinigung",
-    "name": "Milchschaumreiniger",
-    "vpe": ""
-  },
-  {
-    "id": "m_r08",
-    "kat": "Reinigung",
-    "name": "Reinigungstabletten",
-    "vpe": ""
-  },
-  {
-    "id": "m_r09",
-    "kat": "Reinigung",
-    "name": "Spülmaschinen Broxetten",
-    "vpe": ""
-  },
-  {
-    "id": "m_r10",
-    "kat": "Reinigung",
-    "name": "Spülmittel Maschine",
-    "vpe": ""
-  },
-  {
-    "id": "m_r07",
-    "kat": "Reinigung",
-    "name": "Spülmittel normal (gelbe Flasche)",
-    "vpe": ""
-  },
-  {
-    "id": "m_r11",
-    "kat": "Reinigung",
-    "name": "WC Ente",
-    "vpe": ""
-  },
-  {
-    "id": "hw_camembert",
-    "name": "Camembert portionsweise",
-    "kat": "Handelswaren",
-    "vpe": ""
-  },
-  {
-    "id": "m_h02",
-    "kat": "Handelswaren",
-    "name": "Bunte Eier",
-    "vpe": ""
-  },
-  {
-    "id": "m_h03",
-    "kat": "Handelswaren",
-    "name": "Kaba Nachfüller",
-    "vpe": ""
-  },
-  {
-    "id": "m_h04",
-    "kat": "Handelswaren",
-    "name": "Markenbutter 250g",
-    "vpe": ""
-  },
-  {
-    "id": "m_h05",
-    "kat": "Handelswaren",
-    "name": "Marmelade Aprikose",
-    "vpe": ""
-  },
-  {
-    "id": "m_h06",
-    "kat": "Handelswaren",
-    "name": "Marmelade Erdbeere",
-    "vpe": ""
-  },
-  {
-    "id": "m_h07",
-    "kat": "Handelswaren",
-    "name": "Marmelade Himbeer",
-    "vpe": ""
-  },
-  {
-    "id": "m_h08",
-    "kat": "Handelswaren",
-    "name": "Nutella 400g",
-    "vpe": ""
-  },
-  {
-    "id": "m_h09",
-    "kat": "Handelswaren",
-    "name": "Nutella Portion",
-    "vpe": ""
-  },
-  {
-    "id": "m_h13",
-    "kat": "Handelswaren",
-    "name": "Semmelbrösel",
-    "vpe": ""
-  },
-  {
-    "id": "m_h14",
-    "kat": "Handelswaren",
-    "name": "Knödelbrot",
-    "vpe": ""
-  },
-  {
-    "id": "m_h15",
-    "kat": "Handelswaren",
-    "name": "Süßstoff",
-    "vpe": ""
-  },
-  {
-    "id": "m_h01",
-    "kat": "Handelswaren",
-    "name": "Zuckersticks",
-    "vpe": ""
-  },
-  {
-    "id": "hw_piccolo",
-    "name": "Piccolo",
-    "kat": "Handelswaren",
-    "vpe": ""
-  }
-];
+const METRO_STATIC={"B1": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B5": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B7": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B8": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B11": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B12": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B16": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}]};
 
 // ═══════════════════ FIREBASE ═══════════════════
 const FIREBASE_CONFIG={
@@ -2219,10 +1922,10 @@ const FIREBASE_CONFIG={
 let U=null,fbReady=false,fbRef=null;
 let db=initDB();
 // Artikellisten aus Firebase (überschreiben static bei Verbindung)
-let BAEKO={},METRO=[];
+let BAEKO={},METRO={};
 // Kopie static als Fallback
 Object.assign(BAEKO,BAEKO_STATIC);
-METRO=[...METRO_STATIC];
+Object.keys(METRO_STATIC).forEach(fil=>{METRO[fil]=[...METRO_STATIC[fil]];});
 
 function initDB(){
   const l={};LAGER_ART.forEach(a=>{l[a.id]={menge:a.min*3,min:a.min};});
@@ -2259,8 +1962,10 @@ function initFirebase(){
           });
         }
         if(data.metro_artikel){
-          const mv=data.metro_artikel;
-          METRO=Array.isArray(mv)?mv:Object.values(mv);
+          Object.keys(data.metro_artikel).forEach(fil=>{
+            const v=data.metro_artikel[fil];
+            METRO[fil]=Array.isArray(v)?v:Object.values(v);
+          });
         }
         if(data.lager_artikel&&data.lager_artikel.length){
           LAGER_ART.length=0;
@@ -2446,21 +2151,40 @@ function renderStart(){
     const hatHW=f=>db.bestellungen.some(b=>b.filiale===f&&(b.versanddatum===versandFr||b.wocheMo===moISO)&&b.typ==='metro');
     const hwStatus=f=>{const b=db.bestellungen.find(x=>x.filiale===f&&(x.versanddatum===versandFr||x.wocheMo===moISO)&&x.typ==='metro');return b?b.status:null;};
     const stIcon=s=>({offen:'🕐',gepackt:'✅',teilweise:'⚠️',versendet:'🚚',angekommen:'✅',bestaetigt:'✅'}[s]||'–');
+    const offeneHW=U==='B1'?db.bestellungen.filter(b=>b.typ==='metro'&&(b.status==='offen'||b.status==='teilweise')).length:0;
+    // B1 sieht nur HW-Übersicht, Verwaltung sieht beides
     const rows=ALLE_FIL.map(f=>`<tr>
       <td style="font-weight:500;padding:7px 12px">${f}</td>
-      <td style="text-align:center;padding:7px 12px">${hatBaeko(f)?'<span style="color:var(--green)">✅</span>':'<span style="color:var(--xlight)">–</span>'}</td>
+      ${U==='Verwaltung'?`<td style="text-align:center;padding:7px 12px">${hatBaeko(f)?'<span style="color:var(--green)">✅</span>':'<span style="color:var(--xlight)">–</span>'}</td>`:''}
       <td style="text-align:center;padding:7px 12px">${hatHW(f)?`<span title="${stlbl(hwStatus(f))}">${stIcon(hwStatus(f))}</span>`:'<span style="color:var(--xlight)">–</span>'}</td>
     </tr>`).join('');
-    // Offene HW-Pakete für B1
-    const offeneHW=U==='B1'?db.bestellungen.filter(b=>b.typ==='metro'&&(b.status==='offen'||b.status==='teilweise')).length:0;
     bestellStatusHTML=`<div class="card" style="margin-bottom:14px">
       <div style="font-weight:600;font-size:13px;margin-bottom:${offeneHW?'8':'10'}px">📋 Bestellstatus · Woche ${wocheLabel}</div>
       ${offeneHW?`<div class="banner banner-warn" style="margin-bottom:10px">📦 <strong>${offeneHW} HW-Bestellung(en)</strong> warten auf Bearbeitung</div>`:''}
       <div class="twrap"><table>
-        <thead><tr><th>Filiale</th><th style="text-align:center">🌾 BÄKO</th><th style="text-align:center">📦 HW-Status</th></tr></thead>
+        <thead><tr><th>Filiale</th>${U==='Verwaltung'?'<th style="text-align:center">🌾 BÄKO</th>':''}<th style="text-align:center">📦 HW-Status</th></tr></thead>
         <tbody>${rows}</tbody>
       </table></div>
     </div>`;
+  }
+
+  // Freitags-Erinnerung
+  const today_dow=new Date().getDay(); // 5=Freitag
+  if(today_dow===5){
+    const moISO=nextWeekMoISO();
+    const frISO=nextWeekFrISO();
+    const hatBaeko=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='baeko');
+    const hatHW=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='metro');
+    if(!hatBaeko||!hatHW){
+      const missing=[];
+      if(!hatBaeko)missing.push('🌾 BÄKO');
+      if(!hatHW)missing.push('📦 HW');
+      html=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
+        padding:14px 16px;margin-bottom:10px;font-size:13px">
+        🔔 <strong>Heute ist Freitag!</strong> Noch nicht bestellt: <strong>${missing.join(' · ')}</strong>
+        <div style="font-size:11px;opacity:.7;margin-top:3px">Bitte jetzt noch für nächste Woche (${nextWeekLabel()}) bestellen.</div>
+      </div>`+html;
+    }
   }
 
   mc.innerHTML=`<div id="start-banner"></div>
@@ -2595,9 +2319,10 @@ function submitBaeko(){
 // ═══════════════════ METRO BESTELLUNG ═══════════════════
 function renderMetro(){
   const mc=document.getElementById('mc');
-  const kats=[...new Set(METRO.map(a=>a.kat))];
+  const filMetro=METRO[U]||METRO[ALLE_FIL[0]]||[];
+  const kats=[...new Set(filMetro.map(a=>a.kat))];
   const rows=kats.map(kat=>`<div class="slbl">${kat}</div>`+
-    METRO.filter(a=>a.kat===kat).map(a=>`<div class="orow">
+    filMetro.filter(a=>a.kat===kat).map(a=>`<div class="orow">
       <div><div class="aname">${a.name}</div>
       </div>
       <input class="qinp" type="number" min="0" value="" id="mq-${a.id}" placeholder="0" oninput="this.dataset.filled=this.value>0?'1':''">
@@ -2607,6 +2332,11 @@ function renderMetro(){
     <div class="banner banner-info" style="margin-bottom:14px">📅 Bestellung für: <strong>${nextWeekLabel()}</strong></div>
     <div id="mal"></div>
     ${rows}
+    <hr class="div">
+    <div class="slbl">Sonstige Artikel (fehlen auf der Liste?)</div>
+    <textarea id="metro-freitext" placeholder="z.B. 2× Reinigungstabs extra, 1× Sonderartikel…"
+      style="width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--rsm);
+      font-size:13px;font-family:'Inter',sans-serif;min-height:70px;resize:vertical;margin-bottom:10px"></textarea>
     <hr class="div">
     <div class="slbl">Unterschrift</div>
     <input type="text" id="sig-name" placeholder="Ihren Namen eingeben" inputmode="text" autocomplete="name"
@@ -2630,15 +2360,16 @@ function checkMEx(){
 function clearMQ(){METRO.forEach(a=>{const el=document.getElementById('mq-'+a.id);if(el){el.value='';el.dataset.filled='';}});}
 function submitMetro(){
   const pos=[];
-  METRO.forEach(a=>{const el=document.getElementById('mq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)pos.push({id:a.id,name:a.name,kat:a.kat,vpe:a.vpe||'',menge:v});});
+  (METRO[U]||[]).forEach(a=>{const el=document.getElementById('mq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)pos.push({id:a.id,name:a.name,kat:a.kat,vpe:a.vpe||'',menge:v});});
   if(!pos.length){toast('Bitte mind. einen Artikel eintragen.');return;}
   const sigValM=document.getElementById('sig-name')?.value.trim()||'';
+  const freitextM=document.getElementById('metro-freitext')?.value.trim()||'';
   const versandFrM=nextWeekFrISO();const wocheMoM=nextWeekMoISO();
   db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.wocheMo===wocheMoM&&b.typ==='metro'));
   db.bestellungen.push({id:uid(),filiale:U,versanddatum:versandFrM,wocheMo:wocheMoM,week:wocheMoM,wocheLabel:nextWeekLabel(),datum:new Date().toISOString(),positionen:pos,
-    status:'offen',typ:'metro',sig:sigValM,fehlmengen:{},
+    status:'offen',typ:'metro',sig:sigValM,freitext:freitextM,fehlmengen:{},
     statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]});
-  save();clearMQ();const smn=document.getElementById('sig-name');if(smn)smn.value='';toast('✅ HANDELSWAREN-Bestellung abgeschickt!');
+  save();clearMQ();const smn=document.getElementById('sig-name');if(smn)smn.value='';const mft=document.getElementById('metro-freitext');if(mft)mft.value='';toast('✅ HANDELSWAREN-Bestellung abgeschickt!');
   checkMEx();
 }
 
@@ -2805,6 +2536,7 @@ function ordTbl(o){
           </td>`:''}
       </tr>`;
     }).join('')}</tbody></table></div>
+    ${o.freitext?`<div style="margin-top:8px;padding:8px 10px;background:var(--cream);border-radius:var(--rsm);font-size:12px">📝 Sonstige Artikel: ${o.freitext}</div>`:''}
     ${o.ankunftKommentar?`<div style="margin-top:8px;padding:8px 10px;background:var(--amber-lt);border-radius:var(--rsm);font-size:12px">💬 ${o.ankunftKommentar}</div>`:''}
     ${o.hatAbweichung?`<div class="banner banner-red" style="margin-top:8px">⚠️ Abweichungen bei dieser Lieferung gemeldet</div>`:''}`;
 }
@@ -2886,7 +2618,7 @@ function renderVwBest(){
     <div class="frow">
       <input type="date" id="vbw" oninput="refVwB()" placeholder="Versanddatum">
       <select id="vbf" onchange="refVwB()"><option value="">Alle Filialen</option>${filOpts}</select>
-      <select id="vbt" onchange="refVwB()"><option value="">Alle Typen</option><option value="baeko">Bäko</option><option value="metro">Metro</option></select>
+      <select id="vbt" onchange="refVwB()"><option value="">Alle Typen</option><option value="baeko">Bäko</option><option value="metro">Handelswaren</option></select>
       <select id="vbs" onchange="refVwB()"><option value="">Alle Status</option><option value="offen">Offen</option><option value="teilweise">Teilweise</option><option value="versendet">Versendet</option><option value="angekommen">Angekommen</option><option value="bestaetigt">Bestätigt</option></select>
     </div>
     ${U==='Verwaltung'?`<div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--rsm);padding:14px;margin-bottom:14px">
@@ -2943,20 +2675,45 @@ function refVwB(){
 }
 function setOSt(id,st,cb){
   const o=db.bestellungen.find(x=>x.id===id);if(!o||!st)return;
-  // Lagerabzug bei "gepackt" für HW-Bestellungen (Kaffee & Tee aus Lager)
+  // Lagerabzug bei "gepackt" für HW-Bestellungen
   if(st==='gepackt'&&o.status!=='gepackt'&&o.typ==='metro'){
-    const lagerArtikelNamen=LAGER_ART.map(a=>a.name.toLowerCase());
+    // Explizites Mapping HW-Artikelname → Lager-ID
+    const HW_LAGER_MAP=[
+      // Kaffee
+      {keywords:['cafe crema','crema'],lagerId:'k01'},
+      {keywords:['espresso'],lagerId:'k02'},
+      {keywords:['koffeinf','koffeinfrei'],lagerId:'k03'},
+      // Tee
+      {keywords:['apfeltee'],lagerId:'t01'},
+      {keywords:['beerenzauber'],lagerId:'t02'},
+      {keywords:['black chai'],lagerId:'t03'},
+      {keywords:['china gunpowder','gunpowder'],lagerId:'t04'},
+      {keywords:['darjeeling'],lagerId:'t05'},
+      {keywords:['earl grey'],lagerId:'t06'},
+      {keywords:['ingwer lemon','ingwer'],lagerId:'t07'},
+      {keywords:['jasmintee','jasmin'],lagerId:'t08'},
+      {keywords:['kamille'],lagerId:'t09'},
+      {keywords:['pfefferminze'],lagerId:'t10'},
+      {keywords:['rotbusch'],lagerId:'t11'},
+      // Verpackung
+      {keywords:['pappteller 11','pappteller 11x'],lagerId:'lv01'},
+      {keywords:['pappteller 13','pappteller 13x'],lagerId:'lv02'},
+      {keywords:['pappteller 16','pappteller 16x'],lagerId:'lv03'},
+      {keywords:['to go becher','togo becher','becher'],lagerId:'lv04'},
+    ];
     o.positionen.forEach(p=>{
-      // Prüfe ob Artikel im Lager vorhanden (Kaffee/Tee Match)
-      const match=LAGER_ART.find(a=>a.name.toLowerCase()===p.name.toLowerCase()||
-        p.name.toLowerCase().includes(a.name.toLowerCase())||
-        a.name.toLowerCase().includes(p.name.toLowerCase()));
-      if(match&&db.lager[match.id]){
-        const vor=db.lager[match.id].menge;
-        db.lager[match.id].menge=Math.max(0,vor-p.menge);
-        db.lagerLog.push({datum:new Date().toISOString(),art:match.name,
-          vor,nach:db.lager[match.id].menge,
-          grund:`HW gepackt für ${o.filiale}`,by:U});
+      const pName=p.name.toLowerCase();
+      const mapping=HW_LAGER_MAP.find(m=>m.keywords.some(k=>pName.includes(k)));
+      if(mapping&&db.lager[mapping.lagerId]){
+        const lagerArt=LAGER_ART.find(a=>a.id===mapping.lagerId);
+        const vor=db.lager[mapping.lagerId].menge;
+        db.lager[mapping.lagerId].menge=Math.max(0,vor-p.menge);
+        db.lagerLog.push({
+          datum:new Date().toISOString(),
+          art:lagerArt?.name||mapping.lagerId,
+          vor,nach:db.lager[mapping.lagerId].menge,
+          grund:`HW gepackt für ${o.filiale}`,by:U
+        });
       }
     });
   }
@@ -3063,7 +2820,14 @@ function renderLager(){
       const badge=l.menge<l.min*.5?'🔴':l.menge<l.min?'🟡':'';
       return`<div class="litem ${cls}">${badge?`<div class="lwbadge">${badge}</div>`:''}
         <div class="lname">${a.name}</div><div class="lqty">${l.menge}</div><div class="lunit">${a.unit} · Min: ${l.min}</div>
-        ${canEdit?`<div class="lerow"><input type="number" id="le-${a.id}" placeholder="Neuer Bestand"><button class="btn btn-p btn-sm" onclick="updL('${a.id}')">✓</button></div>`:''}
+        ${canEdit?`<div style="display:flex;flex-direction:column;gap:4px;margin-top:8px">
+        <input type="number" id="le-${a.id}" placeholder="Neuer Bestand" style="padding:5px 7px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
+        <input type="text" id="lg-${a.id}" placeholder="Grund (z.B. Lieferung)" style="padding:5px 7px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
+        <div style="display:flex;gap:4px">
+          <input type="text" id="ln-${a.id}" placeholder="Ihr Name" style="flex:1;padding:5px 7px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
+          <button class="btn btn-p btn-sm" onclick="updL('${a.id}')">✓</button>
+        </div>
+      </div>`:''}
       </div>`;
     }).join('');
   }).join('');
@@ -3079,12 +2843,17 @@ function renderLager(){
   </div>`;
 }
 function updL(id){
-  const el=document.getElementById('le-'+id);const val=parseFloat(el.value);if(isNaN(val)){toast('Ungültige Menge.');return;}
+  const el=document.getElementById('le-'+id);
+  const grEl=document.getElementById('lg-'+id);
+  const nmEl=document.getElementById('ln-'+id);
+  const val=parseFloat(el.value);if(isNaN(val)){toast('Bitte Menge eingeben.');return;}
+  const grund=grEl?.value.trim()||'';if(!grund){toast('Bitte Grund angeben.');return;}
+  const name=nmEl?.value.trim()||'';if(!name){toast('Bitte Namen eintragen.');return;}
   const a=LAGER_ART.find(x=>x.id===id);const vor=db.lager[id]?.menge||0;
   if(!db.lager[id])db.lager[id]={menge:0,min:a?.min||0};
   db.lager[id].menge=val;
-  db.lagerLog.push({datum:new Date().toISOString(),art:a?.name||id,vor,nach:val,grund:'Manuelle Korrektur',by:U});
-  save();el.value='';renderLager();toast('Lagerbestand aktualisiert.');
+  db.lagerLog.push({datum:new Date().toISOString(),art:a?.name||id,vor,nach:val,grund,by:name});
+  save();el.value='';if(grEl)grEl.value='';if(nmEl)nmEl.value='';renderLager();toast('✅ Lagerbestand aktualisiert.');
 }
 
 // ═══════════════════ INVENTUR ═══════════════════
@@ -3184,13 +2953,18 @@ function showArtTab(typ){
       <select id="art-fil" onchange="renderBaekoArtList()" style="font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm)">
         ${filSelect}
       </select>
+      <button class="btn btn-o btn-sm" onclick="copyArtToAllFil()" title="Artikel der gewählten Filiale für alle übernehmen">📋 Für alle Filialen übernehmen</button>
     </div>
     <div id="art-list"></div>
     <hr class="div">
     <div class="slbl">Neuen Artikel hinzufügen</div>
-    <div style="display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end">
+    <div style="display:grid;grid-template-columns:1fr 100px;gap:8px;margin-bottom:6px">
       <input type="text" id="art-new-name" placeholder="Artikelname" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
-      <button class="btn btn-p" onclick="addBaekoArt()">+ Hinzufügen</button>
+      <input type="text" id="art-new-id" placeholder="Art.-Nr." style="padding:8px 11px;border:1.5px solid var(--amber);border-radius:var(--rsm);font-size:13px">
+    </div>
+    <div style="display:flex;gap:8px">
+      <button class="btn btn-p" onclick="addBaekoArt(false)">+ Diese Filiale</button>
+      <button class="btn btn-o" onclick="addBaekoArt(true)">+ Alle Filialen</button>
     </div>`;
     renderBaekoArtList();
   }else if(typ==='lager'){
@@ -3205,9 +2979,10 @@ function showArtTab(typ){
     </div>`;
     renderLagerArtList();
   }else{
-    // Metro
+    // Handelswaren - gilt pro Filiale
     const kats=[...new Set(METRO.map(a=>a.kat))];
-    div.innerHTML=`<div id="metro-art-list"></div>
+    div.innerHTML=`<div class="banner banner-info" style="margin-bottom:12px;font-size:12px">ℹ️ Die HW-Liste gilt für alle Filialen gleichzeitig.</div>
+    <div id="metro-art-list"></div>
     <hr class="div">
     <div class="slbl">Neuen Metro-Artikel hinzufügen</div>
     <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end">
@@ -3224,27 +2999,41 @@ function renderBaekoArtList(){
   const arts=BAEKO[fil]||[];
   const div=document.getElementById('art-list');if(!div)return;
   if(!arts.length){div.innerHTML='<p style="color:var(--light);font-size:13px">Keine Artikel.</p>';return;}
-  div.innerHTML=arts.map((a,i)=>`<div class="art-mgmt-row">
-    <input type="text" value="${a.name}" style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif"
-      onchange="renameBaekoArt('${fil}',${i},this.value)">
-    <span style="font-size:11px;color:var(--light);margin:0 8px">#${a.id}</span>
+  div.innerHTML=arts.map((a,i)=>`<div class="art-mgmt-row" style="flex-wrap:wrap;gap:6px">
+    <input type="text" value="${a.name}" style="flex:2;min-width:150px;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif"
+      onchange="renameBaekoArt('${fil}',${i},'name',this.value)">
+    <input type="text" value="${a.id}" style="width:90px;padding:5px 8px;border:1.5px solid var(--amber);border-radius:var(--rsm);font-size:12px;font-family:'Inter',sans-serif;color:var(--amber)"
+      onchange="renameBaekoArt('${fil}',${i},'id',this.value)" placeholder="Art.-Nr.">
     <button class="btn btn-o btn-sm" onclick="delBaekoArt('${fil}',${i})">✕</button>
   </div>`).join('');
 }
 
-function renameBaekoArt(fil,idx,newName){
+function renameIdBaekoArt(fil,idx,newId){
   if(!BAEKO[fil]||!BAEKO[fil][idx])return;
-  BAEKO[fil][idx].name=newName.trim();
-  saveArtikellisten();toast('✅ Name gespeichert.');
+  BAEKO[fil][idx].id=newId.trim();
+  saveArtikellisten();toast('✅ Artikelnummer gespeichert.');
 }
-function addBaekoArt(){
+function renameBaekoArt(fil,idx,field,val){
+  if(!BAEKO[fil]||!BAEKO[fil][idx])return;
+  BAEKO[fil][idx][field]=val.trim();
+  saveArtikellisten();toast('✅ Gespeichert.');
+}
+function addBaekoArt(alleFil){
   const fil=document.getElementById('art-fil')?.value||ALLE_FIL[0];
   const name=document.getElementById('art-new-name')?.value.trim();
+  const artNr=document.getElementById('art-new-id')?.value.trim()||'custom_'+uid();
   if(!name){toast('Artikelname eingeben.');return;}
-  if(!BAEKO[fil])BAEKO[fil]=[];
-  BAEKO[fil].push({id:'custom_'+uid(),name});
+  const filialen=alleFil?ALLE_FIL:[fil];
+  filialen.forEach(f=>{
+    if(!BAEKO[f])BAEKO[f]=[];
+    if(!BAEKO[f].find(a=>a.id===artNr)){
+      BAEKO[f].push({id:artNr,name,kat:BAEKO[fil]?.find(a=>a.id===artNr)?.kat||'Backwaren & Zutaten'});
+    }
+  });
   document.getElementById('art-new-name').value='';
-  saveArtikellisten();renderBaekoArtList();toast('✅ Artikel hinzugefügt.');
+  if(document.getElementById('art-new-id'))document.getElementById('art-new-id').value='';
+  saveArtikellisten();renderBaekoArtList();
+  toast(alleFil?`✅ Artikel zu allen Filialen hinzugefügt`:'✅ Artikel hinzugefügt.');
 }
 
 function delBaekoArt(fil,idx){
@@ -3255,35 +3044,39 @@ function delBaekoArt(fil,idx){
 
 function renderMetroArtList(){
   const div=document.getElementById('metro-art-list');if(!div)return;
-  const kats=[...new Set(METRO.map(a=>a.kat))];
+  const fil=document.getElementById('metro-art-fil')?.value||ALLE_FIL[0];
+  const arts=METRO[fil]||[];
+  const kats=[...new Set(arts.map(a=>a.kat))];
   div.innerHTML=kats.map(kat=>`<div class="slbl">${kat}</div>`+
-    METRO.filter(a=>a.kat===kat).map((a,i)=>{
-      const globalIdx=METRO.findIndex(x=>x.id===a.id);
+    arts.filter(a=>a.kat===kat).map((a,i)=>{
+      const globalIdx=arts.findIndex(x=>x.id===a.id);
       return`<div class="art-mgmt-row">
         <input type="text" value="${a.name}" style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif"
-          onchange="renameMetroArt(${globalIdx},this.value)">
-        ${a.vpe?`<span style="font-size:11px;color:var(--light);margin:0 6px">${a.vpe}</span>`:''}
-        <button class="btn btn-o btn-sm" onclick="delMetroArt(${globalIdx})">✕</button>
+          onchange="renameMetroArt('${fil}',${globalIdx},this.value)">
+        <button class="btn btn-o btn-sm" onclick="delMetroArt('${fil}',${globalIdx})">✕</button>
       </div>`;
     }).join('')).join('');
 }
 
-function renameMetroArt(idx,newName){
-  if(!METRO[idx])return;
-  METRO[idx].name=newName.trim();
+function renameMetroArt(fil,idx,newName){
+  if(!METRO[fil]||!METRO[fil][idx])return;
+  METRO[fil][idx].name=newName.trim();
   saveArtikellisten();toast('✅ Name gespeichert.');
 }
 function addMetroArt(){
+  const fil=document.getElementById('metro-art-fil')?.value||ALLE_FIL[0];
   const name=document.getElementById('metro-new-name')?.value.trim();
   const kat=document.getElementById('metro-new-kat')?.value.trim()||'Sonstiges';
   if(!name){toast('Artikelname eingeben.');return;}
-  METRO.push({id:'custom_'+uid(),name,kat,vpe:''});
+  if(!METRO[fil])METRO[fil]=[];
+  METRO[fil].push({id:'custom_'+uid(),name,kat,vpe:''});
   document.getElementById('metro-new-name').value='';
-  saveArtikellisten();renderMetroArtList();toast('✅ Metro-Artikel hinzugefügt.');
+  saveArtikellisten();renderMetroArtList();toast('✅ HW-Artikel hinzugefügt.');
 }
 
-function delMetroArt(idx){
-  METRO.splice(idx,1);
+function delMetroArt(fil,idx){
+  if(!METRO[fil])return;
+  METRO[fil].splice(idx,1);
   saveArtikellisten();renderMetroArtList();toast('Artikel gelöscht.');
 }
 
@@ -3860,6 +3653,29 @@ function submitAngekommen(orderId){
     toast('📬 Lieferung vollständig bestätigt!');
   }
   refreshHist();updateStartBanner();
+}
+
+function copyArtToAllFil(){
+  const fil=document.getElementById('art-fil')?.value;
+  if(!fil){toast('Bitte erst Filiale wählen.');return;}
+  const source=BAEKO[fil];
+  if(!source||!source.length){toast('Keine Artikel in dieser Filiale.');return;}
+  if(!confirm(`Artikelliste von ${fil} für ALLE Filialen übernehmen? Bestehende Listen werden ersetzt.`))return;
+  ALLE_FIL.forEach(f=>{
+    if(f!==fil) BAEKO[f]=[...source.map(a=>({...a}))];
+  });
+  saveArtikellisten();renderBaekoArtList();
+  toast(`✅ Liste von ${fil} für alle ${ALLE_FIL.length} Filialen übernommen.`);
+}
+
+function copyMetroToAllFil(){
+  // Handelswaren pro Filiale - Hinweis
+  toast('HW-Liste gilt bereits für alle Filialen.');
+}
+
+function delBaekoArtAlle(artId){
+  ALLE_FIL.forEach(f=>{if(BAEKO[f])BAEKO[f]=BAEKO[f].filter(a=>a.id!==artId);});
+  saveArtikellisten();renderBaekoArtList();toast('✅ Aus allen Filialen gelöscht.');
 }
 </script>
 </body></html>

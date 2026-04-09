@@ -2123,7 +2123,8 @@ function renderPanel(id){
   const fn={start:renderStart,baeko:renderBaeko,metro:renderMetro,sonder:renderSonder,
     bestellhistorie:renderBestellhistorie,'bs-sonder':renderBsSonder,
     lager:renderLager,inventur:renderInventur,
-    'vw-best':renderVwBest,'vw-sonder':renderVwSonder,'artikel-mgmt':renderArtikelMgmt,
+    'vw-best':renderVwBest,'vw-sonder':renderVwSonder,
+    'artikel-mgmt':()=>{if(U==='Verwaltung')renderArtikelMgmt();else renderStart();},
     kuehltheke:renderKuehltheke,putzplan:renderPutzplan,'bs-protokoll':renderBsProtokoll,
     'vw-kuehltheke':renderVwKuehltheke,'vw-putzplan':renderVwPutzplan};
   if(fn[id])fn[id]();
@@ -2990,9 +2991,18 @@ function showSaveBar(){
 }
 
 function doSaveArtikellisten(){
+  const fil=document.getElementById('art-fil')?.value||document.getElementById('metro-art-fil')?.value||'';
+  const tab=window._aktArtTab||'baeko';
   saveArtikellisten();
   document.getElementById('art-save-bar').style.display='none';
-  toast('✅ Alle Änderungen gespeichert!');
+  toast('✅ Gespeichert!');
+  setTimeout(()=>{
+    showArtTab(tab);
+    setTimeout(()=>{
+      const sel=document.getElementById(tab==='baeko'?'art-fil':'metro-art-fil');
+      if(sel&&fil){sel.value=fil;if(tab==='baeko')renderBaekoArtList();else renderMetroArtList();}
+    },30);
+  },10);
 }
 
 function showArtTab(typ){
@@ -3008,13 +3018,20 @@ function showArtTab(typ){
     <div id="art-list"></div>
     <hr class="div">
     <div class="slbl">Neuen Artikel hinzufügen</div>
-    <div style="display:grid;grid-template-columns:1fr 100px;gap:8px;margin-bottom:6px">
-      <input type="text" id="art-new-name" placeholder="Artikelname" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
-      <input type="text" id="art-new-id" placeholder="Art.-Nr." style="padding:8px 11px;border:1.5px solid var(--amber);border-radius:var(--rsm);font-size:13px">
-    </div>
-    <div style="display:flex;gap:8px">
-      <button class="btn btn-p" onclick="addBaekoArt(false)">+ Diese Filiale</button>
-      <button class="btn btn-o" onclick="addBaekoArt(true)">+ Alle Filialen</button>
+    <div style="display:grid;grid-template-columns:2fr 120px 150px auto;gap:8px;align-items:end;margin-top:4px">
+      <div><div class="flbl" style="margin-bottom:3px">Bezeichnung *</div>
+        <input type="text" id="art-new-name" placeholder="z.B. Croissant" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px"></div>
+      <div><div class="flbl" style="margin-bottom:3px">Art.-Nr. *</div>
+        <input type="text" id="art-new-id" placeholder="z.B. 51234" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px"></div>
+      <div><div class="flbl" style="margin-bottom:3px">Kategorie *</div>
+        <select id="art-new-kat" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
+          <option value="Backwaren & Zutaten">Backwaren & Zutaten</option>
+          <option value="Frischwaren">Frischwaren</option>
+          <option value="Getränke">Getränke</option>
+          <option value="Verpackung">Verpackung</option>
+          <option value="Reinigung">Reinigung</option>
+        </select></div>
+      <div style="padding-top:18px"><button class="btn btn-p" onclick="addBaekoArt()">+ Hinzufügen</button></div>
     </div>`;
     renderBaekoArtList();
   }else if(typ==='lager'){
@@ -3029,21 +3046,30 @@ function showArtTab(typ){
     </div>`;
     renderLagerArtList();
   }else{
-    // Handelswaren - gilt pro Filiale
-    div.innerHTML=`<div class="banner banner-info" style="margin-bottom:12px;font-size:12px">ℹ️ Die HW-Liste gilt für alle Filialen gleichzeitig.</div>
+    // Handelswaren - pro Filiale (wie BÄKO)
+    const filSelectHW=ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('');
+    div.innerHTML=`<div class="frow" style="margin-bottom:12px">
+      <select id="metro-art-fil" onchange="renderMetroArtList()" style="font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm)">
+        ${filSelectHW}
+      </select>
+    </div>
     <div id="metro-art-list"></div>
     <hr class="div">
-    <div class="slbl">Neuen Metro-Artikel hinzufügen</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end">
-      <input type="text" id="metro-new-name" placeholder="Artikelname" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
-      <select id="metro-new-kat" style="padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
-        <option value="Tee">Tee</option>
-        <option value="Kaffee">Kaffee</option>
-        <option value="Verpackung">Verpackung</option>
-        <option value="Reinigung">Reinigung</option>
-        <option value="Handelswaren">Handelswaren</option>
-      </select>
-      <button class="btn btn-p" onclick="addMetroArt()">+ Hinzufügen</button>
+    <div class="slbl">Neuen HW-Artikel hinzufügen</div>
+    <div style="display:grid;grid-template-columns:2fr 120px 150px auto;gap:8px;align-items:end;margin-top:4px">
+      <div><div class="flbl" style="margin-bottom:3px">Bezeichnung</div>
+        <input type="text" id="metro-new-name" placeholder="Artikelname" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px"></div>
+      <div><div class="flbl" style="margin-bottom:3px">Art.-Nr.</div>
+        <input type="text" id="metro-new-id" placeholder="z.B. 12345" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px"></div>
+      <div><div class="flbl" style="margin-bottom:3px">Kategorie</div>
+        <select id="metro-new-kat" style="width:100%;padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
+          <option value="Tee">Tee</option>
+          <option value="Kaffee">Kaffee</option>
+          <option value="Verpackung">Verpackung</option>
+          <option value="Reinigung">Reinigung</option>
+          <option value="Handelswaren">Handelswaren</option>
+        </select></div>
+      <div style="padding-top:18px"><button class="btn btn-p" onclick="addMetroArt()">+ Hinzufügen</button></div>
     </div>`;
     renderMetroArtList();
   }
@@ -3087,22 +3113,18 @@ function renameBaekoArt(fil,idx,field,val){
   BAEKO[fil][idx][field]=val.trim();
   saveArtikellisten();toast('✅ Gespeichert.');
 }
-function addBaekoArt(alleFil){
+function addBaekoArt(){
   const fil=document.getElementById('art-fil')?.value||ALLE_FIL[0];
   const name=document.getElementById('art-new-name')?.value.trim();
-  const artNr=document.getElementById('art-new-id')?.value.trim()||'custom_'+uid();
-  if(!name){toast('Artikelname eingeben.');return;}
-  const filialen=alleFil?ALLE_FIL:[fil];
-  filialen.forEach(f=>{
-    if(!BAEKO[f])BAEKO[f]=[];
-    if(!BAEKO[f].find(a=>a.id===artNr)){
-      BAEKO[f].push({id:artNr,name,kat:BAEKO[fil]?.find(a=>a.id===artNr)?.kat||'Backwaren & Zutaten'});
-    }
-  });
+  const artNr=document.getElementById('art-new-id')?.value.trim();
+  const kat=document.getElementById('art-new-kat')?.value||'Backwaren & Zutaten';
+  if(!name){toast('Bitte Artikelname eingeben.');return;}
+  if(!artNr){toast('Bitte Artikelnummer eingeben.');return;}
+  if(!BAEKO[fil])BAEKO[fil]=[];
+  BAEKO[fil].push({id:artNr,name,kat});
   document.getElementById('art-new-name').value='';
-  if(document.getElementById('art-new-id'))document.getElementById('art-new-id').value='';
-  saveArtikellisten();renderBaekoArtList();
-  toast(alleFil?`✅ Artikel zu allen Filialen hinzugefügt`:'✅ Artikel hinzugefügt.');
+  const idEl=document.getElementById('art-new-id');if(idEl)idEl.value='';
+  showSaveBar();renderBaekoArtList();toast('Artikel hinzugefügt – bitte speichern.');
 }
 
 function delBaekoArt(fil,idx){
@@ -3116,13 +3138,24 @@ function renderMetroArtList(){
   const fil=document.getElementById('metro-art-fil')?.value||ALLE_FIL[0];
   const arts=METRO[fil]||[];
   const kats=[...new Set(arts.map(a=>a.kat))];
-  div.innerHTML=kats.map(kat=>`<div class="slbl">${kat}</div>`+
+  div.innerHTML=`<div style="display:grid;grid-template-columns:2fr 100px 150px 32px;gap:6px;padding:4px 10px 8px;font-size:10px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.06em">
+    <div>Bezeichnung</div><div>Art.-Nr.</div><div>Kategorie</div><div></div>
+  </div>`+kats.map(kat=>`<div class="slbl">${kat}</div>`+
     arts.filter(a=>a.kat===kat).map((a,i)=>{
       const globalIdx=arts.findIndex(x=>x.id===a.id);
-      return`<div class="art-mgmt-row">
-        <input type="text" value="${a.name}" style="flex:1;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif"
+      const metroKatOpts=['Tee','Kaffee','Verpackung','Reinigung','Handelswaren']
+        .map(k=>`<option value="${k}" ${a.kat===k?'selected':''}>${k}</option>`).join('');
+      return`<div style="display:grid;grid-template-columns:2fr 100px 150px 32px;gap:6px;align-items:center;
+        padding:8px 10px;background:white;border:1.5px solid var(--border);border-radius:var(--rsm);margin-bottom:5px">
+        <input type="text" value="${a.name}"
+          style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif;width:100%"
           onchange="renameMetroArt('${fil}',${globalIdx},this.value)">
-        <button class="btn btn-o btn-sm" onclick="delMetroArt('${fil}',${globalIdx})">✕</button>
+        <input type="text" value="${a.id}"
+          style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:12px;font-family:monospace;width:100%;color:var(--mid)"
+          onchange="changeArtId('metro','${fil}',${globalIdx},this.value)">
+        <select style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:12px;font-family:'Inter',sans-serif;width:100%"
+          onchange="changeMetroKat('${fil}',${globalIdx},this.value)">${metroKatOpts}</select>
+        <button class="btn btn-o btn-sm" style="padding:5px 8px" onclick="delMetroArt('${fil}',${globalIdx})">✕</button>
       </div>`;
     }).join('')).join('');
 }
@@ -3135,10 +3168,13 @@ function renameMetroArt(fil,idx,newName){
 function addMetroArt(){
   const fil=document.getElementById('metro-art-fil')?.value||ALLE_FIL[0];
   const name=document.getElementById('metro-new-name')?.value.trim();
-  const kat=document.getElementById('metro-new-kat')?.value.trim()||'Sonstiges';
-  if(!name){toast('Artikelname eingeben.');return;}
+  const kat=document.getElementById('metro-new-kat')?.value||'Handelswaren';
+  const artNr=document.getElementById('metro-new-id')?.value.trim();
+  if(!name){toast('Bitte Artikelname eingeben.');return;}
+  if(!artNr){toast('Bitte Artikelnummer eingeben.');return;}
   if(!METRO[fil])METRO[fil]=[];
-  METRO[fil].push({id:'custom_'+uid(),name,kat,vpe:''});
+  METRO[fil].push({id:artNr,name,kat,vpe:''});
+  const mIdEl=document.getElementById('metro-new-id');if(mIdEl)mIdEl.value='';
   document.getElementById('metro-new-name').value='';
   showSaveBar();renderMetroArtList();toast('Artikel hinzugefügt – bitte speichern.');
 }
@@ -3869,6 +3905,16 @@ function submitBaekoEdit(orderId){
   save();closeModal();
   toast(`✅ Bestellung bearbeitet von ${name}`);
   refVwB();
+}
+
+function changeArtId(typ,fil,idx,newId){
+  if(typ==='baeko'){if(BAEKO[fil]&&BAEKO[fil][idx])BAEKO[fil][idx].id=newId.trim();}
+  else{if(METRO[fil]&&METRO[fil][idx])METRO[fil][idx].id=newId.trim();}
+  showSaveBar();
+}
+function changeMetroKat(fil,idx,newKat){
+  if(!METRO[fil]||!METRO[fil][idx])return;
+  METRO[fil][idx].kat=newKat;showSaveBar();
 }
 </script>
 </body>

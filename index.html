@@ -2099,8 +2099,9 @@ function getNav(){
     if(METRO_FIL.includes(U))items.push({id:'metro',lbl:'⬛ HANDELSWAREN'});
     items.push({id:'sonder',lbl:'🎂 SONDERBESTELLUNG'});
     items.push({id:'bestellhistorie',lbl:'📜 BESTELLHISTORIE'});
-    items.push({id:'kuehltheke',lbl:'🌡️ KÜHLPLÄNE'});
-    items.push({id:'putzplan',lbl:'🧹 PUTZPLAN'});
+    // TEMPORÄR AUSGEBLENDET – in Bearbeitung:
+    // items.push({id:'kuehltheke',lbl:'🌡️ KÜHLPLÄNE'});
+    // items.push({id:'putzplan',lbl:'🧹 PUTZPLAN'});
   }
     if(bs){
     items.push({id:'bs-sonder',lbl:'🎂 Sonderbestellungen'});
@@ -2249,24 +2250,21 @@ function updateStartBanner(){
     }
   }
 
-  // ALLE Filialen: Kühltheken-Erinnerung
-  if(U!=='Verwaltung'){
-    const datum=today();
-    const h=new Date().getHours();
-    const schicht=getAktuelleSchicht();
-    if(schicht){
-      const key=kuehlKey(U,datum,schicht);
-      const e=db.kuehltheke?db.kuehltheke[key]:null;
-      const sObj=SCHICHTEN.find(s=>s.id===schicht);      
-      if(!e||!e.abgeschlossen){
-        html+=`<div class="banner banner-warn" style="cursor:pointer" onclick="renderPanel('kuehltheke')">
-          🌡️ <strong>Kühlpläne ausstehend</strong> · ${sObj?.name} (${sObj?.von}–${sObj?.bis}) · <span style="text-decoration:underline">Jetzt eintragen →</span>
-        </div>`;
-      }else{
-        html+=`<div class="banner banner-ok">🌡️ Kühlpläne ${sObj?.name} ✅ abgeschlossen von <strong>${e.name}</strong></div>`;
-      }
-    }
-  }
+  // TEMPORÄR AUSGEBLENDET – Kühlpläne in Bearbeitung
+  // if(U!=='Verwaltung'){
+  //   const datum=today();
+  //   const schicht=getAktuelleSchicht();
+  //   if(schicht){
+  //     const key=kuehlKey(U,datum,schicht);
+  //     const e=db.kuehltheke?db.kuehltheke[key]:null;
+  //     const sObj=SCHICHTEN.find(s=>s.id===schicht);
+  //     if(!e||!e.abgeschlossen){
+  //       html+=`<div class="banner banner-warn" ...>🌡️ Kühlpläne ausstehend</div>`;
+  //     }else{
+  //       html+=`<div class="banner banner-ok">🌡️ Kühlpläne ✅</div>`;
+  //     }
+  //   }
+  // }
 
   // Freitags-Erinnerung
   if(!['Verwaltung','Backstube'].includes(U)){

@@ -225,6 +225,10 @@ canvas#sig-canvas{border:1.5px dashed var(--border);border-radius:var(--rsm);wid
 .art-mgmt-row{display:flex;align-items:center;gap:8px;padding:8px 12px;
   background:white;border:1.5px solid var(--border);border-radius:var(--rsm);margin-bottom:5px}
 .art-mgmt-row:hover{border-color:var(--dark)}
+.art-mgmt-row.drag-over{border:2px dashed var(--black);background:#f5f5f5}
+.art-mgmt-row.dragging{opacity:0.4}
+.drag-handle{cursor:grab;color:var(--light);font-size:16px;padding:0 4px;user-select:none;flex-shrink:0}
+.drag-handle:active{cursor:grabbing}
 
 /* PRINT */
 @media print{#login-screen,.topbar,.nav,.btn,.brow,.frow,.no-print,canvas{display:none!important}
@@ -393,96 +397,6 @@ const BAEKO_STATIC={
       "kat": "Frischwaren"
     },
     {
-      "id": "2",
-      "name": "68181 - Coca Cola light, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68240",
-      "name": "Fuzetea Schwarztee Zitrone, Zitronengras 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68456",
-      "name": "ML.Apfelsaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68570",
-      "name": "Mönchshof Radler Natur, Bügel 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68599",
-      "name": "Zirndorfer Landbier 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
       "id": "58882",
       "name": "Fer.Nutella 450g",
       "kat": "Backwaren & Zutaten"
@@ -616,6 +530,86 @@ const BAEKO_STATIC={
       "id": "81662",
       "name": "Toilettenpapier 2-Lagig weiß, 250 Blatt",
       "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ],
   "B5": [
@@ -653,106 +647,6 @@ const BAEKO_STATIC={
       "id": "97192",
       "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
       "kat": "Frischwaren"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68181",
-      "name": "Coca Cola light  0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68241",
-      "name": "Fuzetea Schwarztee Pfirsich, 0,4 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68456",
-      "name": "ML.Apfelsaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68570",
-      "name": "Mönchshof Radler Natur, Bügel 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68609",
-      "name": "Tu.Hefeweizen 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68552",
-      "name": "Tu.Hefeweizen alkoholfrei 0,5L",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68599",
-      "name": "Zirndorfer Landbier 0,5 Ltr.",
-      "kat": "Getränke"
     },
     {
       "id": "73003",
@@ -843,6 +737,86 @@ const BAEKO_STATIC={
       "id": "91614",
       "name": "TRU-LIT ALUSAFE chlorfrei, flüssiger Geschirrreiniger",
       "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ],
   "B7": [
@@ -885,101 +859,6 @@ const BAEKO_STATIC={
       "id": "97192",
       "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
       "kat": "Frischwaren"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68181",
-      "name": "Coca Cola light, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68241",
-      "name": "Fuzetea Schwarztee Pfirsich, 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68240",
-      "name": "Fuzetea Schwarztee Zitrone, Zitronengras 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68456",
-      "name": "ML.Apfelsaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68609",
-      "name": "Tu.Hefeweizen 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68599",
-      "name": "Zirndorfer Landbier 0,5 Ltr.",
-      "kat": "Getränke"
     },
     {
       "id": "73003",
@@ -1085,6 +964,86 @@ const BAEKO_STATIC={
       "id": "81935",
       "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
       "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ],
   "B8": [
@@ -1117,91 +1076,6 @@ const BAEKO_STATIC={
       "id": "97192",
       "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
       "kat": "Frischwaren"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68181",
-      "name": "Coca Cola light, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68240",
-      "name": "Fuzetea Schwarztee Zitrone, Zitronengras 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68609",
-      "name": "Tu.Hefeweizen 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68599",
-      "name": "Zirndorfer Landbier 0,5 Ltr.",
-      "kat": "Getränke"
     },
     {
       "id": "73003",
@@ -1282,6 +1156,86 @@ const BAEKO_STATIC={
       "id": "81935",
       "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
       "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ],
   "B11": [
@@ -1324,91 +1278,6 @@ const BAEKO_STATIC={
       "id": "97192",
       "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
       "kat": "Frischwaren"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68181",
-      "name": "Coca Cola light, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68240",
-      "name": "Fuzetea Schwarztee Zitrone, Zitronengras 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68456",
-      "name": "ML.Apfelsaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68324",
-      "name": "Monster Energy Green 0,5 Ltr., Original",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
     },
     {
       "id": "57211",
@@ -1479,6 +1348,86 @@ const BAEKO_STATIC={
       "id": "81935",
       "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
       "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ],
   "B12": [
@@ -1511,96 +1460,6 @@ const BAEKO_STATIC={
       "id": "97192",
       "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
       "kat": "Frischwaren"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68181",
-      "name": "Coca Cola light, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68240",
-      "name": "Fuzetea Schwarztee Zitrone, Zitronengras 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68456",
-      "name": "ML.Apfelsaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68609",
-      "name": "Tu.Hefeweizen 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68552",
-      "name": "Tu.Hefeweizen alkoholfrei 0,5L",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
     },
     {
       "id": "73003",
@@ -1666,6 +1525,86 @@ const BAEKO_STATIC={
       "id": "81935",
       "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
       "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ],
   "B16": [
@@ -1708,111 +1647,6 @@ const BAEKO_STATIC={
       "id": "97192",
       "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
       "kat": "Frischwaren"
-    },
-    {
-      "id": "68426",
-      "name": "Cap.Kirsch 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68424",
-      "name": "Cap.Multivitamin 0,2 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68182",
-      "name": "Coca Cola Zero, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68181",
-      "name": "Coca Cola light, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68180",
-      "name": "Coca Cola, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68183",
-      "name": "Fanta Orange, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68242",
-      "name": "Fuzetea Schwarztee Pfirs.Hib., 0,4 Ltr.PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68241",
-      "name": "Fuzetea Schwarztee Pfirsich, 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68240",
-      "name": "Fuzetea Schwarztee Zitrone, Zitronengras 0,4 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68186",
-      "name": "Lift Apfelschorle, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68456",
-      "name": "ML.Apfelsaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68454",
-      "name": "ML.Orangensaft, 0,33 Ltr.Pet",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68185",
-      "name": "Mezzo Mix, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68570",
-      "name": "Mönchshof Radler Natur, Bügel 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68598",
-      "name": "Mönchshof Radler alkoholfrei, Natur Bügel 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68397",
-      "name": "Red Bull Energy Drink 0,25 Ltr",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68184",
-      "name": "Sprite, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68609",
-      "name": "Tu.Hefeweizen 0,5 Ltr.",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68342",
-      "name": "Vio Spritzig, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68344",
-      "name": "Vio Still, 0,5 Ltr. PEW",
-      "kat": "Getränke"
-    },
-    {
-      "id": "68599",
-      "name": "Zirndorfer Landbier 0,5 Ltr.",
-      "kat": "Getränke"
     },
     {
       "id": "57211",
@@ -1903,9 +1737,89 @@ const BAEKO_STATIC={
       "id": "91601",
       "name": "TRU-LIT SAFE CL, flüssiger Geschirrreiniger, alugeeignet, mit Aktivchlor",
       "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
     }
   ]
-};
+}
 const METRO_STATIC={"B1": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B5": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B7": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B8": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B11": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B12": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}], "B16": [{"id": "m_t01", "kat": "Tee", "name": "Apfeltee", "vpe": ""}, {"id": "m_t02", "kat": "Tee", "name": "Beerenzauber", "vpe": ""}, {"id": "m_t03", "kat": "Tee", "name": "Black Chai", "vpe": ""}, {"id": "m_t04", "kat": "Tee", "name": "China Gunpowder", "vpe": ""}, {"id": "m_t05", "kat": "Tee", "name": "Darjeeling", "vpe": ""}, {"id": "m_t06", "kat": "Tee", "name": "Earl Grey", "vpe": ""}, {"id": "m_t07", "kat": "Tee", "name": "Ingwer Lemon", "vpe": ""}, {"id": "m_t08", "kat": "Tee", "name": "Jasmintee", "vpe": ""}, {"id": "m_t09", "kat": "Tee", "name": "Kamille", "vpe": ""}, {"id": "m_t10", "kat": "Tee", "name": "Pfefferminze", "vpe": ""}, {"id": "m_t11", "kat": "Tee", "name": "Rotbusch Pur", "vpe": ""}, {"id": "m_k01", "kat": "Kaffee", "name": "Kaffee Crema", "vpe": ""}, {"id": "m_k02", "kat": "Kaffee", "name": "Kaffee Espresso", "vpe": ""}, {"id": "m_k03", "kat": "Kaffee", "name": "Koffeinfreier Kaffee", "vpe": ""}, {"id": "m_v12", "kat": "Verpackung", "name": "Bowl Schale", "vpe": ""}, {"id": "m_v01", "kat": "Verpackung", "name": "Krapfenkarton", "vpe": ""}, {"id": "m_v02", "kat": "Verpackung", "name": "Pappteller 11 × 17,5 cm", "vpe": ""}, {"id": "m_v03", "kat": "Verpackung", "name": "Pappteller 16 × 20 cm", "vpe": ""}, {"id": "m_v04", "kat": "Verpackung", "name": "Pappteller 21 × 30 cm", "vpe": ""}, {"id": "m_v05", "kat": "Verpackung", "name": "Recup Becher", "vpe": ""}, {"id": "m_v06", "kat": "Verpackung", "name": "Recup Deckel", "vpe": ""}, {"id": "m_v10", "kat": "Verpackung", "name": "Tortenkarton pink Prestige", "vpe": ""}, {"id": "m_v11", "kat": "Verpackung", "name": "Träger To-Go", "vpe": ""}, {"id": "m_v07", "kat": "Verpackung", "name": "to go Becher", "vpe": ""}, {"id": "m_v08", "kat": "Verpackung", "name": "to go Deckel", "vpe": ""}, {"id": "m_v09", "kat": "Verpackung", "name": "to go Espresso", "vpe": ""}, {"id": "m_r01", "kat": "Reinigung", "name": "Allzweck-Reiniger", "vpe": ""}, {"id": "m_r02", "kat": "Reinigung", "name": "Cremeseife", "vpe": ""}, {"id": "m_r03", "kat": "Reinigung", "name": "Fettlöser", "vpe": ""}, {"id": "m_r04", "kat": "Reinigung", "name": "Klarspüler", "vpe": ""}, {"id": "m_r05", "kat": "Reinigung", "name": "Kraftreiniger", "vpe": ""}, {"id": "m_r06", "kat": "Reinigung", "name": "Milchschaumreiniger", "vpe": ""}, {"id": "m_r08", "kat": "Reinigung", "name": "Reinigungstabletten", "vpe": ""}, {"id": "m_r09", "kat": "Reinigung", "name": "Spülmaschinen Broxetten", "vpe": ""}, {"id": "m_r10", "kat": "Reinigung", "name": "Spülmittel Maschine", "vpe": ""}, {"id": "m_r07", "kat": "Reinigung", "name": "Spülmittel normal (gelbe Flasche)", "vpe": ""}, {"id": "m_r11", "kat": "Reinigung", "name": "WC Ente", "vpe": ""}, {"id": "hw_camembert", "name": "Camembert portionsweise", "kat": "Handelswaren", "vpe": ""}, {"id": "m_h02", "kat": "Handelswaren", "name": "Bunte Eier", "vpe": ""}, {"id": "m_h03", "kat": "Handelswaren", "name": "Kaba Nachfüller", "vpe": ""}, {"id": "m_h04", "kat": "Handelswaren", "name": "Markenbutter 250g", "vpe": ""}, {"id": "m_h05", "kat": "Handelswaren", "name": "Marmelade Aprikose", "vpe": ""}, {"id": "m_h06", "kat": "Handelswaren", "name": "Marmelade Erdbeere", "vpe": ""}, {"id": "m_h07", "kat": "Handelswaren", "name": "Marmelade Himbeer", "vpe": ""}, {"id": "m_h08", "kat": "Handelswaren", "name": "Nutella 400g", "vpe": ""}, {"id": "m_h09", "kat": "Handelswaren", "name": "Nutella Portion", "vpe": ""}, {"id": "m_h13", "kat": "Handelswaren", "name": "Semmelbrösel", "vpe": ""}, {"id": "m_h14", "kat": "Handelswaren", "name": "Knödelbrot", "vpe": ""}, {"id": "m_h15", "kat": "Handelswaren", "name": "Süßstoff", "vpe": ""}, {"id": "m_h01", "kat": "Handelswaren", "name": "Zuckersticks", "vpe": ""}, {"id": "hw_piccolo", "name": "Piccolo", "kat": "Handelswaren", "vpe": ""}, {"id": "rei_fensterleder", "name": "Fensterleder", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handschuhe", "name": "Handschuhe", "kat": "Reinigung", "vpe": ""}, {"id": "rei_putzlappen", "name": "Putzlappen", "kat": "Reinigung", "vpe": ""}, {"id": "rei_geschirrtuecher", "name": "Geschirrtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_microfasertuecher", "name": "Microfasertücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schrubber", "name": "Schrubber", "kat": "Reinigung", "vpe": ""}, {"id": "rei_handfeger-set", "name": "Handfeger-Set", "kat": "Reinigung", "vpe": ""}, {"id": "rei_kl_muellsaecke", "name": "kl. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_gr_muellsaecke", "name": "gr. Müllsäcke", "kat": "Reinigung", "vpe": ""}, {"id": "rei_klopapier", "name": "Klopapier", "kat": "Reinigung", "vpe": ""}, {"id": "rei_schwammtuecher", "name": "Schwammtücher", "kat": "Reinigung", "vpe": ""}, {"id": "rei_prittschwamm_groß", "name": "Prittschwamm groß", "kat": "Reinigung", "vpe": ""}, {"id": "rei_brezenschwamm", "name": "Brezenschwamm", "kat": "Reinigung", "vpe": ""}, {"id": "rei_papierhandtuecher", "name": "Papierhandtücher", "kat": "Reinigung", "vpe": ""}]};
 
 // ═══════════════════ FIREBASE ═══════════════════
@@ -3073,6 +2987,38 @@ function showArtTab(typ){
   }
 }
 
+// ═══════════════════ DRAG & DROP ARTIKELVERWALTUNG ═══════════════════
+let _dragSrcIdx=null;
+function artDragStart(e){
+  _dragSrcIdx=parseInt(e.currentTarget.dataset.idx);
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed='move';
+}
+function artDragOver(e){
+  e.preventDefault();
+  e.dataTransfer.dropEffect='move';
+  e.currentTarget.classList.add('drag-over');
+}
+function artDragLeave(e){
+  e.currentTarget.classList.remove('drag-over');
+}
+function artDrop(e,type){
+  e.preventDefault();
+  e.currentTarget.classList.remove('drag-over');
+  const targetIdx=parseInt(e.currentTarget.dataset.idx);
+  const fil=e.currentTarget.dataset.fil;
+  if(_dragSrcIdx===null||_dragSrcIdx===targetIdx)return;
+  const list=type==='baeko'?BAEKO[fil]:METRO[fil];
+  if(!list)return;
+  const moved=list.splice(_dragSrcIdx,1)[0];
+  list.splice(targetIdx,0,moved);
+  _dragSrcIdx=null;
+  showSaveBar();
+  if(type==='baeko')renderBaekoArtList();
+  else renderMetroArtList();
+  toast('Reihenfolge geändert – bitte speichern.');
+}
+
 function renderBaekoArtList(){
   const fil=document.getElementById('art-fil')?.value||ALLE_FIL[0];
   const arts=BAEKO[fil]||[];
@@ -3089,7 +3035,10 @@ function renderBaekoArtList(){
     items.map(a=>{
       const globalIdx=arts.findIndex(x=>x.id===a.id);
       const opts=KATS.map(k=>`<option value="${k}"${(a.kat||'Backwaren & Zutaten')===k?' selected':''}>${k}</option>`).join('');
-      return`<div class="art-mgmt-row" style="flex-wrap:wrap;gap:5px;padding:7px 10px">
+      return`<div class="art-mgmt-row" style="flex-wrap:wrap;gap:5px;padding:7px 10px" draggable="true"
+        data-idx="${globalIdx}" data-type="baeko" data-fil="${fil}"
+        ondragstart="artDragStart(event)" ondragover="artDragOver(event)" ondragleave="artDragLeave(event)" ondrop="artDrop(event,'baeko')">
+        <span class="drag-handle" title="Reihenfolge ändern">⠿</span>
         <input type="text" value="${a.name}" style="flex:2;min-width:140px;padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif"
           onchange="renameBaekoArt('${fil}',${globalIdx},'name',this.value)">
         <select style="flex:1;min-width:130px;padding:5px 7px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:12px"
@@ -3136,15 +3085,17 @@ function renderMetroArtList(){
   const fil=document.getElementById('metro-art-fil')?.value||ALLE_FIL[0];
   const arts=METRO[fil]||[];
   const kats=[...new Set(arts.map(a=>a.kat))];
-  div.innerHTML=`<div style="display:grid;grid-template-columns:2fr 100px 150px 32px;gap:6px;padding:4px 10px 8px;font-size:10px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.06em">
-    <div>Bezeichnung</div><div>Art.-Nr.</div><div>Kategorie</div><div></div>
+  div.innerHTML=`<div style="display:grid;grid-template-columns:24px 2fr 100px 150px 32px;gap:6px;padding:4px 10px 8px;font-size:10px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.06em">
+    <div></div><div>Bezeichnung</div><div>Art.-Nr.</div><div>Kategorie</div><div></div>
   </div>`+kats.map(kat=>`<div class="slbl">${kat}</div>`+
     arts.filter(a=>a.kat===kat).map((a,i)=>{
       const globalIdx=arts.findIndex(x=>x.id===a.id);
       const metroKatOpts=['Tee','Kaffee','Verpackung','Reinigung','Handelswaren']
         .map(k=>`<option value="${k}" ${a.kat===k?'selected':''}>${k}</option>`).join('');
-      return`<div style="display:grid;grid-template-columns:2fr 100px 150px 32px;gap:6px;align-items:center;
-        padding:8px 10px;background:white;border:1.5px solid var(--border);border-radius:var(--rsm);margin-bottom:5px">
+      return`<div class="art-mgmt-row" style="display:grid;grid-template-columns:24px 2fr 100px 150px 32px;gap:6px;align-items:center;padding:8px 10px" draggable="true"
+        data-idx="${globalIdx}" data-type="metro" data-fil="${fil}"
+        ondragstart="artDragStart(event)" ondragover="artDragOver(event)" ondragleave="artDragLeave(event)" ondrop="artDrop(event,'metro')">
+        <span class="drag-handle" title="Reihenfolge ändern">⠿</span>
         <input type="text" value="${a.name}"
           style="padding:5px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif;width:100%"
           onchange="renameMetroArt('${fil}',${globalIdx},this.value)">

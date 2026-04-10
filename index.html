@@ -2903,26 +2903,24 @@ function showSaveBar(){
 }
 
 function doSaveArtikellisten(){
-  const fil=document.getElementById('art-fil')?.value||document.getElementById('metro-art-fil')?.value||'';
   const tab=window._aktArtTab||'baeko';
   saveArtikellisten();
   document.getElementById('art-save-bar').style.display='none';
   toast('✅ Gespeichert!');
-  setTimeout(()=>{
-    showArtTab(tab);
-    setTimeout(()=>{
-      const sel=document.getElementById(tab==='baeko'?'art-fil':'metro-art-fil');
-      if(sel&&fil){sel.value=fil;if(tab==='baeko')renderBaekoArtList();else renderMetroArtList();}
-    },30);
-  },10);
+  if(tab==='baeko')renderBaekoArtList();
+  else if(tab==='metro')renderMetroArtList();
 }
 
 function showArtTab(typ){
   const div=document.getElementById('art-tab-content');if(!div)return;
+  // Aktuelle Filial-Auswahl merken vor dem Neu-Rendern
+  const prevBaekoFil=document.getElementById('art-fil')?.value||window._lastBaekoFil||ALLE_FIL[0];
+  const prevMetroFil=document.getElementById('metro-art-fil')?.value||window._lastMetroFil||ALLE_FIL[0];
+  window._aktArtTab=typ;
   if(typ==='baeko'){
-    const filSelect=ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('');
+    const filSelect=ALLE_FIL.map(f=>`<option value="${f}"${f===prevBaekoFil?' selected':''}>${f}</option>`).join('');
     div.innerHTML=`<div class="frow" style="margin-bottom:12px">
-      <select id="art-fil" onchange="renderBaekoArtList()" style="font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm)">
+      <select id="art-fil" onchange="window._lastBaekoFil=this.value;renderBaekoArtList()" style="font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm)">
         ${filSelect}
       </select>
       <button class="btn btn-o btn-sm" onclick="copyArtToAllFil()" title="Artikel der gewählten Filiale für alle übernehmen">📋 Für alle Filialen übernehmen</button>
@@ -2959,9 +2957,9 @@ function showArtTab(typ){
     renderLagerArtList();
   }else{
     // Handelswaren - pro Filiale (wie BÄKO)
-    const filSelectHW=ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('');
+    const filSelectHW=ALLE_FIL.map(f=>`<option value="${f}"${f===prevMetroFil?' selected':''}>${f}</option>`).join('');
     div.innerHTML=`<div class="frow" style="margin-bottom:12px">
-      <select id="metro-art-fil" onchange="renderMetroArtList()" style="font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm)">
+      <select id="metro-art-fil" onchange="window._lastMetroFil=this.value;renderMetroArtList()" style="font-size:13px;padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm)">
         ${filSelectHW}
       </select>
     </div>

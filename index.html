@@ -1850,35 +1850,32 @@ let BAEKO={},METRO={};
 Object.assign(BAEKO,BAEKO_STATIC);
 Object.keys(METRO_STATIC).forEach(fil=>{METRO[fil]=[...METRO_STATIC[fil]];});
 
-// ═══ BÄKO-Artikellisten aus Google Sheet laden ═══
+// ═══ BÄKO-Artikellisten aus Google Sheet laden (ein Tab pro Filiale) ═══
 const BAEKO_SHEET_ID='1Px5DvLSZWxP9exKxGTTwwkFplluZfNK4YBM_SblyHUo';
-const BAEKO_SHEET_NAME='BAEKO';
+const BAEKO_FILIALEN=['B1','B5','B7','B8','B11','B12','B16'];
 function loadBaekoFromSheet(){
-  const url=`https://docs.google.com/spreadsheets/d/${BAEKO_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(BAEKO_SHEET_NAME)}`;
-  return fetch(url)
-    .then(r=>r.text())
-    .then(text=>{
-      const json=JSON.parse(text.replace(/^[^{]*|[^}]*$/g,''));
-      const rows=json.table.rows;
-      if(!rows||!rows.length)throw new Error('Keine Daten');
-      const newBaeko={};
-      rows.forEach(row=>{
-        const c=row.c;
-        if(!c||!c[0]||!c[0].v)return;
-        const fil=String(c[0].v).trim();
-        const id=c[1]?String(c[1].v||'').trim():'';
-        const name=c[2]?String(c[2].v||'').trim():'';
-        const kat=c[3]?String(c[3].v||'').trim():'';
-        if(!fil||!name)return;
-        if(!newBaeko[fil])newBaeko[fil]=[];
-        newBaeko[fil].push({id,name,kat});
-      });
-      if(Object.keys(newBaeko).length>0){
-        Object.assign(BAEKO,newBaeko);
-        console.log('BÄKO-Listen aus Google Sheet geladen.');
-      }
-    })
-    .catch(e=>console.warn('Sheet-Laden fehlgeschlagen, nutze Fallback:',e));
+  const promises=BAEKO_FILIALEN.map(fil=>{
+    const url=`https://docs.google.com/spreadsheets/d/${BAEKO_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(fil)}`;
+    return fetch(url)
+      .then(r=>r.text())
+      .then(text=>{
+        const json=JSON.parse(text.replace(/^[^{]*|[^}]*$/g,''));
+        const rows=json.table?.rows;
+        if(!rows||!rows.length)return;
+        const items=[];
+        rows.forEach(row=>{
+          const c=row.c;
+          if(!c||!c[1]||!c[1].v)return; // Bezeichnung Pflicht
+          const id=c[0]?String(c[0].v||'').trim():'';
+          const name=String(c[1].v||'').trim();
+          const kat=c[2]?String(c[2].v||'').trim():'';
+          if(name)items.push({id,name,kat});
+        });
+        if(items.length>0){BAEKO[fil]=items;}
+      })
+      .catch(e=>console.warn(`Sheet-Tab ${fil} fehlgeschlagen:`,e));
+  });
+  Promise.all(promises).then(()=>console.log('BÄKO-Listen aus Google Sheet geladen.'));
 }
 
 function initDB(){
@@ -3010,10 +3007,13 @@ function renderArtikelMgmt(){
   const mc=document.getElementById('mc');
   mc.innerHTML=`<div class="card">
     <div class="ctitle">⚙️ Artikelverwaltung</div>
-    <p style="font-size:13px;color:var(--light);margin-bottom:16px">🌾 <strong>BÄKO-Listen</strong> werden über Google Sheet gepflegt – Änderungen direkt im Sheet vornehmen, die App lädt automatisch beim nächsten Start.<br>📦 <strong>HW-Listen</strong> hier bearbeiten → Speichern.</p>
+    <div class="banner banner-info" style="margin-bottom:16px">
+      🌾 <strong>BÄKO-Listen</strong> werden im Google Sheet gepflegt.<br>
+      <a href="https://docs.google.com/spreadsheets/d/1Px5DvLSZWxP9exKxGTTwwkFplluZfNK4YBM_SblyHUo/edit" target="_blank" style="color:var(--black);font-weight:600">→ Google Sheet öffnen</a>
+      <span style="font-size:12px;color:var(--light);margin-left:8px">Änderungen wirken beim nächsten App-Start.</span>
+    </div>
     <div style="display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap">
-      <button class="btn btn-p btn-sm" onclick="showArtTab('baeko')">🌾 BÄKO-Listen</button>
-      <button class="btn btn-o btn-sm" onclick="showArtTab('metro')">📦 HANDELSWAREN</button>
+      <button class="btn btn-p btn-sm" onclick="showArtTab('metro')">📦 HANDELSWAREN</button>
       <button class="btn btn-o btn-sm" onclick="showArtTab('lager')">🏪 Lager</button>
     </div>
     <div id="art-tab-content"></div>
@@ -3024,7 +3024,7 @@ function renderArtikelMgmt(){
       </button>
     </div>
   </div>`;
-  showArtTab('baeko');
+  showArtTab('metro');
 }
 
 

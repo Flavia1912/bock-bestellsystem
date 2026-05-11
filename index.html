@@ -2476,9 +2476,50 @@ function renderStart(){
     :'<p style="font-size:13px;color:var(--light);padding:10px 0">Keine HW-Bestellungen.</p>';
 
     const anzOffen=relevanteHW.filter(b=>b.status==='offen').length;
+
+    // Vorwochen-Ansicht: wie viele Filialen haben in der jeweiligen Woche bestellt?
+    const alleWochenISO=[...new Set(db.bestellungen
+      .filter(b=>b.typ==='metro')
+      .map(b=>b.wocheMo||b.week||moFromDate(b.versanddatum||b.datum.slice(0,10)))
+    )].sort((a,b)=>b.localeCompare(a)).slice(0,8);
+
+    const vorwochenHTML=alleWochenISO.map(wMo=>{
+      const wFr=new Date(wMo);wFr.setDate(wFr.getDate()+4);
+      const wFrISO=wFr.toISOString().slice(0,10);
+      const bestellteFiln=ALLE_FIL.filter(f=>db.bestellungen.some(b=>
+        b.filiale===f&&b.typ==='metro'&&(b.wocheMo===wMo||b.versanddatum===wFrISO)));
+      const fehlendeFiln=ALLE_FIL.filter(f=>!bestellteFiln.includes(f));
+      const wLabel=new Date(wMo).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+      return`<tr style="border-bottom:0.5px solid var(--border)">
+        <td style="padding:7px 10px;font-size:13px;white-space:nowrap">📅 ${wLabel}</td>
+        <td style="padding:7px 10px;font-size:12px;color:var(--green)">${bestellteFiln.join(', ')||'–'}</td>
+        <td style="padding:7px 10px;font-size:12px;color:${fehlendeFiln.length?'#a32d2d':'var(--green)'}">
+          ${fehlendeFiln.length?fehlendeFiln.join(', '):'✅ alle'}
+        </td>
+      </tr>`;
+    }).join('');
+
     bestellStatusHTML=`<div class="card" style="margin-bottom:14px">
-      <div style="font-weight:600;font-size:13px;margin-bottom:12px">📦 HW-Bestellungen${anzOffen?` · <span style="color:#854f0b">${anzOffen} offen</span>`:'  ✅'}</div>
-      ${gruppenHTML}
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+        <span style="font-weight:600;font-size:13px">📦 HW-Bestellungen${anzOffen?` · <span style="color:#854f0b">${anzOffen} offen</span>`:'&nbsp;✅'}</span>
+        <button onclick="document.getElementById('b1-vorwochen').style.display=document.getElementById('b1-vorwochen').style.display==='none'?'block':'none'"
+          style="font-size:11px;padding:3px 10px;border-radius:var(--rsm);border:1px solid var(--border);background:none;cursor:pointer;color:var(--mid)">
+          Vorwochen ansehen</button>
+      </div>
+      ${anzOffen===0&&relevanteHW.length===0?
+        `<div style="padding:14px 0;text-align:center;color:var(--light);font-size:13px">✅ Aktuell nichts zu packen</div>`
+        :gruppenHTML}
+      <div id="b1-vorwochen" style="display:none;margin-top:12px;border-top:1px solid var(--border);padding-top:12px">
+        <div style="font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Wer hat in den letzten Wochen bestellt?</div>
+        <div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px">
+          <thead><tr style="border-bottom:1.5px solid var(--border)">
+            <th style="padding:6px 10px;font-size:11px;color:var(--light);text-align:left;font-weight:700">Woche</th>
+            <th style="padding:6px 10px;font-size:11px;color:var(--light);text-align:left;font-weight:700">Bestellt</th>
+            <th style="padding:6px 10px;font-size:11px;color:var(--light);text-align:left;font-weight:700">Nicht bestellt</th>
+          </tr></thead>
+          <tbody>${vorwochenHTML||'<tr><td colspan="3" style="padding:10px;color:var(--light)">Keine Daten</td></tr>'}</tbody>
+        </table></div>
+      </div>
     </div>`;
   }
 
@@ -3108,11 +3149,10 @@ function renderVwBest(){
       <div style="font-size:11px;font-weight:700;color:var(--light);letter-spacing:.05em;text-transform:uppercase;margin-bottom:10px">Alle Bestellungen</div>
       <div class="frow" style="margin-bottom:12px">
         <select id="vbf" onchange="refVwB()"><option value="">Alle Filialen</option>${filOpts}</select>
-        <select id="vbt" onchange="refVwB()"><option value="">Alle Typen</option><option value="baeko">Bäko</option><option value="metro">Handelswaren</option></select>
+        <select id="vbt" onchange="refVwB()"><option value="">Alle Typen</option><option value="baeko">🌾 Bäko</option><option value="metro">📦 Handelswaren</option><option value="sonder">⭐ Sonder</option></select>
         <select id="vbs" onchange="refVwB()"><option value="">Alle Status</option><option value="offen">Offen</option><option value="versendet">Versendet</option><option value="angekommen">Angekommen</option><option value="bestaetigt">Bestätigt</option></select>
-        <input type="date" id="vbw" oninput="refVwB()" placeholder="Versanddatum" style="font-size:12px">
       </div>
-      <div id="vblist"></div>
+      <div id="vblist" style="padding-bottom:14px"></div>
     </div>
   </div>`;
 
@@ -3234,94 +3274,149 @@ function openNachzueglerModalFor(fil){
   setTimeout(()=>{const s=document.getElementById('nz-fil');if(s)s.value=fil;},100);
 }
 function refVwB(){
-  const w=document.getElementById('vbw')?.value||'',f=document.getElementById('vbf')?.value||'';
-  const t=document.getElementById('vbt')?.value||'',s=document.getElementById('vbs')?.value||'';
+  const f=document.getElementById('vbf')?.value||'';
+  const t=document.getElementById('vbt')?.value||'';
+  const s=document.getElementById('vbs')?.value||'';
   const list=document.getElementById('vblist');if(!list)return;
+
+  // Reguläre Bestellungen (BÄKO + HW)
   let orders=db.bestellungen.filter(b=>{
     if(U==='B1'&&b.typ==='baeko')return false;
     if(U==='B1'&&b.typ==='metro'&&b.filiale==='B1')return false;
-    if(w&&b.versanddatum!==w&&b.week!==w)return false;
     if(f&&b.filiale!==f)return false;
-    if(t&&b.typ!==t)return false;
+    if(t&&t!=='sonder'&&b.typ!==t)return false;
+    if(t==='sonder')return false;
     if(s&&b.status!==s)return false;
     return true;
-  }).sort((a,b)=>b.datum.localeCompare(a.datum));
-  if(!orders.length){list.innerHTML='<p style="color:var(--light);font-size:13px;padding-bottom:14px">Keine Bestellungen.</p>';return;}
+  });
 
-  list.innerHTML=orders.map(o=>{
-    const fehlCount=o.fehlmengen?Object.values(o.fehlmengen).filter(v=>v>0).length:0;
-    const hatKrit=fehlCount&&Object.entries(o.fehlmengen||{}).some(([id,v])=>{
-      if(v<=0)return false;const art=(o.positionen||[]).find(p=>p.id===id);return art&&istKritisch(art.name);
-    });
-    // Datum der Bestellung
-    const bestelltAm=o.datum?new Date(o.datum).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
-    const versandStr=o.versanddatum?new Date(o.versanddatum).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'}):(o.week||'');
-    const nachzTag=o.nachzuegler?`<span style="font-size:10px;background:#faeeda;color:#854f0b;padding:1px 6px;border-radius:8px;margin-left:4px;font-weight:600">Nachzügler</span>`:'';
+  // Sonderbestellungen dazu
+  let sonders=(!t||t==='sonder')?(db.sonder||[]).filter(so=>{
+    if(f&&so.filiale!==f)return false;
+    if(s&&so.status!==s)return false;
+    return true;
+  }):[];
 
-    return`<div class="hitem" style="margin-bottom:6px">
-      <div class="hhead" onclick="th(this)" style="padding:10px 14px">
-        <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
-          <span style="font-weight:700;font-size:14px;min-width:28px">${o.filiale}</span>
-          <span style="font-size:12px;color:var(--mid);min-width:50px">${o.typ==='baeko'?'🌾 BÄKO':'📦 HW'}</span>
-          <span style="font-size:12px;color:var(--light)">📅 Versand ${versandStr}</span>
-          <span style="font-size:12px;color:var(--light)">· ${o.positionen.length} Pos.</span>
-          ${nachzTag}
-          ${hatKrit?`<span style="font-size:11px;background:#7f0000;color:white;padding:2px 7px;border-radius:8px;font-weight:600">🚨 Kaffee/Tee/Kaba fehlt</span>`:
-            fehlCount?`<span style="font-size:11px;background:var(--amber-lt);color:#854f0b;padding:2px 7px;border-radius:8px">⚠️ ${fehlCount} Fehlmenge(n)</span>`:''}
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-          <span style="font-size:11px;color:var(--light)">${bestelltAm}</span>
-          ${(()=>{
-            if(o.status==='versendet'&&o.typ==='metro'){
-              const vLog=o.statusLog?.slice().reverse().find(l=>l.status==='versendet');
-              const vDat=vLog?new Date(vLog.datum):new Date(o.datum);
-              const age=(new Date()-vDat)/(1000*60*60*24);
-              if(age>4)return`<span class="st" style="background:#faeeda;color:#854f0b">⏰ ${Math.floor(age)}T nicht bestätigt</span>`;
-            }
-            return`<span class="st ${stcls(o.status)}">${stlbl(o.status)}</span>`;
-          })()}
-          ${(U==='B1'&&o.typ==='metro'&&o.status==='offen')?`<button class="btn btn-p btn-sm no-print" onclick="event.stopPropagation();openPackenModal('${o.id}')">📦 Packen</button>`:''}
-          <span style="color:var(--xlight);font-size:16px">›</span>
-        </div>
-      </div>
-      <div class="hbody" style="padding:12px 14px">
-        ${ordTbl(o)}
-        ${fehlCount?fehlTbl(o):''}
-        ${o.statusLog&&o.statusLog.length?`
-          <div style="margin-top:12px;border-top:1px solid var(--border);padding-top:10px">
-            <div style="font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px">Verlauf</div>
-            <div style="display:flex;flex-direction:column;gap:4px">
-              ${o.statusLog.map(h=>`
-                <div style="display:flex;align-items:center;gap:8px;font-size:12px">
-                  <span style="color:var(--light);min-width:120px">${dts(h.datum)}</span>
-                  <span class="st ${stcls(h.status)}">${stlbl(h.status)}</span>
-                  <span style="color:var(--mid)">${h.by||''}${h.note?' · '+h.note:''}</span>
-                </div>`).join('')}
+  // Alle zusammen, wochenweise gruppieren
+  const alleItems=[
+    ...orders.map(o=>({...o,_art:'best',_wMo:o.wocheMo||o.week||moFromDate(o.versanddatum||o.datum.slice(0,10)),_sort:o.datum})),
+    ...sonders.map(so=>({...so,_art:'sonder',_wMo:moFromDate(so.datum||so.erstellt?.slice(0,10)||today()),_sort:so.erstellt||so.datum}))
+  ];
+
+  if(!alleItems.length){list.innerHTML='<p style="color:var(--light);font-size:13px;padding-bottom:14px">Keine Bestellungen.</p>';return;}
+
+  // Nach Woche gruppieren
+  const wMap={};
+  alleItems.forEach(item=>{
+    const wMo=item._wMo||'unbekannt';
+    if(!wMap[wMo])wMap[wMo]=[];
+    wMap[wMo].push(item);
+  });
+  const wKeys=Object.keys(wMap).sort((a,b)=>b.localeCompare(a));
+
+  list.innerHTML=wKeys.map(wMo=>{
+    const gruppe=wMap[wMo].sort((a,b)=>b._sort.localeCompare(a._sort));
+    const wLabel=wMo!=='unbekannt'?new Date(wMo).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'}):'Unbekannte Woche';
+    const anzOffen=gruppe.filter(i=>i.status==='offen').length;
+
+    const itemsHTML=gruppe.map(item=>{
+      if(item._art==='sonder'){
+        return`<div class="hitem" style="margin-bottom:4px">
+          <div class="hhead" onclick="th(this)" style="padding:10px 14px">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+              <span style="font-weight:700;font-size:14px;min-width:28px">${item.filiale}</span>
+              <span style="font-size:12px;color:var(--mid)">⭐ Sonder</span>
+              <span style="font-size:12px;color:var(--light)">${item.datum||''}</span>
             </div>
-          </div>`:''
+            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+              <span style="font-size:11px;color:var(--light)">${item.erstellt?new Date(item.erstellt).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''}</span>
+              <span class="st ${stcls(item.status)}">${stlbl(item.status)}</span>
+              <span style="color:var(--xlight);font-size:16px">›</span>
+            </div>
+          </div>
+          <div class="hbody" style="padding:10px 14px">
+            <div style="font-size:13px;white-space:pre-wrap">${item.text||item.bestellung||''}</div>
+            ${item.name?`<div style="font-size:12px;color:var(--light);margin-top:6px">✍️ ${item.name}</div>`:''}
+          </div>
+        </div>`;
+      }
+      // Reguläre Bestellung
+      const o=item;
+      const fehlCount=o.fehlmengen?Object.values(o.fehlmengen).filter(v=>v>0).length:0;
+      const hatKrit=fehlCount&&Object.entries(o.fehlmengen||{}).some(([id,v])=>{
+        if(v<=0)return false;const art=(o.positionen||[]).find(p=>p.id===id);return art&&istKritisch(art.name);
+      });
+      const bestelltAm=o.datum?new Date(o.datum).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
+      const nachzTag=o.nachzuegler?`<span style="font-size:10px;background:#faeeda;color:#854f0b;padding:1px 6px;border-radius:8px;margin-left:4px;font-weight:600">Nachzügler</span>`:'';
+      const ageBadge=(()=>{
+        if(o.status==='versendet'&&o.typ==='metro'){
+          const vLog=o.statusLog?.slice().reverse().find(l=>l.status==='versendet');
+          const vDat=vLog?new Date(vLog.datum):new Date(o.datum);
+          const age=(new Date()-vDat)/(1000*60*60*24);
+          if(age>4)return`<span class="st" style="background:#faeeda;color:#854f0b">⏰ ${Math.floor(age)}T</span>`;
         }
-        <div class="brow no-print" style="margin-top:10px">
-          ${U==='Verwaltung'?`
-          <select style="font-size:12px;padding:5px 9px;border:1.5px solid var(--border);border-radius:var(--rsm);background:white"
-            onchange="setOSt('${o.id}',this.value,()=>{refVwB();if(document.getElementById('vw-matrix'))renderVwMatrix(window._vwWeek||'this');});this.value=''">
-            <option value="">Status ändern…</option>
-            <option value="offen">Offen</option>
-            <option value="versendet">Versendet</option>
-            <option value="angekommen">Angekommen</option>
-            <option value="bestaetigt">Bestätigt</option>
-          </select>
-          ${o.typ==='baeko'?
-            `<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openBaekoEdit('${o.id}')">✏️ Bearbeiten</button>`:
-            `<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openHwEdit('${o.id}')">✏️ Bearbeiten</button>`}
-          <button class="btn btn-o btn-sm" onclick="event.stopPropagation();printSingleOrder('${o.id}')">📄 PDF</button>
-          <button class="btn btn-sm" style="background:none;border:1.5px solid #c0392b;color:#c0392b;font-size:12px;padding:5px 9px;border-radius:var(--rsm);cursor:pointer"
-            onclick="event.stopPropagation();deleteOrder('${o.id}')">🗑️ Löschen</button>`
-          :''}
+        return`<span class="st ${stcls(o.status)}">${stlbl(o.status)}</span>`;
+      })();
+      return`<div class="hitem" style="margin-bottom:4px">
+        <div class="hhead" onclick="th(this)" style="padding:10px 14px">
+          <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+            <span style="font-weight:700;font-size:14px;min-width:28px">${o.filiale}</span>
+            <span style="font-size:12px;color:var(--mid);min-width:50px">${o.typ==='baeko'?'🌾 BÄKO':'📦 HW'}</span>
+            <span style="font-size:12px;color:var(--light)">· ${o.positionen.length} Pos.</span>
+            ${nachzTag}
+            ${hatKrit?`<span style="font-size:11px;background:#7f0000;color:white;padding:2px 7px;border-radius:8px;font-weight:600">🚨 Kaffee/Tee/Kaba</span>`:
+              fehlCount?`<span style="font-size:11px;background:var(--amber-lt);color:#854f0b;padding:2px 7px;border-radius:8px">⚠️ ${fehlCount} Fehlmenge(n)</span>`:''}
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+            <span style="font-size:11px;color:var(--light)">${bestelltAm}</span>
+            ${ageBadge}
+            ${(U==='B1'&&o.typ==='metro'&&o.status==='offen')?`<button class="btn btn-p btn-sm no-print" onclick="event.stopPropagation();openPackenModal('${o.id}')">📦 Packen</button>`:''}
+            <span style="color:var(--xlight);font-size:16px">›</span>
+          </div>
         </div>
+        <div class="hbody" style="padding:12px 14px">
+          ${ordTbl(o)}
+          ${fehlCount?fehlTbl(o):''}
+          ${o.statusLog&&o.statusLog.length?`
+            <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px">
+              <div style="font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase;margin-bottom:5px">Verlauf</div>
+              ${o.statusLog.map(h=>`<div style="display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:3px">
+                <span style="color:var(--light);min-width:115px">${dts(h.datum)}</span>
+                <span class="st ${stcls(h.status)}">${stlbl(h.status)}</span>
+                <span style="color:var(--mid)">${h.by||''}${h.note?' · '+h.note:''}</span>
+              </div>`).join('')}
+            </div>`:''}
+          <div class="brow no-print" style="margin-top:10px">
+            ${U==='Verwaltung'?`
+            <select style="font-size:12px;padding:5px 9px;border:1.5px solid var(--border);border-radius:var(--rsm);background:white"
+              onchange="setOSt('${o.id}',this.value,()=>{refVwB();if(document.getElementById('vw-matrix'))renderVwMatrix(window._vwWeek||'this');});this.value=''">
+              <option value="">Status ändern…</option>
+              <option value="offen">Offen</option>
+              <option value="versendet">Versendet</option>
+              <option value="angekommen">Angekommen</option>
+              <option value="bestaetigt">Bestätigt</option>
+            </select>
+            ${o.typ==='baeko'?
+              `<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openBaekoEdit('${o.id}')">✏️ Bearbeiten</button>`:
+              `<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openHwEdit('${o.id}')">✏️ Bearbeiten</button>`}
+            <button class="btn btn-o btn-sm" onclick="event.stopPropagation();printSingleOrder('${o.id}')">📄 PDF</button>
+            <button class="btn btn-sm" style="background:none;border:1.5px solid #c0392b;color:#c0392b;font-size:12px;padding:5px 9px;border-radius:var(--rsm);cursor:pointer"
+              onclick="event.stopPropagation();deleteOrder('${o.id}')">🗑️ Löschen</button>`:''}
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    return`<div style="margin-bottom:18px">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1.5px solid var(--border);margin-bottom:8px">
+        <span style="font-size:13px;font-weight:700">📅 Woche ab ${wLabel}</span>
+        ${anzOffen?`<span style="font-size:11px;background:#faeeda;color:#854f0b;padding:2px 8px;border-radius:8px;font-weight:600">${anzOffen} offen</span>`:''}
+        <span style="font-size:12px;color:var(--light);margin-left:auto">${gruppe.length} Bestellung(en)</span>
       </div>
+      ${itemsHTML}
     </div>`;
   }).join('');
-}
+
 function deleteOrder(id){
   const o=db.bestellungen.find(x=>x.id===id);if(!o)return;
   const label=fname(o.filiale)+' · '+(o.typ==='baeko'?'BÄKO':'HW')+' · '+(o.wocheLabel||o.wocheMo||'');

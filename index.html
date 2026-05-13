@@ -1,0 +1,4279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/jpeg" href="logo.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Bäcker Bock">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjoiQsOkY2tlciBCb2NrIEJlc3RlbGxzeXN0ZW0iLCJzaG9ydF9uYW1lIjoiQm9jayIsInN0YXJ0X3VybCI6Ii9ib2NrLWJlc3RlbGxzeXN0ZW0vIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzBhMGEwYSIsInRoZW1lX2NvbG9yIjoiIzBhMGEwYSIsImljb25zIjpbeyJzcmMiOiJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQU1BQUFBREFDQUlBQUFEZHZ2dFFBQUFJOEVsRVFWUjQydTNkZTBoVC94L0hjVGMzcDNsZGhUTXpMZHVVMFEwQ015VWxMZEZFeTlUTVNLV2kvb2tnQ3Z1bkc0Si8xQjhGWVVKaUZ6QVVyYjcrNDRVMGl4U3pKRE9kZ1duYU5CbnF2TXkycVhQbmVMYmZIMEwwL2ZINy9yNjF6N1NkZlY2UFB3UXY1ODNPNGVsMnRwMmRJMWkxYXBVTGdLMkUyQVNBZ0FBQkFRSUNCQVNBZ0FBQkFRSUNCQVNBZ0FBQkFRSUNCQVNBZ0FBQkFRSUNCQVNBZ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0JBUUFBSUNCQVFJQ0JBUUFBSUNCQVFJQ0JBUUFBSUNCQVNPU2VUSU42NjZ1am9wS2VuUDNnYXIxY3F5TE11eUhNY3hER00wR28xR284RmcwT3YxV3ExMmJHeHNmSHhjbzlFTURBeU1qSXh3SEllQTRHOEVBb0dibTV1Ym05dlN0MnZYcnYybnZ6U2J6V3ExdXJ1N3U2T2pvNk9qUTZWUzBkQ1R3Skd2bWVvSTkwQTIwK3YxVFUxTmpZMk50YlcxUnFNUiswRHdlM3g5ZlRNek0rL2Z2ejgwTlBUdzRjUG82R2dFdE5JWWhuR0NUZXpoNFpHZG5kM1UxTlRRMEJBVEU0T0hzQlVWR0Jnb2w4c1ZQd2tKQ1JHSmVMenJWbFZWZGVuU0paMU9oNEQrRExGWXZHblRKb1ZDSVpmTGxVcGxibTR1N3phNlZxdk55c3I2OE9FREF2ckR2THk4dEZvdHlZU2JOMitPalkzOTAyL2QzZDA5UER6OC9mMkRnNE9WU3VYbXpadnRkY3ROSnRPSkV5ZnE2dW9RRUw4RGlvaUk2TzN0L2NVL2xzbGtpWW1KdWJtNWR0a2pOcHZOS1NrcGI5Kyt4VTQwTGJSYTdlUEhqeE1TRXBLU2tyNTgrVUk0VFNLUlBIMzZkTjI2ZFFpSU9xMnRyZEhSMGVRUFFGS3A5TTZkT3dpSVJpYVRLU2NucDdXMWxYQk9Ta3BLZkh3OEFxSVJ5N0tuVHAwaWY1WDV3b1VMQ0loU282T2p4Y1hGaEVQaTQrUHQrUHdPQWZGTVNVbko0dUlpNFpEazVHUUVSS21wcWFubTVtYkNJUWtKQ1FpSVhxOWZ2eWFjc0hYclZnUkVyODdPVHNJSk1wbk16ODhQQVZHcXY3K2ZmSWhNSmtOQWxKcWNuR1JabG5DSXQ3YzNBcUtVMVdvbFB6ekR3OE1EQWRITFpESVJUdURwMFhNSXlEN0lYd295R0F3SWlGNC9QclpoTTQxR2c0RG9KWkZJU0JhZm5wN202U2MzRUpCOVNLVlNrc1hKWDBsQ1FEem00K05EK0JEMjVzMGJCRVN2ME5CUXdnbjhQVGdhQWRsQldGZ1l5ZUlxbGNvdXIyVWpJTDdhdFdzWHllSWxKU1g4WFhjRVpBZDc5KzYxZWRuaDRlSEt5a29FUkMrRlFxRlVLbTFlL1ByMTYrVHZveUVnSGp0ejVvek55OWJYMTFkWFYvTjY5UkVRa2FDZ29KTW5UOXEyckVhak9YdjJMTiszQUFJaTJIWkNZWEZ4c1cwZjdUVWFqZG5aMlZOVFV3aUlVaUtScUtpb3lMWmptUTBHUTJwcWFsZFhsek5zQjZSZ0F6OC92L0x5OHJpNE9CdVcvZjc5ZTBwS2luUFVnM3VnM3lhVlNxOWR1L2I1ODJmYjZ1bnE2b3FMaTNPYWVuQVA5QzhrRW9sVUtwVktwUUVCQWJ0Mzc5NnpaMDlrWktSdGh3NHVMaTdldW5YcnhvMGI1RWNPT1JUYVQrK3lBcXhXYTJOalkyRmhZWGQzdHhQdUMrSnVadmtzTGk3KzlkZGZ0Mi9mL3ZWVEVDRWdjTkhwZEM5ZnZteG9hR2hxYW5LYWN5RmlKM3FGc0N5clVxbG1aMmVEZ29LaW9xSkNRa0tjZTMyeEQ3VHM5SHA5ZTN0N2EydHJjM096TXozL1FrQi9nRWFqcWFtcEtTOHZWNmxVQ0FnQjJhNnpzL1B1M2J2VjFkVVdpd1VCOFRpZy8zK2EzeVZpc2RqTnpjM1QwOVBmMzE4bWs0V0ZoWVdHaHBKL2pzZkZ4YVd2cisvcTFhdlBuejlIUUh3TjZMZE84L3R6VWp0MzdveU5qYzNJeU5pMmJSdmhXdFRVMUp3L2YzNWlZZ0lCMFJMUXo3WnYzNTZmbjUrZW5pNFFDR3dlTWo0K25wZVgxOWJXaHFmeDFPbnA2Y25MeTB0TVRCd2NITFI1U0VCQVFIMTkvZUhEaHhFUXBkcmEybUpqWTF0YVdteWVJQmFMeThyS01qSXlFQkNsOUhwOVptYm0rL2Z2Ylo3ZzZ1cGFXbG9hRVJHQmdDZzFQejkvL1BqeG1aa1pteWU0dTd1WGxaVjVlWGtoSUVxTmpvNWV2bnlaWkVKSVNFaEJRUUVDb2xkRlJRWGhwVmhPbno2OWNlTkdCRVFwanVOS1MwdEpKb2pGWXI1Yy93QUJMWXNuVDU0UXZrZVJsWlhsN3U2T2dDaWwwK2tJcjJqcDQrT3pmLzkrQkVTdjl2WjJ3Z214c2JFSWlGNDlQVDJFRTZLaW9oQVF2YjU5KzBZNFFhRlFJQ0I2alk2T0VrN3c5dlpldlhvMUFxS1VYYzY2NnZoWFlFRkF5MlZoWVlGOGlPTWZiSU9BbGd2SjRVRS9PUDRCcndob3VkamxtTmU1dVRrRVJDbFBUMDhIMlpGQ1FMeTBaczBhd2dsbXMxbXYxeU1nU3BGZmdWQ3RWbk1jaDRBb0paZkxDU2Z3NHV6akNHaTVFSjYrM3NYRmhmRHRXQVRFYitTSE5yOTY5UW9CVWNyWDEzZkxsaTBrRXlZbUpqNTkrb1NBS0hYZ3dBR1JpT2pjUzVXVmxWYXJGUUZSNnRpeFl5U0xXNjNXQnc4ZThHSk5FWkQ5S1JTS2ZmdjJrVXlvcTZ0VHE5VUlpRklGQlFVa2I0UXhESFBseWhXK3JDd0NzclBrNU9TMHREU1NDY1hGeFYrL2ZrVkFOSkxMNVlSWGordnM3Q3dzTE9UUktpTWdlKzc2MU5iV2tyd0ZOak16azVPVHd6QU1BcUxPa1NOSFdscGFnb09EYlo1Z01CalMwdEpHUmtiNHRlSTRUelRaLzU5UUdCOGZuNStmSHhNVFF6TEhZREFjUEhpUUYrOWRJS0MvU1U5UDM3RmpoOGxrbXArZk41bE1Dd3NMSnBQSmJEWXpETFAwbFdFWWp1TTRqck5ZTEFLQlFDS1IrUGo0Yk5pd0lUdzhQREl5TWlrcEtTQWdnUEEyOVBmM0h6MTZkR0JnZ0k4YmtIK251UFAwOUZRb0ZHRmhZZUhoNFVxbDh0Q2hRN3d1K05telorZk9uWnVkbmVYcDdYZjBlNkRBd01DbFZwYStLaFNLOWV2WDIrVnc0ejl1ZUhqNDRzV0xqWTJOdkY0TGh3Nm9xcW9xTlRYVitSNDNKeWNuaTRxSzd0MjdaektaK0w0dURoMlFXQ3gyc25RR0J3ZExTMHNmUFhya0JPbGdKM3JsVEU5UDE5VFVWRlJVdkh2M3pzbFdEUUV0bDdtNXVlN3U3dWJtNWhjdlhuejgrSkh2bHpSQVFNdHJkbloyYUdoSXJWWVBEUTMxOXZaMmRYWDE5ZlU1YXpUOGZoci9yNFJDb2F1cnEwZ2tjdjNKMHJkTFg0VkM0WS9mL3MrZi8vemIvNXJHY1J6RE1DekxNZ3hqTkJwMU9wMU9wNXVlbm5iOFR3RGlIdWhYV1N3V2k4WENzaXp1RjFmaTN4V2JBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQkFRSUNCQVFJQ0FBQUVCSUNCQVFJQ0FBQUVCSUNCQVFJQ0FBQUVCSUNCQVFJQ0FBQUVCSUNCQVFJQ0FBQUVCQWdKQVFJQ0FBQUVCQWdKQVFJQ0FBQUVCQWdKQVFJQ0FBQUdCRS9vUGRWUW54OThaVFhNQUFBQUFTVVZPUks1Q1lJST0iLCJzaXplcyI6IjE5MngxOTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9LHsic3JjIjoiZGF0YTppbWFnZS9wbmc7YmFzZTY0LGlWQk9SdzBLR2dvQUFBQU5TVWhFVWdBQUFnQUFBQUlBQ0FJQUFBQjdHa090QUFBWmZVbEVRVlI0MnUzZGVYQ1Y5YjM0Y1U0Q0pHQkFrY2l1RUF3aDBxSlFBU2tGbHlxT0ZYQUhxZERSYW10dEhRdHVZNnNvMWFtMU9sVzBXa2RCVzNCRFJFQkdxRGFJTVJJRkdncUJLRnN3U0VKRUFvUXQyMGxJenU4UGZqcTk5M2FUODNodm5welg2dzhHOHdkKytINUkzbmx5em5sT3BIMzc5cTBBU0R4SmpnQkFBQUFRQUFBRUFBQUJBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQkFBQUFRQUFBRUFBQUJBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQkFBQUFRQUFBRUFBQUJBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQUFBUUFRQUFBRUFBQUJBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQUFBUUFRQUFBRUFBQUJBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQUFBUUJBQUFBRUFBQUJBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBUGc2dEhZRXpWeHhjWEdQSGoyY3c5ZW5zYkd4NlF1TmpZMk5qWTNSTDlUWDEwZWowWnFhbXVycTZxcXFxdXJxNnVycTZzT0hEKy9mdi8vQWdRTUhEaHc0K3BzOWUvYnMyYlBueUpFakRoTUJnREJKVGs1T1RrNk84dytKeFdMNzkrL2ZzMmRQUlVWRmVYbjV6cit6ZmZ2MnFxb3E1MHd6RkduZnZyMVRjQVhBMTJyUG5qMmZmUExKOXUzYmk0dUxOMi9ldkhIanhwS1Nrc2JHUmllREFDQUFDU2Nhalc3YnRtMzkrdlhyMXExYnQyN2RoZzBicXF1ckhRc0NnQUFrbkthbXBrMmJOcTM4d280ZE81d0pBb0FBSktLZE8zZm01dWErKys2N3VibTVlL2JzY1NBSWdBQ1FjR0t4V0dGaDRaSWxTOTU4ODgyUFAvN1lnU0FBQWtBaTJyNTkrOEtGQzE5OTlkV05HemM2RFFSQUFFaEVIMzMwMFN1dnZQTFNTeS90MjdmUGFTQUFBa0RDaVVhaml4Y3ZmdTY1NXo3NDRBT253YkZ4S3dnSXBaU1VsQWtUSnVUazVMei8vdnVYWFhaWlVwTFBaUVFBRXN5Wlo1NzU4c3N2cjF1M2J1TEVpVEtBQUVEQ3ljek1mUDc1NTFldlhqMW16Qmlud1g4b3VVMmJOazZoT1Z1K2ZIbCtmbjVSVWRHdVhidnE2dXFPTys2NDFOUlV4OEkvZE5KSko0MGZQLzdiMy83Mm1qVnJLaXNySFFqL21nZUJRL2xKbnBXVmxabVoyZThMR1JrWmJkdTJkVEo4cWI2K2ZzYU1HYi85N1cvcjYrdWRCZ0xRb3EvamtwTjc5KzdkNzcvcTNyMTdKQkp4T0lsc3c0WU4xMTkvL2FaTm14d0ZBcEJZamp2dXVMKy9Tamo2KzQ0ZE96cVpoQktOUm4veGkxL01uRG5UVVNBQWlhNUxseTVIZjN4MDlOZHp6ejMzdU9PT2N5d3Qzb3N2dmpobHlwUm9OT29vRUFEK3YvejgvTUdEQnp1SFJGQlFVSERsbFZkNjhUQi96enVDRVFKVlZWVkZSVVZCL1dsdDI3Wk4rVUpxYXVvSko1eVFDQStoRHgwNjlKMTMzaGszYnR6T25UdjlpMElBQ0kzaTR1SUxMcmpnNjdvS2prUTZkZXJVclZ1M3JsMjdkdS9lZmNDQUFRTUdERGp0dE5OT1B2bmtGdllvZWxaVzF2TGx5eSs4OEVMdk40QUFRS3RXclZyRllySEt5c3JLeXNyL2RwZk50TFMwRVNOR25IZmVlZWVjYzg3cHA1L2VNbUxRcTFldnBVdVhqaDQ5ZXRldVhWYVBWd0xEUDFaVlZaV1RrL1BMWC81eXhJZ1J2WHYzdnYzMjI5ZXVYZHNDL2w0WkdSbExsaXc1L3ZqanJSZ0JnSDl2Mzc1OXp6enp6S2hSbzg0ODg4eG5ubmttN0UrbnljN09uak5uamhzSDRWOEFmQVdiTjIrKy9mYmJCdzRjT0d2V3JGQy95SGIwNk5HLy92V3ZMVlFBZ0srbXZMeDg2dFNwUTRjT1hiVnFWWGovRmxPbVRCazllclJ0Q2dEd2xXM2J0bTMwNk5IVHBrMEw3MCtFbm5ubW1STlBQTkVxQlFENHlwcWFtbWJNbURGbXpKZ0RCdzZFY2Y1dTNibzkrdWlqOWlnQXdERmF1WExsK2VlZkg5SVhXRTJZTUdIVXFGR1dLQURBTWRxOGVmUG8wYU1yS2lyQ09QeGpqejJXbkp4c2lRSUFIS1BTMHRJSkV5YlUxZFdGYnZJQkF3WmNmZlhWTmlnQXdMRXJLQ2o0NlU5L0dzYko3N3JyTGhjQkFnREU1YlhYWGx1MGFGSG94czdNekx6eXlpdXRUd0NBdU54KysrMEhEeDRNM2RnaHZYWkJBS0FaMmIxNzkzMzMzUmU2c1ljTkczYkdHV2RZbndBQWNaa3paMDVaV1Zub3hyN3V1dXZzVGdDQXVEUTBORHorK09PaEcvdXl5eTd6VUxBQUFQR2FQWHQyNkY0VzBLVkxsNUVqUjlxZEFBQnhxYXVyZS9YVlYwTTM5dGl4WSsxT0FJQjR6WnMzTDNRem4zZmVlUlluQUVDOENnc0x0MjdkR3E2WlR6dnR0SzVkdTlxZEFBRHhXckJnUWVobS9zNTN2bU54QWdERUt5OHZMM1F6RHg0ODJPSUVBSWpYWC8vNjE5RGRIbTdRb0VFV0p3QkF2S0xSYUVGQlFiaG1QdjMwMHkxT0FJQUFmUGpoaCtFYU9EMDlQUzB0emVJRUFJalhwazJiUWpkejM3NTlMVTRBZ0VRTVFKOCtmU3hPQUlCNEZSY1hOelkyaG10bUx3VVFBQ0FBMFdqMDAwOC9EZGZNblR0M3RqZ0JBQUpRWGw0dUFBZ0FKS0xkdTNlSGErQ09IVHZhbWdBQUFRamRmYUhidG0xcmF3SUFDQUFDQUJ5clBYdjJoR3ZnTm0zYTJKb0FBQUdvcmEwTjE4RFJhTlRXQkFBSVFIMTl2V0loQUpDSVF2Y05kVTFOamEwSkFCQ0EwTjBSMmhXQUFBREJhR2hvQ05mQTFkWFZ0aVlBUUFDU2s1UEROWERvbnJhRUFFQXpGYnFuMWUvWXNjUFdCQUFJUUVwS2lnQWdBT0FLSUFUS3lzcHNUUUNBQUlUcmhiV1ZsWlZWVlZXMkpnQkFBRkpUVTBNMGJSamZ3Z3dCZ0dZcVhMZlhYN05talpVSkFCQ005UFIwQVVBQVFBQ2F1NEtDQWlzVEFDQVlJZm9SVUVWRmhhY0FDUUNRaUFISXpjMjFMd0VBQXRPN2QrK3dqTHBreVJMN0VnQWdHR2xwYVYyNmRBbkZxTkZvTkNjbng4b0VBQWhHWm1abVdFYk55OHZ6RWpBQkFBTFRyMSsvc0l6NjVwdHYycGNBQUlFNTlkUlRRekZuZFhYMS9Qbno3VXNBZ01BTUhqdzRGSFBPbXpmdjhPSEQ5aVVBUUdDR0RSc1dpamxuenB4cFdRSUFCQ1lqSXlNVVR3RmF1WEpsVVZHUmZRa0FrSERmL2ovMTFGT1dKUUJBa0VhTkd0WDhoMXkzYnQzaXhZc3RTd0NBNEQ2N2twTEdqQm5UL09lY1BuMTZMQmF6THdFQUFqTjgrUERtL3dEQWloVXJsaTlmYmxrQ0FBUnAzTGh4elh6Q1dDeDI3NzMzMnBRQUFFRktUazYrL1BMTG0vbVF6ejMzbkx2L0N3QVFzTEZqeDU1ODhzbk5lY0tkTzNkT216Yk5wZ1FBQ05qUGZ2YXpaajdoTGJmYzR0WnZBZ0FFN1BUVFR4ODVjbVJ6bm5EdTNMbnUvSXdBUVBDbVQ1L2VuTWNyTGk2KzlkWmJyUWtCZ0lCZGVPR0ZGMTEwVWJNZHI2cXFhdUxFaWU3N2hnQkF3TnEwYWZQSUk0ODA1d2x2dXVtbXpaczMyeFFDQUFHNzk5NTdtL003d015WU1XUFJva1hXaEFCQXdNYU9IWHZiYmJjMTIvSG16NTkvMzMzM1dSTUNBQUhMek15Y05XdFdKQkpwbnVQOTVTOS8rZkdQZjl6VTFHUlRDQUFFcVcvZnZrdVdMT25Zc1dQekhDOC9QMy9TcEVrTkRRMDJoUUJBa0xLeXNuSnljcHJ0NjM3WHJGbHoxVlZYMWRiVzJoUUNBRUU2NTV4emxpMWIxcjE3OStZNTNqdnZ2RE5tekJoUCtrUUFJTkJQbnFTa2UrNjVaOG1TSmVucDZjMXp3cmx6NTE1MTFWWHU5OEEvMDlvUndERVlPSERnWTQ4OU5tTEVpR1k3NGVPUFB6NXQyalR2OUlJQVFHQzZkdTA2ZmZyMEgvemdCMGxKemZRQ3VxYW01dFpiYjMzcHBaY3NDd0dBd0w3cnYvSEdHeWRPbk5pK2ZmdG1PK1NXTFZzbVRacTBhZE1tKzBJQUlGN2R1M2UvNktLTHJybm1tdWI4QTUralhubmxsYWxUcDFaWFY5c2FBZ0RIcUhQbnpvTUdEUm8rZlBqM3Z2ZTlRWU1HTmR1WGQzMnBvcUxpemp2dmZQMzExKzBPQVlCL0pTa3BLZlVMN2RxMVMwOVA3OW16WjgrZVBYdjA2TkczYjk5Qmd3YjE2dFVyTEgrWFdDejJwei85YWRxMGFRY1BIclJaQklDV1p2RGd3WDZzOFE5dDNManhsbHR1V2JWcWxhTkFBQ0JSbEpTVVBQVFFRL1Bteld0c2JIUWFDQUFraEowN2R6Nzg4TU12dlBEQ2tTTkhuQVlDQUFtaHFLam8yV2VmZmVXVlY2TFJxTk5BQUtEbHE2K3ZmK09OTjJiT25MbHk1VXFuZ1FCQXl4ZUx4ZGFzV2JOdzRjSzVjK2Z1MmJQSGdTQUEwUEsvN3E5ZXZYclJva1dMRmkwcUx5OTNJQWdBdEhCYnQyNTkvLzMzVjZ4WWtaZVg1L3Q5QkFBU3dyWnQyK2JPbmJ0MjdkcWRPM2VXbHBhNmV6UC9heUxOK2JaV2ZOM3k4L01IRHg3c0hKcVZ2WHYzZnZMSkp5VWxKZHUyYmR1MGFkUEdqUnRMU2tvODJSOVhBTkR5cGFlbnA2ZW5uM1hXV1Y5K0pCcU5idG15cGJDd2NOMjZkWVdGaGV2WHIvYzBVRndCNEFvZ0VkWFgxeGNXRnE1YXRXcmx5cFh2di8vK2dRTUhuQWtDZ0FBa25LYW1wdlhyMTcvMzNuczVPVGtmZnZpaDF3WWpBQWhBSWpwMDZOQ3laY3VXTEZueTV6Ly8yU1BKQ0FBQ2tJanE2dXJlZWVlZEJRc1d2UG5tbTdXMXRRNEVBVUFBRXZHYVlQNzgrUys4OE1LYU5XdWNCdjlUa2lPQWxxcGp4NDQzM0hCRFhsNWVmbjcrcEVtVFVsSlNuQWtDQUlsbDhPREJNMmZPM0xwMTYxMTMzWFg4OGNjN0VBUUFFa3Q2ZXZwOTk5MjNaY3VXQng1NG9GT25UZzRFandFa3RMQThCbEJWVlZWVVZQVDEvZm10VzdkT1RVMU5TVWxwMjdadFNrcEtTa3BLdTNidDJyVnIxNEpYZitqUW9jY2VlK3dQZi9oRFRVMk5Ud1FCUUFDYXIzWHIxbzBjT2ZKLytYK2FscGJXNWU5MDY5WXRLeXNyT3pzN016T3p4Znd3dmJ5OC9KNTc3cGsvZjc3UGhjVGtWaER3VHk4N3FxcXFTa3BLL3R2SGs1T1QrL2J0Mjc5Ly8wR0RCcDE5OXRsRGhnd0pidzk2OXV3NWUvYnNHMjY0NFpaYmJpa3VMclowVndDNEFuQUY4QldrcHFZT0d6WnMxS2hSbzBlUEhqcDBhRWovSmRUVjFUMzQ0SU5QUFBHRXU4NEpBQUlnQU1jaUl5Tmp3b1FKVjE5OWRmLysvY1A0NzZHZ29PQzY2Njc3OU5OUGZXb2tDTThDZ3NCczM3Nzk0WWNmL3RhM3ZqVml4SWlYWDM0NWRIZm1HVHAwNktwVnE2NjY2aXFyRkFEZ0dLMWZ2LzdHRzI4Y09IRGdyRm16NnVycVFqUjVodzRkNXN5Wjg5QkREeVVuSjl1akFBREhxTFMwZE9yVXFRTUdESGp4eFJmRE5mblBmLzd6Tjk1NG8yUEhqcFlvQU1DeDI3MTc5MDAzM1hUeHhSZi96eWNVTldmZi9lNTNjM0p5dW5YclpvTUNBTVFsTHk5djJMQmhUenp4UkN3V0M4dk1Bd2NPWEw1OGVVWkdodlVKQUJDWDJ0cmF1KysrKzlwcnJ3M1Jvd0o5K3ZSNTY2MjMrdlRwWTMwQ0FNUnJ3WUlGRjExMFVVVkZSVmdHUHZua2s5OTY2NjJlUFh2YW5RQUE4U29vS0RqNzdMTkQ5SFQ3VTA0NXhXUENBZ0FFbzZ5czdOSkxMOTI3ZDI5WUJoNHdZTUM4ZWZOYXQzYnpHQUVBNHJadDI3YkxMNzg4UkcvZWUvYlpaLy9tTjcreE9BRUFBckIyN2RySmt5ZUg2SGxCTjk5ODg0UUpFeXhPQUlBQUxGdTI3TWtubnd6UndMLy8vZTlQT2VVVWl4TUFJQUMvK3RXdk5tN2NHSlpwTzNUb01IUG16S1FrWHpvRUFJaGJOQnE5L3ZycjYrdnJ3ekx3cUZHamJyamhCb3NUQUNBQVJVVkZUei85ZElnR3Z2LysrN3QwNldKeEFnQUU0SGUvKzkyaFE0ZkNNdTN4eHgvL3dBTVAySm9BQUFIWXYzLy9qQmt6UWpUd05kZGNrNTJkYlhFQ0FBVGdxYWVlMnIxN2QxaW1UVTVPbmo1OXVxMEpBQkNBbXBxYTU1OS9Qa1FEanhzM3prV0FBQURCbUROblRsTlRVMWltalVRaXQ5MTJtNjBKQUJDQW5UdDNMbHUyTEVRRFQ1Z3dJVDA5M2VJRUFBakFILy80eHhCTjI2Wk5tMG1USnRtYUFBQUJlUHZ0dDBQMGZOQldyVnI5OEljL3REVUJBQUp3NU1pUjNOemNFQTNjcjErL004NDR3K0lFQUFoQXVCNEdhTldxMVJWWFhHRnJBZ0FFSUNjbkoxd0RYM0xKSmJZbUFFQUF5c3ZMTjIvZUhLS0JzN0t5ZXZYcVpYRUNBQVJnelpvMTRScjQvUFBQdHpVQkFBS3dZY09HY0EwOGF0UW9XeE1BSUJFRE1HVElFRnNUQUNBUkE1Q1ptZG1wVXllTEV3QWdYZ2NQSGl3dExRM1J3SkZJNUp2Zi9LYkZDUUFRZ0IwN2RvUnI0UDc5Kzl1YUFBQUIyTFZybHdBZ0FKQ0lQdnZzczNBTjNLZFBIMXNUQUNBUnJ3QzhGa3dBZ0FTOUFoQUFBUUNDc1hmdjNuQU4zS2xUcDZRa1gxSUVBSWhiTkJvTjE4Q1JTS1JEaHc0V0p3QkF2T3JxNmtJM3M5ZUNDUUFRZ05yYTJ0RE5uSnFhYW5FQ0FNUXJkRDhDYXRXcVZaczJiU3hPQUlCRXZBSm8yN2F0eFFrQUVLOUlKQks2bVdPeG1NVUpBQkN2bEpTVTBNMWNYMTl2Y1FJQXhDdU1QMDRSQUFFQUVqUUFEUTBORmljQVFDSUdvS2FteHVJRUFJaFhHQjhEMkw5L3Y4VUpBQkN2OXUzYmgydmdxcW9xandFSUFCQ0FrMDQ2S1Z3RDc5dTN6OVlFQUFoQTU4NmR3elZ3Nkc1ZmlnQkFNNVdlbmg2dWdjUDFMdllJQUFoQVlNckt5bXhOQUlCRURNQ09IVHRzVFFDQUFQVG8wU05jQTVlVWxOaWFBQUFCNk5ldlg3Z0cvdmpqajIxTkFJQjRkZXJVS1Z6dnJyVi8vLzd5OG5LTEV3QWdYcG1abWVFYStLT1BQckkxQVFBQ2NPcXBwNFpyNE1MQ1Fsc1RBQ0FBV1ZsWjRScjR3dzgvdERVQkFBSXdkT2pRRUUwYmk4VSsrT0FEV3hNQUlGNlJTR1RJa0NFaEduakxsaTF1QkNRQVFBRDY5Ky9mc1dQSEVBMzg3cnZ2MnBvQUFBRTQ2Nnl6d2pYdzBxVkxiVTBBZ0FBTUh6NDhSTk1lT25USUF3QUNBQVFnRW9sY2VPR0ZJUnI0N2JmZjlsYkFBZ0FFWU1pUUlkMjZkUXZSd0srOTlwcXRDUUFRZ0xGang0Wm8yb3FLaW1YTGx0bWFBQUFKRjRCWFgzMzF5SkVqdGlZQVFMeSs4WTF2WkdkbmgyWGFXQ3cyZS9ac1d4TUFJQUEzM25oamlLYk55Y25ac21XTHJRa0FFSyswdExTSkV5ZUdhT0Fubm5qQzFnUUFDTUNrU1pQUzB0TENNdTM2OWV2ejh2SnNUUUNBZUNVbko5OTAwMDBoR3ZpQkJ4NndOUUVBQWpCNTh1UVEzUUo2NWNxVmI3Lzl0cTBKQUJDdmR1M2FUWnMyTFVRRFQ1OCszZFlFQUFqQXpUZmYzS05IajdCTSsvcnJyN3Y1andBQUFUamxsRlB1dU9PT3NFeDcrUERodSs2Nnk5WUVBSWo3TXpBcGFkYXNXUjA2ZEFqTHdQZmZmLy9ubjM5dWNRSUF4T3ZXVzI4ZE9YSmtXS2JOejg5Lzl0bG5iVTBBZ0hpZGVlYVpJWHJzOTlDaFF6LzYwWSthbXBvc1RnQ0F1R1JtWmk1WXNLQnQyN1poR1hqS2xDbGxaV1VXSndCQVhMcDI3YnA0OGVLVFRqb3BMQVBQbWpYTGZmOEZBSWhYZW5yNjRzV0wrL1RwRTVhQlY2eFljZWVkZDFxY0FBQnh5YzdPenN2TEd6aHdZRmdHTGkwdG5UeDVzamQ5RkFBZ0x1ZWZmMzV1Ym02SXZ2ZmZ1M2Z2SlpkY3NuZnZYcnNUQU9BWXBhU2szSHZ2dlFzWEx1ellzV05ZWmo1OCtQQ2xsMTVhWEZ4c2ZTMVZhMGNBWDdmaHc0Yy8vZlRUL2Z2M0Q5SE1OVFUxNDhlUEx5d3N0RDRCQUk1Rm56NTk3cmpqam11dnZUWXBLVXhYMjRjT0hicmlpaXRXcmx4cGd3SUFmR1haMmRsMzNISEgrUEhqVzdjTzJXZFpaV1hsdUhIamZPOHZBTUJYYzhJSkoxeDY2YVhqeDQ4Lzk5eHpJNUZJNk9ZdktTbTU4c29ydDI3ZGFwVUNBUHg3U1VsSjJkblp3NGNQdi9qaWl5KzQ0SUkyYmRxRTlDK1NuNS8vL2U5L3Y3S3kwazRGQUpxTGZ2MzZMVjI2dEthbXBycTZ1cmEydHVZTHRiVzFkWFYxTlRVMVIzK3RyYTJOUnFOSFAvaWxhRFJhWDE5ZlgxOGY0SmY3N3QyNzkrN2R1M2Z2M3FlZWV1clFvVU9IRFJzV291ZjIvRE56NXN5Wk9uVnFnQWVGQUVBQTB0TFN6ajMzM0hqK2hGZ3NGbzFHR3hvYXZ1eEJRME5EZlgzOWtTTkhHaG9hanY3YTFOVFUrSVdtcHFaWUxCYUx4VnExYXBXYW10cXVYYnYyWCtqYXRXdUlidUR6bjZpdXJwNHlaY3JjdVhQOVMwczBrZmJ0Mnp1RkJORzVjK2YrL2Z0blpXVWQvYlZmdjM0WkdSbmhlbllLZ2Z2b280OG1UNTdzeWY2dUFHZzVrcE9UTXpJeWpuNlYvL0tML29rbm51aGsrRkpqWStQamp6Lys0SU1QUnFOUnB5RUFoRldIRGgyeXNySysvTmErZi8vK2ZmdjJiV0UvcGlCWUgzLzg4VTkrOHBOMTY5WTVDZ0VnTkNLUlNLOWV2ZjcrYTMxV1ZsYTNidDJjRFAraHFxcXFSeDU1NU1rbm4vUjRMd0xRM0EwWU1HREFnQUZmZm9PZm1abnBZUnVPMld1dnZYYjMzWGZ2MnJYTFVkREtnOEROWDNGeGNZOGVQWndEY1ZxeFlzWDA2ZE5YcjE3dEtIQUZBSW1pb0tEZy92dnZ6ODNOZFJRSUFDVFFkLzJQUHZyb3NtWExIQVVDQUFtaHNiRng4ZUxGTTJiTVdMdDJyZE5BQUNBaGxKZVh6NWt6Wi9iczJlWGw1VTREQVlDV3I3NitQaWNuNThVWFgzenJyYmNhR3hzZENBSUFMVndzRnZ2Z2d3L216WnUzY09IQ0F3Y09PQkFFQUZxNGFEVDYzbnZ2TFYyNmRPblNwWjkvL3JrRFFRQ2doZnZrazA5eWMzT1hMMS8rN3J2dlZsVlZPUkFFQUZyNEYvM1ZxMWV2V0xFaU56ZTNyS3pNZ1NBQTBHTHQyN2V2cUtqb2IzLzcyK3JWcTFldlhyMTM3MTVuZ2dCQUMxUlZWYlZ0MjdhdFc3ZHUyclNwcUtob3c0WU5ucjZKQUVDTDB0RFFzR3ZYcnRMUzByS3lzdExTMHRMUzB1M2J0eGNYRjMvMjJXY09oLzlEYmdiSFYvbm5Fb20wYnQwNitiODYrcEYvOXZHanYwbEtTdnI3Ly96WEgvOFAvK1Nqdng3RG4veXYvNCtSU09UZm5rTlRVOVBSTnh3KytrYkV0YlcxaHc4ZlBuanc0TUdEQnc4Y09IRHc0TUg5Ky9kWFZGUlVWRlRzM3IyN29xS2lzckx5Nkx0TGdnQkFtQ0lYaVVTK2ZLUGdvNzg1Y3VTSWcwSUFBQWdyYndnT0lBQUFDQUFBQWdDQUFBQWdBQUFJQUFBQ0FJQUFBQ0FBQUFnQUFBSUFnQUFBSUFBQUNBQUFBZ0NBQUFBZ0FBQUlBQUFDQUlBQUFDQUFBQWdBQUFJQUlBQUFDQUFBQWdDQUFBQWdBQUFJQUFBQ0FJQUFBQ0FBQUFnQUFBSUFnQUFBSUFBQUNBQUFBZ0NBQUFBZ0FBQUlBQUFDQUlBQUFDQUFBQWdBQUFJQUlBQ09BRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQUFBUUJBQUFBUUFBQUVBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQUFBUUJBQUFBUUFBQUVBRUFBQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBRUFBQUJBQUFBUUJBQUFBUUFBQUVBQUFCQUJBQUFBUUFBQUVBUUFBQUVBQUFCQUFBQVFCQUFBQVFBQUFFQUFBQkFFQUFBQkFBQUFRQUFBRUFRQUFBQ003L0E3cXFOZisxNlpOR0FBQUFBRWxGVGtTdVFtQ0MiLCJzaXplcyI6IjUxMng1MTIiLCJ0eXBlIjoiaW1hZ2UvcG5nIiwicHVycG9zZSI6ImFueSBtYXNrYWJsZSJ9XX0=">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAIAAADdvvtQAAAI8ElEQVR42u3de0hT/x/HcTc3p3ldhTMzLduU0Q0CMyUlLdFEy9TMSKWi/okgCvunG4J/1B8FYUJiFzAUrb7+44U0ixSzJDOdgWnaNBnqvMy2qXPneLbfH0L0/fH7/r61z7SdfV6PPwQv583O4el2tp2dI1i1apULgK2E2ASAgAABAQICBASAgAABAQICBASAgAABAQICBASAgAABAQICBASAgAABAQICBAQICAABAQICBAQICAABAQICBAQICAABAQICBAQICAABAQICBAQICBAQAAICBAQICBAQAAICBAQICBAQAAICBASOSeTIN666ujopKenP3gar1cqyLMuyHMcxDGM0Go1Go8Fg0Ov1Wq12bGxsfHxco9EMDAyMjIxwHIeA4G8EAoGbm5ubm9vSt2vXrv2nvzSbzWq1uru7u6Ojo6OjQ6VS0dCTwJGvmeoI90A20+v1TU1NjY2NtbW1RqMR+0Dwe3x9fTMzM+/fvz80NPTw4cPo6GgEtNIYhnGCTezh4ZGdnd3U1NTQ0BATE4OHsBUVGBgol8sVPwkJCRGJeLzrVlVVdenSJZ1Oh4D+DLFYvGnTJoVCIZfLlUplbm4u7za6VqvNysr68OEDAvrDvLy8tFotyYSbN2+OjY3902/d3d09PDz8/f2Dg4OVSuXmzZvtdctNJtOJEyfq6uoQEL8DioiI6O3t/cU/lslkiYmJubm5dtkjNpvNKSkpb9++xU40LbRa7ePHjxMSEpKSkr58+UI4TSKRPH36dN26dQiIOq2trdHR0eQPQFKp9M6dOwiIRiaTKScnp7W1lXBOSkpKfHw8AqIRy7KnTp0if5X5woULCIhSo6OjxcXFhEPi4+Pt+PwOAfFMSUnJ4uIi4ZDk5GQERKmpqanm5mbCIQkJCQiIXq9fvyacsHXrVgREr87OTsIJMpnMz88PAVGqv7+ffIhMJkNAlJqcnGRZlnCIt7c3AqKU1WolPzzDw8MDAdHLZDIRTuDp0XMIyD7IXwoyGAwIiF4/PrZhM41Gg4DoJZFISBafnp7m6Sc3EJB9SKVSksXJX0lCQDzm4+ND+BD25s0bBESv0NBQwgn8PTgaAdlBWFgYyeIqlcour2UjIL7atWsXyeIlJSX8XXcEZAd79+61ednh4eHKykoERC+FQqFUKm1e/Pr16+TvoyEgHjtz5ozNy9bX11dXV/N69REQkaCgoJMnT9q2rEajOXv2LN+3AAIi2HZCYXFxsW0f7TUajdnZ2VNTUwiIUiKRqKioyLZjmQ0GQ2pqaldXlzNsB6RgAz8/v/Ly8ri4OBuW/f79e0pKinPUg3ug3yaVSq9du/b582fb6unq6oqLi3OaenAP9C8kEolUKpVKpQEBAbt3796zZ09kZKRthw4uLi7eunXrxo0b5EcOORTaT++yAqxWa2NjY2FhYXd3txPuC+JuZvksLi7+9ddft2/f/vVTECEgcNHpdC9fvmxoaGhqanKacyFiJ3qFsCyrUqlmZ2eDgoKioqJCQkKce32xD7Ts9Hp9e3t7a2trc3OzMz3/QkB/gEajqampKS8vV6lUCAgB2a6zs/Pu3bvV1dUWiwUB8Tig/3+a3yVisdjNzc3T09Pf318mk4WFhYWGhpJ/jsfFxaWvr+/q1avPnz9HQHwN6LdO8/tzUjt37oyNjc3IyNi2bRvhWtTU1Jw/f35iYgIB0RLQz7Zv356fn5+eni4QCGweMj4+npeX19bWhqfx1Onp6cnLy0tMTBwcHLR5SEBAQH19/eHDhxEQpdra2mJjY1taWmyeIBaLy8rKMjIyEBCl9Hp9Zmbm+/fvbZ7g6upaWloaERGBgCg1Pz9//PjxmZkZmye4u7uXlZV5eXkhIEqNjo5evnyZZEJISEhBQQEColdFRQXhpVhOnz69ceNGBEQpjuNKS0tJJojFYr5c/wABLYsnT54QvkeRlZXl7u6OgCil0+kIr2jp4+Ozf/9+BESv9vZ2wgmxsbEIiF49PT2EE6KiohAQvb59+0Y4QaFQICB6jY6OEk7w9vZevXo1AqKUXc666vhXYEFAy2VhYYF8iOMfbIOAlgvJ4UE/OP4BrwhoudjlmNe5uTkERClPT08H2ZFCQLy0Zs0awglms1mv1yMgSpFfgVCtVnMch4AoJZfLCSfw4uzjCGi5EJ6+3sXFhfDtWATEb+SHNr969QoBUcrX13fLli0kEyYmJj59+oSAKHXgwAGRiOjcS5WVlVarFQFR6tixYySLW63WBw8e8GJNEZD9KRSKffv2kUyoq6tTq9UIiFIFBQUkb4QxDHPlyhW+rCwCsrPk5OS0tDSSCcXFxV+/fkVANJLL5YRXj+vs7CwsLOTRKiMge+761NbWkrwFNjMzk5OTwzAMAqLOkSNHWlpagoODbZ5gMBjS0tJGRkb4teI4TzTZ/59QGB8fn5+fHxMTQzLHYDAcPHiQF+9dIKC/SU9P37Fjh8lkmp+fN5lMCwsLJpPJbDYzDLP0lWEYjuM4jrNYLAKBQCKR+Pj4bNiwITw8PDIyMikpKSAggPA29Pf3Hz16dGBggI8bkH+nuPP09FQoFGFhYeHh4Uql8tChQ7wu+NmzZ+fOnZudneXp7Xf0e6DAwMClVpa+KhSK9evX2+Vw4z9ueHj44sWLjY2NvF4Lhw6oqqoqNTXV+R43Jycni4qK7t27ZzKZ+L4uDh2QWCx2snQGBwdLS0sfPXrkBOlgJ3rlTE9P19TUVFRUvHv3zslWDQEtl7m5ue7u7ubm5hcvXnz8+JHvlzRAQMtrdnZ2aGhIrVYPDQ319vZ2dXX19fU5azT8fhr/r4RCoaurq0gkcv3J0rdLX4VC4Y/f/s+f//zb/5rGcRzDMCzLMgxjNBp1Op1Op5uennb8TwDiHuhXWSwWi8XCsizuF1fi3xWbABAQICBAQICAABAQICBAQICAABAQICBAQICAABAQICBAQICAABAQICBAQICAAAEBICBAQICAAAEBICBAQICAAAEBICBAQICAAAEBICBAQICAAAEBAgJAQICAAAEBAgJAQICAAAEBAgJAQICAAAGBE/oPdVQnx98ZTXMAAAAASUVORK5CYII=">
+<title>Bock – Bestellsystem</title>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600&display=swap');
+:root{
+  --bg:#f9f9f9;--card:#fff;--cream:#f4f4f4;
+  --black:#0a0a0a;--dark:#1a1a1a;--mid:#555;--light:#888;--xlight:#bbb;
+  --border:#e0e0e0;--border-dark:#333;
+  --accent:#0a0a0a;--accent-lt:#f0f0f0;
+  --green:#1a7a3a;--green-lt:#e8f5ed;
+  --red:#c0392b;--red-lt:#fdecea;
+  --amber:#b8860b;--amber-lt:#fef8e1;
+  --blue:#1a4a7a;--blue-lt:#e8f0fb;
+  --shadow:0 1px 4px rgba(0,0,0,.08);--shadow-md:0 4px 16px rgba(0,0,0,.10);
+  --r:10px;--rsm:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);min-height:100vh;font-size:14px;-webkit-font-smoothing:antialiased;overscroll-behavior-y:contain;}
+
+/* LOGIN */
+#login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:#0a0a0a;padding:20px}
+.lcard{background:white;border-radius:16px;padding:40px 36px;width:100%;max-width:380px;text-align:center}
+.lcard img{height:44px;object-fit:contain;margin-bottom:4px;filter:invert(0)}
+.ltag{font-size:10px;color:var(--xlight);letter-spacing:.14em;text-transform:uppercase;margin-bottom:6px}
+.ldesc{font-size:11px;color:var(--xlight);margin-bottom:28px;font-style:italic}
+.lcard select,.lcard input[type=password]{width:100%;padding:12px 14px;border:1.5px solid var(--border);
+  border-radius:var(--rsm);font-family:'Inter',sans-serif;font-size:14px;color:var(--dark);
+  background:var(--bg);margin-bottom:10px;outline:none;transition:border-color .2s;appearance:none}
+.lcard select:focus,.lcard input:focus{border-color:var(--black)}
+.btn-login{width:100%;padding:13px;background:var(--black);color:white;border:none;
+  border-radius:var(--rsm);font-family:'Inter',sans-serif;font-size:14px;font-weight:600;
+  cursor:pointer;letter-spacing:.03em;transition:opacity .2s}
+.btn-login:hover{opacity:.85}
+.lerr{color:var(--red);font-size:12px;margin-top:8px;display:none}
+
+/* APP SHELL */
+#app{display:none;min-height:100vh}
+.topbar{background:var(--black);color:white;padding:0 16px;height:52px;display:flex;
+  align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.tbl{display:flex;align-items:center;gap:10px}
+.tbl img{height:26px;filter:invert(1);opacity:.95}
+.tdiv{width:1px;height:22px;background:rgba(255,255,255,.15)}
+.tname{font-size:12px;opacity:.6;letter-spacing:.02em}
+.tbr{display:flex;align-items:center;gap:8px}
+.fbst{font-size:11px;opacity:.7}
+.brole{background:white;color:var(--black);font-size:10px;font-weight:700;
+  padding:3px 8px;border-radius:20px;letter-spacing:.05em}
+.blogout{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8);
+  padding:5px 11px;border-radius:var(--rsm);font-size:12px;cursor:pointer;font-family:'Inter',sans-serif;transition:border-color .2s}
+.blogout:hover{border-color:white;color:white}
+
+/* NAV */
+.nav{background:white;border-bottom:1.5px solid var(--border);display:flex;overflow-x:auto;
+  scrollbar-width:none;padding:0 12px}
+.nav::-webkit-scrollbar{display:none}
+.ntab{padding:12px 14px;font-size:13px;font-weight:500;color:var(--light);
+  border-bottom:2px solid transparent;cursor:pointer;white-space:nowrap;
+  transition:color .15s,border-color .15s;margin-bottom:-1.5px;letter-spacing:.01em}
+.ntab.active{color:var(--black);border-bottom-color:var(--black);font-weight:600}
+.ntab:hover{color:var(--dark)}
+
+/* MAIN */
+.main{padding:16px;max-width:900px;margin:0 auto}
+
+/* CARDS */
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:20px;margin-bottom:14px;border:1px solid var(--border)}
+.ctitle{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--black);
+  margin-bottom:14px;display:flex;align-items:center;gap:8px}
+
+/* STARTSEITE KACHELN */
+.kacheln{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-top:4px}
+.kachel{background:white;border:1.5px solid var(--border);border-radius:var(--r);
+  padding:22px 16px;text-align:center;cursor:pointer;transition:border-color .2s,box-shadow .2s;
+  display:flex;flex-direction:column;align-items:center;gap:8px}
+.kachel:hover{border-color:var(--black);box-shadow:var(--shadow-md)}
+.kachel:active{transform:scale(.98)}
+.kachel-icon{font-size:28px}
+.kachel-lbl{font-size:13px;font-weight:600;color:var(--dark);letter-spacing:.01em}
+.kachel-sub{font-size:11px;color:var(--light)}
+.kachel.highlight{border-color:var(--black);background:var(--black)}
+.kachel.highlight .kachel-lbl,.kachel.highlight .kachel-sub{color:white}
+
+/* BANNER */
+.banner{padding:14px 16px;border-radius:var(--rsm);margin-bottom:14px;
+  display:flex;align-items:flex-start;gap:10px;font-size:13px;font-weight:500}
+.banner-warn{background:#1a1a1a;color:white;border-left:4px solid white}
+.banner-ok{background:var(--green-lt);color:var(--green);border-left:4px solid var(--green)}
+.banner-info{background:var(--blue-lt);color:var(--blue);border-left:4px solid var(--blue)}
+.banner-red{background:var(--red-lt);color:var(--red);border-left:4px solid var(--red)}
+
+/* WEEK BAR */
+.wbar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.wlbl{font-size:11px;color:var(--light);font-weight:600;text-transform:uppercase;letter-spacing:.07em}
+input[type=week],input[type=date],input[type=month],input[type=text],input[type=number],textarea,select.finp{
+  padding:8px 11px;border:1.5px solid var(--border);border-radius:var(--rsm);
+  font-family:'Inter',sans-serif;font-size:13px;color:var(--dark);background:white;outline:none;
+  transition:border-color .2s}
+input:focus,textarea:focus,select.finp:focus{border-color:var(--black)}
+
+/* STATUS PILLS */
+.st{display:inline-flex;align-items:center;padding:3px 8px;border-radius:20px;font-size:11px;font-weight:600;letter-spacing:.03em}
+.st-offen{background:#f0f0f0;color:#555}
+.st-gepackt{background:var(--blue-lt);color:var(--blue)}
+.st-teilweise{background:var(--amber-lt);color:var(--amber)}
+.st-versendet{background:#e8f5ed;color:var(--green)}
+.st-angekommen{background:var(--green-lt);color:var(--green)}
+.st-bestaetigt{background:#e8ffe8;color:#155724}
+
+/* TABLES */
+.twrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:var(--cream);color:var(--mid);font-weight:600;font-size:11px;
+  text-transform:uppercase;letter-spacing:.06em;padding:8px 12px;text-align:left;
+  border-bottom:1.5px solid var(--border)}
+td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafafa}
+
+/* ORDER ROWS */
+.orow{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;
+  padding:10px 13px;background:var(--bg);border-radius:var(--rsm);
+  border:1.5px solid var(--border);margin-bottom:5px;transition:border-color .15s}
+.orow:hover{border-color:var(--dark)}
+.aname{font-weight:500;font-size:13px;color:var(--dark)}
+.avpe{font-size:11px;color:var(--light);margin-top:1px}
+.qinp{width:72px;padding:10px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);
+  font-size:16px;font-family:'Inter',sans-serif;text-align:center;background:white;outline:none;
+  min-height:44px;-webkit-appearance:none;}
+.qinp:focus{border-color:var(--black)}
+.qinp[data-filled="1"]{border-color:var(--black);background:#f0f0f0;font-weight:600}
+
+/* SECTION LABEL */
+.slbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--light);
+  font-weight:700;margin:12px 0 7px;display:block}
+
+/* BUTTONS */
+.btn{padding:8px 16px;border-radius:var(--rsm);font-family:'Inter',sans-serif;font-size:13px;
+  font-weight:600;cursor:pointer;border:none;transition:opacity .15s,transform .1s;
+  display:inline-flex;align-items:center;gap:5px;letter-spacing:.02em}
+.btn:active{transform:scale(.97)}
+.btn-p{background:var(--black);color:white}.btn-p:hover{opacity:.85}
+.btn-g{background:var(--green);color:white}.btn-g:hover{opacity:.85}
+.btn-r{background:var(--red);color:white}.btn-r:hover{opacity:.85}
+.btn-o{background:white;border:1.5px solid var(--border);color:var(--dark)}.btn-o:hover{border-color:var(--dark)}
+.btn-sm{padding:5px 10px;font-size:12px}
+.brow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+
+/* FORM FIELDS */
+.sform input,.sform textarea,.sform select{width:100%;padding:10px 12px;border:1.5px solid var(--border);
+  border-radius:var(--rsm);font-family:'Inter',sans-serif;font-size:13px;background:white;
+  color:var(--dark);outline:none;margin-bottom:9px;transition:border-color .2s}
+.sform textarea{resize:vertical;min-height:75px}
+.sform input:focus,.sform textarea:focus,.sform select:focus{border-color:var(--black)}
+.flbl{font-size:11px;font-weight:600;color:var(--mid);text-transform:uppercase;
+  letter-spacing:.06em;margin-bottom:4px;display:block}
+
+/* HISTORY ITEMS */
+.hitem{border:1.5px solid var(--border);border-radius:var(--rsm);margin-bottom:6px;overflow:hidden}
+.hhead{padding:12px 14px;background:white;display:flex;justify-content:space-between;
+  align-items:center;gap:10px;cursor:pointer;user-select:none;transition:background .15s}
+.hhead:hover{background:var(--bg)}.hbody{padding:14px;display:none;border-top:1px solid var(--border)}
+.hbody.open{display:block}
+
+/* STATS */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px}
+.scard{background:white;border:1.5px solid var(--border);border-radius:var(--rsm);
+  padding:16px 12px;text-align:center}
+.snum{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--black)}
+.slabel{font-size:10px;color:var(--light);margin-top:3px;text-transform:uppercase;letter-spacing:.05em}
+
+/* SIG */
+canvas#sig-canvas{border:1.5px dashed var(--border);border-radius:var(--rsm);width:100%;
+  height:90px;cursor:crosshair;touch-action:none;background:white;display:none}
+.sig-area{border:1.5px dashed var(--border);border-radius:var(--rsm);height:60px;display:flex;
+  align-items:center;justify-content:center;color:var(--light);font-size:13px;
+  cursor:pointer;transition:border-color .15s;margin-top:8px}
+.sig-area:hover{border-color:var(--dark)}
+.sigctrl{display:none;gap:6px;margin-top:5px}.sigctrl.vis{display:flex}
+
+/* FILTER */
+.frow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.frow select,.frow input{padding:7px 10px;border:1.5px solid var(--border);
+  border-radius:var(--rsm);font-family:'Inter',sans-serif;font-size:13px;
+  background:white;color:var(--dark);outline:none}
+.frow select:focus,.frow input:focus{border-color:var(--black)}
+
+/* INVENTUR */
+.invrow{display:grid;grid-template-columns:1fr 75px 75px 55px;gap:8px;align-items:center;
+  padding:9px 12px;background:var(--bg);border-radius:var(--rsm);
+  border:1.5px solid var(--border);margin-bottom:5px}
+.iinp{padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;
+  font-family:'Inter',sans-serif;text-align:center;outline:none;background:white;width:100%}
+.iinp:focus{border-color:var(--black)}
+.dpos{color:var(--green);font-weight:700;font-size:13px;text-align:center}
+.dneg{color:var(--red);font-weight:700;font-size:13px;text-align:center}
+
+/* LAGER */
+.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-bottom:12px}
+.litem{background:white;border:1.5px solid var(--border);border-radius:var(--rsm);padding:14px;position:relative}
+.litem.warn{border-color:var(--amber)}.litem.crit{border-color:var(--red)}
+.lname{font-weight:600;font-size:13px;margin-bottom:4px}
+.lqty{font-size:1.5rem;font-weight:700;font-family:'Playfair Display',serif;color:var(--black)}
+.lunit{font-size:11px;color:var(--light)}.lwbadge{position:absolute;top:8px;right:8px;font-size:13px}
+.lerow{display:flex;gap:6px;margin-top:8px}
+.lerow input{flex:1;padding:5px 7px;border:1.5px solid var(--border);border-radius:var(--rsm);
+  font-size:13px;font-family:'Inter',sans-serif;outline:none;min-width:0}
+
+/* TIMELINE */
+.tline{border-left:2px solid var(--border);padding-left:14px;margin-left:5px}
+.tli{position:relative;margin-bottom:10px}
+.tli::before{content:'';position:absolute;left:-19px;top:4px;width:8px;height:8px;
+  border-radius:50%;background:var(--dark);border:2px solid white;box-shadow:0 0 0 2px var(--border)}
+.tld{font-size:11px;color:var(--light);margin-bottom:1px}
+
+/* ARTIKEL VERWALTUNG */
+.art-mgmt-row{display:flex;align-items:center;gap:8px;padding:8px 12px;
+  background:white;border:1.5px solid var(--border);border-radius:var(--rsm);margin-bottom:5px}
+.art-mgmt-row:hover{border-color:var(--dark)}
+.art-mgmt-row.drag-over{border:2px dashed var(--black);background:#f5f5f5}
+.art-mgmt-row.dragging{opacity:0.4}
+.drag-handle{cursor:grab;color:var(--light);font-size:16px;padding:0 4px;user-select:none;flex-shrink:0}
+.drag-handle:active{cursor:grabbing}
+
+/* PRINT */
+@media print{#login-screen,.topbar,.nav,.btn,.brow,.frow,.no-print,canvas{display:none!important}
+  .hbody{display:block!important}.card{box-shadow:none;border:1px solid #ddd;page-break-inside:avoid}
+  body{background:white;font-size:12px}}
+
+/* TOAST */
+.toast{position:fixed;bottom:20px;right:20px;background:var(--black);color:white;
+  padding:12px 16px;border-radius:var(--rsm);font-size:13px;font-weight:500;
+  box-shadow:var(--shadow-md);z-index:9999;transform:translateY(80px);opacity:0;
+  transition:transform .3s,opacity .3s;max-width:300px}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* PACKEN MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;
+  display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{background:white;border-radius:var(--r);padding:24px;max-width:500px;width:100%;
+  max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:16px}
+.pack-row{display:grid;grid-template-columns:1fr 70px 70px;gap:8px;align-items:center;
+  padding:8px 10px;background:var(--bg);border-radius:var(--rsm);margin-bottom:5px;font-size:13px}
+.pack-row.fehlend{border-left:3px solid var(--red)}
+.pack-inp{padding:6px 8px;border:1.5px solid var(--border);border-radius:var(--rsm);
+  font-size:13px;font-family:'Inter',sans-serif;text-align:center;outline:none;background:white;width:100%}
+.pack-inp:focus{border-color:var(--black)}
+
+hr.div{border:none;border-top:1px solid var(--border);margin:12px 0}
+@media(max-width:600px){.main{padding:12px}.card{padding:14px}.kacheln{grid-template-columns:1fr 1fr}
+  .invrow{grid-template-columns:1fr 60px 60px 45px}.sgrid{grid-template-columns:1fr 1fr}
+  .lgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div id="login-screen">
+  <div class="lcard">
+    <img src="logo.jpg" alt="Bock">
+    <div class="ltag">Bestellsystem</div>
+        <select id="lf">
+      <option value="">— Filiale wählen —</option>
+      <option value="B1">B1</option>
+      <option value="B5">B5</option>
+      <option value="B7">B7</option>
+      <option value="B8">B8</option>
+      <option value="B11">B11</option>
+      <option value="B12">B12</option>
+      <option value="B16">B16</option>
+      <option value="B17">B17</option>
+      <option value="Backstube">Backstube</option>
+      <option value="Verwaltung">Verwaltung</option>
+    </select>
+    <input type="password" id="lpw" placeholder="Passwort" autocomplete="current-password">
+    <button class="btn-login" onclick="doLogin()">Anmelden</button>
+    <div class="lerr" id="lerr">Falsches Passwort.</div>
+  </div>
+</div>
+
+<div id="app">
+  <div class="topbar">
+    <div class="tbl">
+      <img src="logo.jpg" alt="Bock">
+      <div class="tdiv"></div>
+      <div class="tname" id="tname">–</div>
+    </div>
+    <div class="tbr">
+      <span class="fbst" id="fbst">⏳</span>
+      <span class="brole" id="trole">–</span>
+      <button class="blogout" onclick="doLogout()">Abmelden</button>
+    </div>
+  </div>
+  <div class="nav" id="nav"></div>
+  <div class="main" id="mc"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+<div id="modal-container"></div>
+
+<script>
+// ═══════════════════ STAMMDATEN ═══════════════════
+const PW={B1:'1111',B5:'5555',B7:'7777',B8:'8888',B11:'1100',B12:'1212',B16:'1616',B17:'1717',Backstube:'backstube2024',Verwaltung:'admin2024'};
+const NAMEN={B1:'B1',B5:'B5',B7:'B7',B8:'B8',B11:'B11',B12:'B12',B16:'B16',B17:'B17',Backstube:'Backstube',Verwaltung:'Verwaltung'};
+const ALLE_FIL=['B1','B5','B7','B8','B11','B12','B16','B17'];
+const METRO_FIL=['B1','B5','B7','B8','B11','B12','B16','B17'];
+const LAGER_ART=[
+  // Verpackung
+  {id:'lv01',name:'Pappteller 11x17,5',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'lv02',name:'Pappteller 13x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'lv03',name:'Pappteller 16x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'lv04',name:'To Go Becher',unit:'Pkg',min:2,kat:'Verpackung'},
+  // Tee
+  {id:'t01',name:'Apfeltee',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t02',name:'Beerenzauber',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t03',name:'Black Chai',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t04',name:'China Gunpowder',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t05',name:'Darjeeling',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t06',name:'Earl Grey',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t07',name:'Ingwer Lemon',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t08',name:'Jasmintee',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t09',name:'Kamille',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t10',name:'Pfefferminze',unit:'Pkg',min:2,kat:'Tee'},
+  {id:'t11',name:'Rotbusch Pur',unit:'Pkg',min:2,kat:'Tee'},
+  // Kaffee
+  {id:'k01',name:'Cafe Crema',unit:'Btl.',min:2,kat:'Kaffee'},
+  {id:'k02',name:'Espresso',unit:'Btl.',min:2,kat:'Kaffee'},
+  {id:'k03',name:'Koffeinfrei',unit:'Btl.',min:1,kat:'Kaffee'},
+  // Verpackung
+  {id:'v01',name:'Pappteller 11x17,5',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'v02',name:'Pappteller 13x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'v03',name:'Pappteller 16x20',unit:'Pkg',min:2,kat:'Verpackung'},
+  {id:'v04',name:'To Go Becher',unit:'Pkg',min:2,kat:'Verpackung'},
+];
+const BAEKO_STATIC={
+  "B1": [
+    {
+      "id": "70562",
+      "name": "Camembert portionsweise",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "94107",
+      "name": "Kochschinken ca.30g, traditionell hergestellt",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51110",
+      "name": "ML.H-Milch 3,5% Base  0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51127",
+      "name": "ML.Kaffeesahne Portion 10%, 10g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "70114",
+      "name": "Mozzarella gerieben, Goldsteig",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "94100",
+      "name": "Salami Scheiben naturgereift, Scheibe a`10,5 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "94111",
+      "name": "Salami für Pizza  Ø 6 cm, in Scheiben à ca. 5 g, 1 Kg / Packung",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "58882",
+      "name": "Fer.Nutella 450g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "58881",
+      "name": "Fer.Nutella Portion 15g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "81229",
+      "name": "Becherhalter f. 1-4 Becher, \"click´n carry\", 200x120x56,5mm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81919",
+      "name": "Berliner Karton 31x22x8, Motiv: Krapfen / mit Deckel",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78405",
+      "name": "Deckel schwarz f. 0,2 & 0,3, 80 mm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81114",
+      "name": "Faltenbeutel M45 20x10x45, Gaumenfreuden Nr. 8, Natron 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81519",
+      "name": "Poly SF-Beutel rund gelocht, 250+100x370 - 1000 g, 14 my PE",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81318",
+      "name": "Rollenpapier 50cm bedruckt, Gaumenfreuden, Sulfit 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81962",
+      "name": "Steige für Berliner/ Tragekt., 575x393x85 mm stapelbar",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81801",
+      "name": "Tortenkarton Pink prestige, 34x34x11cm 1-teilig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "883200",
+      "name": "Haug Alustiel 145cm blau, D:2,5cm Griff:blau Stiel:Alu",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "883210",
+      "name": "Haug Großraumbesen 40cm blau, weich #88822U, weich #88822U",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "883235",
+      "name": "Haug Wischer 28cm blau hart, #88102",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "81135",
+      "name": "Müllsäcke 70 x110 cm, ca. 40 my Blau 120 Ltr.",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "81043",
+      "name": "Müllsäcke 80 x 100 cm, 42my Blau",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "81662",
+      "name": "Toilettenpapier 2-Lagig weiß, 250 Blatt",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B5": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "H-Kakao 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "H-Milch 1,5% 1 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51110",
+      "name": "H-Milch 3,5%  0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "Kondensmilch, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "81205",
+      "name": "Brötchen- Brotbeutel genadelt, #2202 160x250+40",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "885324",
+      "name": "Papierhandtuch FHT natur, 1-lg 20x250 Tücher 25x23cm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81093",
+      "name": "Papierhandtücher Weiss 2lg., 24x21cm 20 Pack à 160 St.",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81519",
+      "name": "Poly SF-Beutel rund gelocht, 250+100x370 - 1000 g, 14 my PE",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81725",
+      "name": "Servietten 31x33cm weiß, 1/8 Falz 2-lagig, (6x250 St.)",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "91284",
+      "name": "Alposal Tablets Siedesalz-, tabletten (ehemals Broxetten), Regeneriersalz",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "91614",
+      "name": "TRU-LIT ALUSAFE chlorfrei, flüssiger Geschirrreiniger",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B7": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "68445",
+      "name": "Alpro Mandeldrink Barista, Vegan 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51110",
+      "name": "ML.H-Milch 3,5% Base  0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81800",
+      "name": "Papier-Kuchentragetasche, 32x21,5x27cm \"Süße Momente\"",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "885324",
+      "name": "Papierhandtuch FHT natur, 1-lg 20x250 Tücher 25x23cm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81093",
+      "name": "Papierhandtücher Weiss 2lg., 24x21cm 20 Pack à 160 St.",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81436",
+      "name": "Pappteller 11x17,5 #4, Frischfaser ca. 260 gr./qm.",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81438",
+      "name": "Pappteller 13x20 #5, Frischfaser ca. 300 gr./qm.",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81442",
+      "name": "Pappteller 16x20 #6, Frischfaser ca. 300 gr./qm.",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81519",
+      "name": "Poly SF-Beutel rund gelocht, 250+100x370 - 1000 g, 14 my PE",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81318",
+      "name": "Rollenpapier 50cm bedruckt, Gaumenfreuden, Sulfit 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78893",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81725",
+      "name": "Servietten 31x33cm weiß, 1/8 Falz 2-lagig, (6x250 St.)",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B8": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81114",
+      "name": "Faltenbeutel M45 20x10x45, Gaumenfreuden Nr. 8, Natron 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81092",
+      "name": "Hemdchentragetaschen LDPE, transparent 36+22x46cm, 14 my",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81318",
+      "name": "Rollenpapier 50cm bedruckt, Gaumenfreuden, Sulfit 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78893",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81801",
+      "name": "Tortenkarton Pink prestige, 34x34x11cm 1-teilig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B11": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "94214",
+      "name": "Eier gefärbt Bodenhaltung M",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51110",
+      "name": "ML.H-Milch 3,5% Base  0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "57211",
+      "name": "Dok.Süsse Pilze",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "885324",
+      "name": "Papierhandtuch FHT natur, 1-lg 20x250 Tücher 25x23cm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78893",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B12": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81519",
+      "name": "Poly SF-Beutel rund gelocht, 250+100x370 - 1000 g, 14 my PE",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81318",
+      "name": "Rollenpapier 50cm bedruckt, Gaumenfreuden, Sulfit 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81725",
+      "name": "Servietten 31x33cm weiß, 1/8 Falz 2-lagig, (6x250 St.)",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B16": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "94341",
+      "name": "BÄKO Weichkäseblock, 850g egalisiert, Rotter Klosterkäse",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51127",
+      "name": "ML.Kaffeesahne Portion 10%, 10g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "57211",
+      "name": "Dok.Süsse Pilze",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "885324",
+      "name": "Papierhandtuch FHT natur, 1-lg 20x250 Tücher 25x23cm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81519",
+      "name": "Poly SF-Beutel rund gelocht, 250+100x370 - 1000 g, 14 my PE",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81318",
+      "name": "Rollenpapier 50cm bedruckt, Gaumenfreuden, Sulfit 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81725",
+      "name": "Servietten 31x33cm weiß, 1/8 Falz 2-lagig, (6x250 St.)",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "91284",
+      "name": "Alposal Tablets Siedesalz-, tabletten (ehemals Broxetten), Regeneriersalz",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "91601",
+      "name": "TRU-LIT SAFE CL, flüssiger Geschirrreiniger, alugeeignet, mit Aktivchlor",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ],
+  "B17": [
+    {
+      "id": "68449",
+      "name": "Alpro Barista Not Milk 3,5 %, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "94341",
+      "name": "BÄKO Weichkäseblock, 850g egalisiert, Rotter Klosterkäse",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51111",
+      "name": "ML.H-Kakao 0,3% Base 0,5 Ltr.",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51118",
+      "name": "ML.H-Milch 1,5% 1 Ltr., mit Verschluss",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51127",
+      "name": "ML.Kaffeesahne Portion 10%, 10g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "51137",
+      "name": "ML.Kondensmilch 7,5%, 1 Ltr.Tetra",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97140",
+      "name": "Markenbutter 4 x 250 g",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "97192",
+      "name": "Minus L H-Milch 3,5% Fett, lactosefrei  1 ltr",
+      "kat": "Frischwaren"
+    },
+    {
+      "id": "57211",
+      "name": "Dok.Süsse Pilze",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "73003",
+      "name": "ML.Zuckersticks 3,6g",
+      "kat": "Backwaren & Zutaten"
+    },
+    {
+      "id": "78628",
+      "name": "Faltenbeutel 14x6x23 M23, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78617",
+      "name": "Faltenbeutel 16x6x35 FD 618-S, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78670",
+      "name": "Faltenbeutel 20x7x46 FD 622, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81111",
+      "name": "Faltenbeutel F36 16x7,5x36 10S, Gaumenfreuden Nr. 5, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81108",
+      "name": "Faltenbeutel SG9 16x7,5x23 6S, Gaumenfreuden Nr. 3, Natron 35g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78454",
+      "name": "Konditorseiden KS26 50cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "79262",
+      "name": "Konditortraget. 32x22x24, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "885324",
+      "name": "Papierhandtuch FHT natur, 1-lg 20x250 Tücher 25x23cm",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81519",
+      "name": "Poly SF-Beutel rund gelocht, 250+100x370 - 1000 g, 14 my PE",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81318",
+      "name": "Rollenpapier 50cm bedruckt, Gaumenfreuden, Sulfit 40g",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "78892",
+      "name": "Servietten 3 lagig 25x25cm, Druck: Bock, Röthenbach",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81725",
+      "name": "Servietten 31x33cm weiß, 1/8 Falz 2-lagig, (6x250 St.)",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "80983",
+      "name": "Thermorollen 50m  BPA-frei, Breit:80 Rolle:60 Kern:12, weiß - Rückseite unbedruckt",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "81935",
+      "name": "Zellglas Zuschnitte 12x18cm, 1/32 Bogen, Aussehen: klar durchsichtig",
+      "kat": "Verpackung"
+    },
+    {
+      "id": "91284",
+      "name": "Alposal Tablets Siedesalz-, tabletten (ehemals Broxetten), Regeneriersalz",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "91601",
+      "name": "TRU-LIT SAFE CL, flüssiger Geschirrreiniger, alugeeignet, mit Aktivchlor",
+      "kat": "Reinigung"
+    },
+    {
+      "id": "68426",
+      "name": "Capri Sun Kirsch",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68424",
+      "name": "Capri Sun Multivitamin.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68182",
+      "name": "Coca Cola Zero",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68180",
+      "name": "Coca Cola",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68183",
+      "name": "Fanta",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68242",
+      "name": "Fuzetea Schwarztee Pfirs.Hib.",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68240",
+      "name": "Fuzetea Schwarztee Zitrone",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68186",
+      "name": "Apfelschorle",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68456",
+      "name": "Apfelsaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68454",
+      "name": "Orangensaft",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68185",
+      "name": "Mezzo Mix",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68397",
+      "name": "Red Bull",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68184",
+      "name": "Sprite",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68342",
+      "name": "Vio Spritzig",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68344",
+      "name": "Vio Still",
+      "kat": "Getränke"
+    },
+    {
+      "id": "68181",
+      "name": "Coca Cola Light",
+      "kat": "Getränke"
+    }
+  ]
+}
+
+// ═══════════════════ FIREBASE ═══════════════════
+const FIREBASE_CONFIG={
+  apiKey:"AIzaSyAFv-Yp7Cmj7ljy_tSWcQpRddL3HjtTCT4",
+  authDomain:"bock-bestellungen.firebaseapp.com",
+  databaseURL:"https://bock-bestellungen-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId:"bock-bestellungen",
+  storageBucket:"bock-bestellungen.firebasestorage.app",
+  messagingSenderId:"697391090708",
+  appId:"1:697391090708:web:63687091f56e846fe82b01"
+};
+
+let U=null,fbReady=false,fbRef=null;
+let db=initDB();
+// Artikellisten aus Firebase (überschreiben static bei Verbindung)
+let BAEKO={},METRO={};
+// Kritische HW-Artikel die besonders überwacht werden (Fehlmengen sofort melden)
+const KRITISCHE_ARTIKEL_IDS=['k01','k02','k03','k04','k05','kab01','kab02','kab03'];
+const KRITISCHE_ARTIKEL_NAMEN=['Kaffee','Tee','Kaba','Kakao','Cappuccino'];
+
+function istKritisch(artikelName){
+  if(!artikelName)return false;
+  const n=artikelName.toLowerCase();
+  return KRITISCHE_ARTIKEL_NAMEN.some(k=>n.includes(k.toLowerCase()));
+}
+
+const REINIGUNG_ART=[
+  {id:'r01',name:'Allzweck-Reiniger'},
+  {id:'r02',name:'Cremeseife'},
+  {id:'r03',name:'Fettlöser'},
+  {id:'r04',name:'Klarspüler'},
+  {id:'r05',name:'Kraftreiniger'},
+  {id:'r06',name:'Milchschaumreiniger'},
+  {id:'r07',name:'Reinigungstabletten'},
+  {id:'r08',name:'Spülmaschinen Broxetten'},
+  {id:'r09',name:'Spülmittel Maschine'},
+  {id:'r10',name:'Spülmittel normal (gelbe Flasche)'},
+  {id:'r11',name:'WC Ente'},
+];
+// BÄKO aus Google Sheet, METRO komplett aus Firebase
+Object.assign(BAEKO,BAEKO_STATIC);
+// METRO startet leer — wird ausschliesslich aus Firebase geladen
+const ALLE_FIL_KEYS=['B1','B5','B7','B8','B11','B12','B16','B17'];
+ALLE_FIL_KEYS.forEach(fil=>{if(!METRO[fil])METRO[fil]=[];});
+let _metroLoadedFromFirebase=false;
+
+// ═══ BÄKO-Artikellisten aus Google Sheet laden (ein Tab pro Filiale) ═══
+const BAEKO_SHEET_ID='1Px5DvLSZWxP9exKxGTTwwkFplluZfNK4YBM_SblyHUo';
+const BAEKO_FILIALEN=['B1','B5','B7','B8','B11','B12','B16','B17'];
+function loadBaekoFromSheet(forcedFilialen){
+  // Sheet ist Master für BÄKO – immer alle Filialen laden
+  const toLoad=forcedFilialen||BAEKO_FILIALEN;
+  const promises=toLoad.map(fil=>{
+    const url=`https://docs.google.com/spreadsheets/d/${BAEKO_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(fil)}`;
+    return fetch(url)
+      .then(r=>r.text())
+      .then(text=>{
+        const json=JSON.parse(text.replace(/^[^{]*|[^}]*$/g,''));
+        const rows=json.table?.rows;
+        if(!rows||!rows.length)return;
+        const items=[];
+        rows.forEach(row=>{
+          const c=row.c;
+          if(!c||!c[1]||!c[1].v)return; // Bezeichnung Pflicht
+          const id=c[0]?String(c[0].v||'').trim():'';
+          const name=String(c[1].v||'').trim();
+          const kat=c[2]?String(c[2].v||'').trim():'';
+          if(name)items.push({id,name,kat});
+        });
+        if(items.length>0){BAEKO[fil]=items;}
+      })
+      .catch(e=>console.warn(`Sheet-Tab ${fil} fehlgeschlagen:`,e));
+  });
+  Promise.all(promises).then(()=>{
+    console.log(`BÄKO-Listen aus Google Sheet geladen: ${toLoad.join(', ')}`);
+  });
+}
+
+function reloadBaekoFromSheet(){
+  const btn=document.getElementById('btn-sheet-reload');
+  if(btn){btn.disabled=true;btn.textContent='⏳ Wird geladen...';}
+  const fil=document.getElementById('art-fil')?.value||null;
+  const toLoad=fil?[fil]:BAEKO_FILIALEN;
+  const promises=toLoad.map(f=>{
+    const url=`https://docs.google.com/spreadsheets/d/${BAEKO_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(f)}`;
+    return fetch(url)
+      .then(r=>r.text())
+      .then(text=>{
+        const json=JSON.parse(text.replace(/^[^{]*|[^}]*$/g,''));
+        const rows=json.table?.rows;
+        if(!rows||!rows.length)return;
+        const items=[];
+        rows.forEach(row=>{
+          const c=row.c;
+          if(!c||!c[0]||!c[0].v)return; // Bezeichnung in Spalte A
+          const name=String(c[0].v||'').trim();
+          const kat=c[1]?String(c[1].v||'').trim():'';
+          const sort=c[2]?parseFloat(c[2].v)||0:0;
+          const id='hw_'+name.toLowerCase().replace(/[^a-z0-9]/g,'_').slice(0,20);
+          if(name)items.push({id,name,kat,sort});
+        });
+        items.sort((a,b)=>(a.sort||0)-(b.sort||0));
+        if(items.length>0){BAEKO[f]=items;}
+      })
+      .catch(e=>console.warn(`Sheet-Tab ${f} fehlgeschlagen:`,e));
+  });
+  Promise.all(promises).then(()=>{
+    if(btn){btn.disabled=false;btn.textContent='🔄 Vom Sheet neu laden';}
+    renderBaekoArtList();
+    toast(`✅ ${fil?fil+' ':'Alle Filialen '}vom Sheet geladen.`);
+  }).catch(()=>{
+    if(btn){btn.disabled=false;btn.textContent='🔄 Vom Sheet neu laden';}
+    toast('❌ Sheet-Laden fehlgeschlagen – Sheet öffentlich lesbar?');
+  });
+}
+
+const HW_FILIALEN=['B1','B5','B7','B8','B11','B12','B16','B17'];
+function loadHwFromSheet(forcedFilialen){
+  const toLoad=forcedFilialen||HW_FILIALEN;
+  const promises=toLoad.map(fil=>{
+    const tab=fil+'_HW';
+    const url=`https://docs.google.com/spreadsheets/d/${BAEKO_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(tab)}`;
+    return fetch(url)
+      .then(r=>r.text())
+      .then(text=>{
+        const json=JSON.parse(text.replace(/^[^{]*|[^}]*$/g,''));
+        const rows=json.table?.rows;
+        if(!rows||!rows.length)return;
+        const items=[];
+        rows.forEach(row=>{
+          const c=row.c;
+          if(!c||!c[0]||!c[0].v)return; // Bezeichnung in Spalte A
+          const name=String(c[0].v||'').trim();
+          const kat=c[1]?String(c[1].v||'').trim():'';
+          const sort=c[2]?parseFloat(c[2].v)||0:0;
+          const id='hw_'+name.toLowerCase().replace(/[^a-z0-9]/g,'_').slice(0,20);
+          if(name)items.push({id,name,kat,sort});
+        });
+        items.sort((a,b)=>(a.sort||0)-(b.sort||0));
+        if(items.length>0){METRO[fil]=items;}
+      })
+      .catch(e=>console.warn(`HW-Sheet-Tab ${tab} fehlgeschlagen:`,e));
+  });
+  Promise.all(promises).then(()=>{
+    console.log(`HW-Listen aus Google Sheet geladen: ${toLoad.join(', ')}`);
+  });
+}
+
+function reloadHwFromSheet(){
+  const btn=document.getElementById('btn-hw-sheet-reload');
+  if(btn){btn.disabled=true;btn.textContent='⏳ Wird geladen...';}
+  const fil=document.getElementById('metro-art-fil')?.value||null;
+  const toLoad=fil?[fil]:HW_FILIALEN;
+  const promises=toLoad.map(fil=>{
+    const tab=fil+'_HW';
+    const url=`https://docs.google.com/spreadsheets/d/${BAEKO_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(tab)}`;
+    return fetch(url)
+      .then(r=>r.text())
+      .then(text=>{
+        const json=JSON.parse(text.replace(/^[^{]*|[^}]*$/g,''));
+        const rows=json.table?.rows;
+        if(!rows||!rows.length)return;
+        const items=[];
+        rows.forEach(row=>{
+          const c=row.c;
+          if(!c||!c[0]||!c[0].v)return; // Bezeichnung in Spalte A
+          const name=String(c[0].v||'').trim();
+          const kat=c[1]?String(c[1].v||'').trim():'';
+          const sort=c[2]?parseFloat(c[2].v)||0:0;
+          const id='hw_'+name.toLowerCase().replace(/[^a-z0-9]/g,'_').slice(0,20);
+          if(name)items.push({id,name,kat,sort});
+        });
+        items.sort((a,b)=>(a.sort||0)-(b.sort||0));
+        if(items.length>0){METRO[fil]=items;}
+      })
+      .catch(e=>console.warn(`HW-Sheet-Tab ${tab} fehlgeschlagen:`,e));
+  });
+  Promise.all(promises).then(()=>{
+    if(btn){btn.disabled=false;btn.textContent='🔄 Vom Sheet neu laden';}
+    renderMetroArtList();
+    toast(`✅ ${fil?fil+' ':'Alle Filialen '}HW vom Sheet geladen.`);
+  }).catch(()=>{
+    if(btn){btn.disabled=false;btn.textContent='🔄 Vom Sheet neu laden';}
+    toast('❌ HW-Sheet-Laden fehlgeschlagen.');
+  });
+}
+function initDB(){
+  const l={};LAGER_ART.forEach(a=>{l[a.id]={menge:a.min*3,min:a.min};});
+  return{bestellungen:[],sonder:[],inventuren:[],lager:l,lagerLog:[],reinigung:[]};
+}
+
+function showNotif(title,body){
+  toast(title+' – '+body);
+  if('Notification' in window&&Notification.permission==='granted'){
+    try{new Notification(title,{body,tag:'bock'});}catch(e){}
+  }
+}
+
+function initFirebase(){
+  try{
+    if(!firebase.apps.length)firebase.initializeApp(FIREBASE_CONFIG);else firebase.app();
+    fbRef=firebase.database().ref('bock');
+    fbReady=true;
+    let lastOrdCount=-1,lastSondCount=-1,lastReinCount=-1;
+    fbRef.on('value',snap=>{
+      const data=snap.val();
+      if(data){
+        db.bestellungen=data.bestellungen?Object.values(data.bestellungen):[];
+        db.sonder=data.sonder?Object.values(data.sonder):[];
+        db.inventuren=data.inventuren?Object.values(data.inventuren):[];
+        db.lager=data.lager||db.lager;
+        db.lagerLog=data.lagerLog?Object.values(data.lagerLog):[];
+        // BÄKO wird über Google Sheet gepflegt – baeko_artikel in Firebase wird ignoriert
+        // HW-Artikel kommen aus Google Sheet – nicht aus Firebase
+        if(data.lager_artikel&&data.lager_artikel.length){
+          LAGER_ART.length=0;
+          data.lager_artikel.forEach(a=>LAGER_ART.push(a));
+        }
+        if(data.reinigung_artikel&&data.reinigung_artikel.length){
+          REINIGUNG_ART.length=0;
+          data.reinigung_artikel.forEach(a=>REINIGUNG_ART.push(a));
+        }
+        if(data.kuehltheke)db.kuehltheke=data.kuehltheke;
+        if(data.reinigung)db.reinigung=Object.values(data.reinigung);
+        if(data.putzplan)db.putzplan=data.putzplan;
+      }
+      // Benachrichtigungen für B1 + Verwaltung
+      if((U==='B1'||U==='Verwaltung')&&lastOrdCount>=0){
+        if(db.bestellungen.length>lastOrdCount){
+          const n=db.bestellungen[db.bestellungen.length-1];
+          showNotif('📋 Neue Bestellung',`${n?.filiale||''} · KW ${n?.week||''} · ${n?.typ==='baeko'?'Bäko':'Metro'}`);
+        }
+        if(db.sonder.length>lastSondCount){
+          const n=db.sonder[db.sonder.length-1];
+          showNotif('⭐ Neue Sonderbestellung',`${n?.filiale||''} · ${n?.datum||''}`);
+        }
+      }
+      // Automatischer Druck für Backstube
+      if(U==='Backstube'&&lastSondCount>=0){
+        const neueSonder=db.sonder.slice(lastSondCount);
+        neueSonder.forEach(s=>{
+          showNotif('🖨️ Neue Sonderbestellung',`${s?.filiale||''} wird gedruckt…`);
+          setTimeout(()=>printBsSonder(s.id,true),600);
+        });
+      }
+      if(U==='Backstube'&&lastReinCount>=0){
+        const neueRein=(db.reinigung||[]).slice(lastReinCount);
+        neueRein.forEach(r=>{
+          showNotif('🖨️ Neue Reinigungsbestellung',`${r?.filiale||''} wird gedruckt…`);
+          setTimeout(()=>printReinigung(r.id,true),600);
+        });
+      }
+      lastOrdCount=db.bestellungen.length;
+      lastSondCount=db.sonder.length;
+      lastReinCount=(db.reinigung||[]).length;
+      // Live-Update der aktuellen Ansicht
+      const active=document.querySelector('.ntab.active');
+      if(active&&U)renderPanel(active.dataset.p);
+      // Startseite neu laden für Banner
+      if(U)updateStartBanner();
+    });
+    setFbSt('☁️','#1a7a3a');
+  }catch(e){
+    console.warn('Firebase offline:',e);fbReady=false;setFbSt('⚠️','#c0392b');
+    showOfflineBanner();
+    try{const d=localStorage.getItem('bock_db');if(d)db=JSON.parse(d);}catch{}
+  }
+}
+
+function setFbSt(icon,color){
+  const el=document.getElementById('fbst');if(el){el.textContent=icon;el.style.color=color;}
+}
+// Online/Offline-Erkennung
+window.addEventListener('online',()=>{removeOfflineBanner();if(U&&!fbReady)initFirebase();});
+window.addEventListener('offline',()=>showOfflineBanner());
+
+function save(){
+  if(fbReady&&fbRef){
+    const toObj=arr=>arr.reduce((o,item,i)=>{o[item.id||('i'+i)]=item;return o;},{});
+    if(!db.reinigung)db.reinigung=[];
+    fbRef.set({
+      bestellungen:toObj(db.bestellungen),sonder:toObj(db.sonder),reinigung:toObj(db.reinigung),
+      inventuren:toObj(db.inventuren),lager:db.lager,lagerLog:toObj(db.lagerLog),
+    }).catch(e=>console.error('Speicherfehler:',e));
+  }else{try{localStorage.setItem('bock_db',JSON.stringify(db));}catch{}}
+}
+
+function saveArtikellisten(){
+  if(!fbReady||!fbRef){toast('⚠️ Keine Firebase-Verbindung – bitte Seite neu laden.');return false;}
+  // Komplette HW-Liste (alle Filialen) in Firebase speichern
+  // METRO lebt ausschliesslich in Firebase — kein Code-Fallback
+  fbRef.child('metro_artikel').set(METRO)
+    .then(()=>{_metroLoadedFromFirebase=true;toast('✅ HW-Liste gespeichert!');})
+    .catch(e=>{console.error(e);toast('❌ Speichern fehlgeschlagen – bitte nochmal versuchen.');});
+  return true;
+}
+
+// ═══════════════════ HELPERS ═══════════════════
+function cw(){const n=new Date(),d=new Date(Date.UTC(n.getFullYear(),n.getMonth(),n.getDate()));const day=d.getUTCDay()||7;d.setUTCDate(d.getUTCDate()+4-day);const ys=new Date(Date.UTC(d.getUTCFullYear(),0,1));const wn=Math.ceil((((d-ys)/86400000)+1)/7);return d.getUTCFullYear()+'-W'+String(wn).padStart(2,'0');}
+function getNextWeekDates(){
+  // Montag und Sonntag der nächsten Woche
+  const n=new Date();
+  const day=n.getDay()||7; // 1=Mo...7=So
+  const diff=8-day; // Tage bis nächsten Montag
+  const mo=new Date(n);mo.setDate(n.getDate()+diff);
+  const so=new Date(mo);so.setDate(mo.getDate()+6);
+  return {mo,so};
+}
+// Gewählte Woche (überschreibbar per UI)
+let _selectedWeekMo=null;
+function getSelectedWeekMo(){
+  if(_selectedWeekMo)return new Date(_selectedWeekMo);
+  return getNextWeekDates().mo;
+}
+function weekLabelFromMo(mo){
+  const so=new Date(mo);so.setDate(mo.getDate()+6);
+  const fmt=d=>d.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'2-digit'});
+  return fmt(mo).slice(0,5)+' – '+fmt(so);
+}
+function weekFrISOFromMo(mo){
+  const fr=new Date(mo);fr.setDate(mo.getDate()+4);
+  return fr.toISOString().split('T')[0];
+}
+function renderWeekPicker(id){
+  const defISO=id==='baeko'?naechsterMontag():naechsterFreitag();
+  return `<div style="background:var(--cream);border:1.5px solid var(--border);border-radius:var(--rsm);
+      padding:10px 14px;margin-bottom:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-size:13px;font-weight:600;color:var(--dark)">📅 Bestelldatum:</span>
+    <input type="date" id="wmiso-${id}" value="${defISO}"
+      oninput="${id==='baeko'?'checkBEx()':'checkMEx()'}"
+      style="padding:7px 10px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-weight:600;background:white;cursor:pointer">
+  </div>`;
+}
+function shiftWeek(dir,id){/* nicht mehr verwendet */}
+function nextWeekLabel(){
+  return weekLabelFromMo(getSelectedWeekMo());
+}
+function nextWeekFr(){
+  const mo=getSelectedWeekMo();
+  const fr=new Date(mo);fr.setDate(mo.getDate()+4);
+  return fr.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'2-digit',year:'numeric'});
+}
+function nextWeekFrISO(){
+  return weekFrISOFromMo(getSelectedWeekMo());
+}
+function nextWeekMoISO(){
+  return getSelectedWeekMo().toISOString().split('T')[0];
+}
+function today(){return new Date().toISOString().split('T')[0];}
+
+function thisWeekMoISO(){
+  const now=new Date();const day=now.getDay()||7;
+  const mo=new Date(now);mo.setDate(now.getDate()-(day-1));mo.setHours(0,0,0,0);
+  return mo.toISOString().slice(0,10);
+}
+function thisWeekFrISO(){
+  const mo=new Date(thisWeekMoISO());mo.setDate(mo.getDate()+4);
+  return mo.toISOString().slice(0,10);
+}
+function naechsterMontag(){
+  const now=new Date();now.setHours(0,0,0,0);
+  const dow=now.getDay()||7;
+  const diff=dow===1?7:(8-dow);
+  const mo=new Date(now);mo.setDate(now.getDate()+diff);
+  return mo.toISOString().slice(0,10);
+}
+function naechsterFreitag(){
+  const now=new Date();now.setHours(0,0,0,0);
+  const dow=now.getDay()||7;
+  const diff=dow===5?7:((5-dow+7)%7)||7;
+  const fr=new Date(now);fr.setDate(now.getDate()+diff);
+  return fr.toISOString().slice(0,10);
+}
+function moFromDate(dateISO){
+  if(!dateISO)return today();
+  const d=new Date(dateISO);const day=d.getDay()||7;
+  d.setDate(d.getDate()-(day-1));return d.toISOString().slice(0,10);
+}
+function getPickerDate(id){
+  const el=document.getElementById('wmiso-'+id);
+  if(el&&el.value)return el.value;
+  return id==='baeko'?naechsterMontag():naechsterFreitag();
+}
+function dts(iso){return new Date(iso).toLocaleString('de-DE');}
+function dtd(iso){return new Date(iso).toLocaleDateString('de-DE');}
+function uid(){return 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
+function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+function th(h){h.nextElementSibling.classList.toggle('open');}
+function stlbl(s){return{offen:'Offen',gepackt:'Gepackt',teilweise:'Teilweise',versendet:'Versendet',angekommen:'Angekommen',bestaetigt:'Bestätigt'}[s]||s;}
+function stcls(s){return{offen:'st-offen',gepackt:'st-gepackt',teilweise:'st-teilweise',versendet:'st-versendet',angekommen:'st-angekommen',bestaetigt:'st-bestaetigt'}[s]||'st-offen';}
+function fname(f){return NAMEN[f]||f;}
+
+const FILIAL_ADR={
+  B1:'Brandstraße 27, 90482 Nürnberg (Laufamholz)',
+  B5:'Oberer Markt 17, 90518 Altdorf',
+  B7:'Norisstr. 10, 90571 Schwaig-Behringersdorf',
+  B8:'Knebelstr. 1-3, 90427 Nürnberg (Schniegling)',
+  B11:'Waldluststr. 76, 90480 Nürnberg',
+  B12:'Laufamholzstr. 100, 90482 Nürnberg',
+  B16:'Vogelherdstr. 16, 91227 Diepersdorf',
+  B17:'Bahnhofstraße',
+};
+
+// ═══ DRAFT MENGEN (localStorage) ═══
+function draftKey(typ){return `bock_draft_${U}_${typ}`;}
+function saveDraft(typ,data){try{localStorage.setItem(draftKey(typ),JSON.stringify(data));}catch{}}
+function loadDraft(typ){try{const d=localStorage.getItem(draftKey(typ));return d?JSON.parse(d):{};}catch{return{};}}
+function clearDraft(typ){try{localStorage.removeItem(draftKey(typ));}catch{}}
+function saveBaekoDraft(){
+  if(!fbRef||!U)return;
+  const woche=getPickerDate('baeko')||'unbekannt';
+  const mengen={};
+  (BAEKO[U]||[]).forEach(a=>{const el=document.getElementById('bq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)mengen[a.id]=v;});
+  fbRef.child('baeko_draft').child(U).child(woche).set(mengen);
+}
+function loadBaekoDraftFromFirebase(woche){
+  if(!fbRef||!U)return;
+  fbRef.child('baeko_draft').child(U).child(woche).once('value',snap=>{
+    const mengen=snap.val()||{};
+    Object.entries(mengen).forEach(([id,menge])=>{const el=document.getElementById('bq-'+id);if(el){el.value=menge;el.dataset.filled='1';}});
+  });
+}
+function clearBaekoDraftFirebase(woche){if(!fbRef||!U)return;fbRef.child('baeko_draft').child(U).child(woche).remove();}
+
+// ═══════════════════ LOGIN ═══════════════════
+function doLogin(){
+  const f=document.getElementById('lf').value,p=document.getElementById('lpw').value;
+  if(!f){showErr('Filiale wählen.');return;}
+  if(p!==PW[f]){showErr('Falsches Passwort.');return;}
+  U=f;
+  // Login persistieren
+  try{localStorage.setItem('bock_session',f);}catch{}
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='block';
+  document.getElementById('trole').textContent=f;
+  document.getElementById('tname').textContent='';
+  if('Notification' in window&&Notification.permission==='default'&&(U==='B1'||U==='Verwaltung'))
+    Notification.requestPermission();
+  initFirebase();
+  buildNav();renderPanel('start');
+}
+function doLogout(){
+  U=null;
+  try{localStorage.removeItem('bock_session');}catch{}
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('app').style.display='none';
+  document.getElementById('lpw').value='';
+  if(fbRef)fbRef.off();fbRef=null;fbReady=false;
+  removeOfflineBanner();
+}
+function showErr(m){const e=document.getElementById('lerr');e.textContent=m;e.style.display='block';}
+
+// BÄKO-Listen aus Google Sheet laden (beim Start, vor Login)
+loadBaekoFromSheet();
+loadHwFromSheet();
+
+// Auto-Login bei gespeicherter Session
+(function tryAutoLogin(){
+  try{
+    const saved=localStorage.getItem('bock_session');
+    if(saved&&PW[saved]){
+      U=saved;
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('app').style.display='block';
+      document.getElementById('trole').textContent=saved;
+      document.getElementById('lf').value=saved;
+      initFirebase();
+      buildNav();renderPanel('start');
+    }
+  }catch{}
+})();
+
+function showOfflineBanner(){
+  if(document.getElementById('offline-banner'))return;
+  const b=document.createElement('div');
+  b.id='offline-banner';
+  b.style.cssText='position:fixed;top:0;left:0;right:0;z-index:9999;background:#c0392b;color:white;text-align:center;padding:8px;font-size:13px;font-weight:600;';
+  b.textContent='⚠️ Keine Verbindung – Änderungen werden nicht gespeichert. Seite neu laden.';
+  document.body.prepend(b);
+}
+function removeOfflineBanner(){
+  const b=document.getElementById('offline-banner');if(b)b.remove();
+}
+function showLoadingToast(){
+  const t=document.getElementById('toast');
+  if(t){t.textContent='⏳ Wird geladen…';t.classList.add('show');}
+}
+
+document.getElementById('lpw').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin();});
+
+// ═══════════════════ NAV ═══════════════════
+function getNav(){
+  const vw=U==='Verwaltung',bs=U==='Backstube',fil=!vw&&!bs;
+  const items=[{id:'start',lbl:'🏠 Start'}];
+  if(fil){
+    items.push({id:'baeko',lbl:'🌾 BÄKO'});
+    if(METRO_FIL.includes(U))items.push({id:'metro',lbl:'⬛ HANDELSWAREN'});
+    items.push({id:'sonder',lbl:'🎂 SONDERBESTELLUNG'});
+    items.push({id:'reinigung',lbl:'🧴 REINIGUNG'});
+    items.push({id:'bestellhistorie',lbl:'📜 BESTELLHISTORIE'});
+    // TEMPORÄR AUSGEBLENDET – in Bearbeitung:
+    // items.push({id:'kuehltheke',lbl:'🌡️ KÜHLPLÄNE'});
+    // items.push({id:'putzplan',lbl:'🧹 PUTZPLAN'});
+  }
+    if(bs){
+    items.push({id:'bs-sonder',lbl:'🎂 Sonderbestellungen'});
+    items.push({id:'bs-reinigung',lbl:'🧴 Reinigungsbestellungen'});
+    items.push({id:'bs-protokoll',lbl:'📜 Eingänge'});
+  }
+    if(vw){
+    items.push({id:'vw-best',lbl:'📋 Bestellungen'});
+    items.push({id:'bestellhistorie',lbl:'📜 BESTELLHISTORIE'});
+    items.push({id:'lager',lbl:'🏪 Lager'});
+    items.push({id:'inventur',lbl:'🔍 Inventur'});
+    items.push({id:'vw-sonder',lbl:'⭐ Sonderbestellungen'});
+    items.push({id:'vw-reinigung',lbl:'🧴 Reinigung'});
+    items.push({id:'artikel-mgmt',lbl:'⚙️ Artikelverwaltung'});
+  }
+  return items;
+}
+function buildNav(){document.getElementById('nav').innerHTML=getNav().map(i=>`<div class="ntab" data-p="${i.id}" onclick="renderPanel('${i.id}')">${i.lbl}</div>`).join('');}
+function renderPanel(id){
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.toggle('active',t.dataset.p===id));
+  document.getElementById('mc').innerHTML='';
+  // Wochenauswahl zurücksetzen beim Panel-Wechsel (außer wenn im gleichen Bestellformular geblieben)
+  if(id!=='baeko'&&id!=='metro')_selectedWeekMo=null;
+  const fn={start:renderStart,baeko:renderBaeko,metro:renderMetro,sonder:renderSonder,
+    bestellhistorie:renderBestellhistorie,
+    'bs-sonder':()=>{typeof renderBsSonder==='function'?renderBsSonder():renderStart();},
+    lager:()=>{typeof renderLager==='function'?renderLager():renderStart();},
+    inventur:()=>{typeof renderInventur==='function'?renderInventur():renderStart();},
+    'vw-best':renderVwBest,
+    'vw-sonder':()=>{typeof renderVwSonder==='function'?renderVwSonder():renderStart();},
+    'vw-reinigung':()=>{typeof renderVwReinigung==='function'?renderVwReinigung():renderStart();},
+    'artikel-mgmt':()=>{typeof renderArtikelMgmt==='function'&&U==='Verwaltung'?renderArtikelMgmt():renderStart();},
+    kuehltheke:renderKuehltheke,putzplan:renderPutzplan,'bs-protokoll':renderBsProtokoll,
+    reinigung:()=>{typeof renderReinigung==='function'?renderReinigung():renderStart();},
+    'bs-reinigung':()=>{typeof renderBsReinigung==='function'?renderBsReinigung():renderStart();},
+    'vw-kuehltheke':renderVwKuehltheke,'vw-putzplan':renderVwPutzplan};
+  if(fn[id])fn[id]();
+}
+
+// ═══════════════════ STARTSEITE ═══════════════════
+function renderStart(){
+  const mc=document.getElementById('mc');
+  const nav=getNav().filter(i=>i.id!=='start');
+  const iconMap={baeko:'🟣',metro:'⬛',sonder:'⭐',reinigung:'🧴',bestellhistorie:'📜','bs-sonder':'⭐','bs-reinigung':'🧴','vw-reinigung':'🧴',
+    lager:'🏪',inventur:'🔍','vw-best':'📋','vw-sonder':'⭐','artikel-mgmt':'⚙️'};
+  const sublbl={baeko:'Für nächste Woche',metro:'Für nächste Woche',sonder:'Täglich möglich',
+    bestellhistorie:'Was wurde bestellt?','bs-sonder':'Eingegangene Aufträge',
+    lager:'Bestände B1',inventur:'Monatliche Zählung','vw-best':'Alle Filialen',
+    'vw-sonder':'Sonderaufträge','vw-reinigung':'Alle Filialen','bs-reinigung':'Eingegangene Aufträge',reinigung:'Einmal pro Woche','artikel-mgmt':'Listen bearbeiten'};
+  const kacheln=nav.map(i=>{
+    const ico=i.lbl.split(' ')[0];
+    const lbl=i.lbl.replace(/^[^\s]+\s/,'');
+    return`<div class="kachel" onclick="renderPanel('${i.id}')">
+      <div class="kachel-icon">${ico}</div>
+      <div class="kachel-lbl">${lbl}</div>
+      ${sublbl[i.id]?`<div class="kachel-sub">${sublbl[i.id]}</div>`:''}
+    </div>`;
+  }).join('');
+  const wocheLabel=nextWeekLabel();
+  const versandFr=nextWeekFrISO();
+  // Wer hat für nächste Woche bestellt?
+  let bestellStatusHTML='';
+  if(U==='B1'||U==='Verwaltung'){
+    const moISO=nextWeekMoISO();
+    const hatBaeko=f=>db.bestellungen.some(b=>b.filiale===f&&(b.versanddatum===versandFr||b.wocheMo===moISO)&&b.typ==='baeko');
+    const hatHW=f=>db.bestellungen.some(b=>b.filiale===f&&(b.versanddatum===versandFr||b.wocheMo===moISO)&&b.typ==='metro');
+    const hwStatus=f=>{const b=db.bestellungen.find(x=>x.filiale===f&&(x.versanddatum===versandFr||x.wocheMo===moISO)&&x.typ==='metro');return b?b.status:null;};
+    const stIcon=s=>({offen:'🕐',gepackt:'✅',teilweise:'⚠️',versendet:'🚚',angekommen:'✅',bestaetigt:'✅'}[s]||'–');
+    const offeneHW=U==='B1'?db.bestellungen.filter(b=>b.typ==='metro'&&(b.status==='offen'||b.status==='teilweise')).length:0;
+    // B1 sieht nur HW-Übersicht, Verwaltung sieht beides
+    const rows=ALLE_FIL.map(f=>`<tr>
+      <td style="font-weight:500;padding:7px 12px">${f}</td>
+      ${U==='Verwaltung'?`<td style="text-align:center;padding:7px 12px">${hatBaeko(f)?'<span style="color:var(--green)">✅</span>':'<span style="color:var(--xlight)">–</span>'}</td>`:''}
+      <td style="text-align:center;padding:7px 12px">${hatHW(f)?`<span title="${stlbl(hwStatus(f))}">${stIcon(hwStatus(f))}</span>`:'<span style="color:var(--xlight)">–</span>'}</td>
+    </tr>`).join('');
+    bestellStatusHTML=`<div class="card" style="margin-bottom:14px">
+      <div style="font-weight:600;font-size:13px;margin-bottom:${offeneHW?'8':'10'}px">📋 Bestellstatus · Woche ${wocheLabel}</div>
+      ${offeneHW?`<div class="banner banner-warn" style="margin-bottom:10px">📦 <strong>${offeneHW} HW-Bestellung(en)</strong> warten auf Bearbeitung</div>`:''}
+      <div class="twrap"><table>
+        <thead><tr><th>Filiale</th>${U==='Verwaltung'?'<th style="text-align:center">🌾 BÄKO</th>':''}<th style="text-align:center">📦 HW-Status</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table></div>
+    </div>`;
+  }
+
+  mc.innerHTML=`<div id="start-banner"></div>
+    ${bestellStatusHTML}
+    <div class="card">
+      <div class="ctitle" style="font-size:1rem;margin-bottom:4px">Guten Tag, ${fname(U)} 👋</div>
+      <p style="font-size:13px;color:var(--light);margin-bottom:18px">Was möchtest du heute tun?</p>
+      <div class="kacheln">${kacheln}</div>
+    </div>`;
+  updateStartBanner();
+}
+
+function updateStartBanner(){
+  const div=document.getElementById('start-banner');if(!div)return;
+  let html='';
+
+  // B1: nur offene + unvollständige HW
+  if(U==='B1'){
+    const offeneHW=db.bestellungen.filter(b=>b.typ==='metro'&&b.status==='offen');
+    const teilweiseHW=db.bestellungen.filter(b=>b.typ==='metro'&&b.status==='teilweise');
+    if(offeneHW.length)html+=`<div class="banner banner-warn">📦 <strong>${offeneHW.length} HW-Bestellung(en)</strong> warten auf Bearbeitung. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('vw-best')">Jetzt packen →</span></div>`;
+    if(teilweiseHW.length)html+=`<div class="banner banner-red">⚠️ <strong>${teilweiseHW.length} HW-Bestellung(en)</strong> nicht vollständig gepackt. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('vw-best')">Fehlmengen prüfen →</span></div>`;
+  }
+  // Verwaltung: alle Banner
+  if(U==='Verwaltung'){
+    const offen=db.bestellungen.filter(b=>b.status==='offen');
+    const fehlend=db.bestellungen.filter(b=>b.fehlmengen&&Object.keys(b.fehlmengen).filter(k=>b.fehlmengen[k]>0).length>0&&b.status!=='bestaetigt');
+    if(offen.length)html+=`<div class="banner banner-warn">📋 <strong>${offen.length} neue Bestellung(en)</strong> warten auf Bearbeitung. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('vw-best')">Jetzt ansehen →</span></div>`;
+    if(fehlend.length){
+      // Kritische Fehlmengen (Kaffee, Tee, Kaba) separat hervorheben
+      const kritischFehlend=fehlend.filter(b=>{
+        if(b.typ!=='metro'||!b.fehlmengen)return false;
+        return Object.entries(b.fehlmengen).some(([id,v])=>{
+          if(v<=0)return false;
+          const art=(b.positionen||[]).find(p=>p.id===id);
+          return art&&istKritisch(art.name);
+        });
+      });
+      if(kritischFehlend.length){
+        const filNamen=[...new Set(kritischFehlend.map(b=>fname(b.filiale)))].join(', ');
+        html+=`<div class="banner" style="background:#7f0000;color:white;border-color:#7f0000">🚨 <strong>KRITISCHE Fehlmengen</strong> (Kaffee/Tee/Kaba) bei: <strong>${filNamen}</strong> – <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('vw-best')">Jetzt prüfen →</span></div>`;
+      }
+      html+=`<div class="banner banner-red">⚠️ <strong>${fehlend.length} Bestellung(en)</strong> mit offenen Fehlmengen. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('vw-best')">Prüfen →</span></div>`;
+    }
+    const abweichungen=db.bestellungen.filter(b=>b.hatAbweichung);
+    if(abweichungen.length)html+=`<div class="banner banner-red">⚠️ <strong>${abweichungen.length} Lieferung(en)</strong> mit Abweichungen. <span style="text-decoration:underline;cursor:pointer" onclick="renderPanel('bestellhistorie')">Ansehen →</span></div>`;
+  }
+
+  // Freitags-Erinnerung für alle Filialen
+  if(!['Verwaltung','Backstube'].includes(U)){
+    const today_dow=new Date().getDay();
+    if(today_dow===5){
+      const moISO=nextWeekMoISO();
+      const frISO=nextWeekFrISO();
+      const hatBaeko=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='baeko');
+      const hatHW=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='metro');
+      if(!hatBaeko||!hatHW){
+        const missing=[];
+        if(!hatBaeko)missing.push('🌾 BÄKO');
+        if(!hatHW)missing.push('📦 HW');
+        html+=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
+          padding:14px 16px;margin-bottom:10px;font-size:13px">
+          🔔 <strong>Heute ist Freitag!</strong> Noch nicht bestellt: <strong>${missing.join(' · ')}</strong>
+          <div style="font-size:11px;opacity:.7;margin-top:3px">Bitte noch für nächste Woche (${nextWeekLabel()}) bestellen.</div>
+        </div>`;
+      }
+    }
+  }
+
+  // Verwaltung: Banner für neu angekommene Lieferungen
+  if(U==='Verwaltung'){
+    const neuAngekommen=db.bestellungen.filter(b=>b.status==='angekommen'&&!b.vwGesehen);
+    if(neuAngekommen.length){
+      const typen=[...new Set(neuAngekommen.map(b=>b.typ==='baeko'?'🌾 BÄKO':'📦 HW'))].join(' · ');
+      const filialen=[...new Set(neuAngekommen.map(b=>fname(b.filiale)))].join(', ');
+      html+=`<div class="banner banner-ok">📬 <strong>${neuAngekommen.length} Lieferung(en) angekommen</strong> – ${filialen} (${typen}). <span style="text-decoration:underline;cursor:pointer" onclick="markVwGesehenAndGo()">Jetzt ansehen →</span></div>`;
+    }
+  }
+
+  // Filiale: Lieferung unterwegs – bitte bestätigen (BÄKO + HW)
+  if(!['Verwaltung','B1','Backstube'].includes(U)){
+    const versendet=db.bestellungen.filter(b=>b.filiale===U&&b.status==='versendet'&&(b.typ==='metro'||b.typ==='baeko'));
+    versendet.forEach(b=>{
+      const typLbl=b.typ==='baeko'?'🌾 BÄKO':'📦 HW';
+      html+=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
+        padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer"
+        onclick="openAngekommenModal('${b.id}')">
+        <div>
+          <div style="font-weight:700;font-size:15px">🚚 Lieferung unterwegs!</div>
+          <div style="font-size:12px;opacity:.8;margin-top:3px">${typLbl} · Bestellt am ${new Date(b.datum).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'})} · Bitte bestätigen wenn angekommen</div>
+        </div>
+        <div style="background:white;color:var(--black);font-weight:700;font-size:13px;
+          padding:8px 14px;border-radius:var(--rsm);white-space:nowrap">
+          📬 Jetzt bestätigen
+        </div>
+      </div>`;
+    });
+  }
+
+  // TEMPORÄR AUSGEBLENDET – Kühlpläne in Bearbeitung
+  // if(U!=='Verwaltung'){
+  //   const datum=today();
+  //   const schicht=getAktuelleSchicht();
+  //   if(schicht){
+  //     const key=kuehlKey(U,datum,schicht);
+  //     const e=db.kuehltheke?db.kuehltheke[key]:null;
+  //     const sObj=SCHICHTEN.find(s=>s.id===schicht);
+  //     if(!e||!e.abgeschlossen){
+  //       html+=`<div class="banner banner-warn" ...>🌡️ Kühlpläne ausstehend</div>`;
+  //     }else{
+  //       html+=`<div class="banner banner-ok">🌡️ Kühlpläne ✅</div>`;
+  //     }
+  //   }
+  // }
+
+  // Freitags-Erinnerung
+  if(!['Verwaltung','Backstube'].includes(U)){
+    const today_dow=new Date().getDay();
+    if(today_dow===5){
+      const moISO=nextWeekMoISO();
+      const frISO=nextWeekFrISO();
+      const hatBaeko=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='baeko');
+      const hatHW=db.bestellungen.some(b=>b.filiale===U&&(b.wocheMo===moISO||b.versanddatum===frISO)&&b.typ==='metro');
+      if(!hatBaeko||!hatHW){
+        const missing=[];
+        if(!hatBaeko)missing.push('🌾 BÄKO');
+        if(!hatHW)missing.push('📦 HW');
+        html+=`<div style="background:var(--black);color:white;border-radius:var(--rsm);
+          padding:14px 16px;margin-bottom:10px;font-size:13px;cursor:pointer"
+          onclick="renderPanel(!${hatBaeko}?'baeko':'metro')">
+          🔔 <strong>Heute ist Freitag!</strong> Noch nicht bestellt: <strong>${missing.join(' · ')}</strong>
+          <div style="font-size:11px;opacity:.7;margin-top:3px">Woche ${nextWeekLabel()} · Jetzt bestellen →</div>
+        </div>`;
+      }
+    }
+  }
+
+  div.innerHTML=html;
+}
+
+// ═══════════════════ BÄKO BESTELLUNG ═══════════════════
+function renderBaeko(){
+  const mc=document.getElementById('mc');
+  const arts=BAEKO[U]||[];
+  if(!arts.length){mc.innerHTML='<div class="card"><div class="ctitle">🌾 BÄKO</div><div class="banner banner-info">ℹ️ Keine Artikelliste für diese Filiale.</div></div>';return;}
+  // Gruppiere nach Kategorie
+  const kats=[...new Set(arts.map(a=>a.kat||'Sonstiges'))];
+  const rows=kats.map(kat=>{
+    const katArts=arts.filter(a=>(a.kat||'Sonstiges')===kat);
+    return `<div class="slbl" style="font-size:13px;font-weight:700;color:var(--dark);margin-top:14px;margin-bottom:6px;letter-spacing:.02em">${kat}</div>`+
+    katArts.map(a=>`<div class="orow">
+      <div><div class="aname">${a.name}</div><div style="font-size:11px;color:var(--light);margin-top:1px">${a.id}</div></div>
+      <input class="qinp" type="number" min="0" value="" id="bq-${a.id}" placeholder="0" oninput="this.dataset.filled=this.value>0?'1':'';saveBaekoDraft()">
+    </div>`).join('');
+  }).join('');
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🌾 BÄKO</div>
+    ${renderWeekPicker('baeko')}
+    <div id="bal"></div>
+    ${rows}
+    <hr class="div">
+    <div class="slbl">Unterschrift</div>
+    <input type="text" id="sig-name" placeholder="Ihren Namen eingeben" inputmode="text" autocomplete="name"
+      style="width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:'Inter',sans-serif;background:white;outline:none;margin-top:4px">
+    <div class="brow">
+      <button class="btn btn-p" onclick="submitBaeko()">✅ Bestellung absenden</button>
+      <button class="btn btn-o" onclick="clearBQ()">↺ Zurücksetzen</button>
+    </div></div>`;
+  checkBEx();
+  const _wDraft=getPickerDate('baeko')||'unbekannt';
+  const _exDraft=db.bestellungen.find(b=>b.filiale===U&&b.typ==='baeko'&&(b.versanddatum===_wDraft||b.wocheMo===moFromDate(_wDraft)));
+  if(!_exDraft)loadBaekoDraftFromFirebase(_wDraft);
+}
+function checkBEx(){
+  const al=document.getElementById('bal');if(!al)return;
+  const frISO=getPickerDate('baeko');
+  const moISO=moFromDate(frISO);
+  const ex=db.bestellungen.find(b=>b.filiale===U&&b.typ==='baeko'&&
+    (b.wocheMo===moISO||b.versanddatum===frISO));
+  clearBQ();
+  if(ex){
+    const wLbl=ex.wocheLabel||weekLabelFromMo(new Date(moISO));
+    al.innerHTML=`<div class="banner banner-warn">⚠️ BÄKO für <strong>${wLbl}</strong> bereits bestellt (${stlbl(ex.status)}). Erneut senden überschreibt.</div>`;
+    ex.positionen.forEach(p=>{const el=document.getElementById('bq-'+p.id);if(el){el.value=p.menge;el.dataset.filled='1';}});
+  }else{al.innerHTML='';loadBaekoDraftFromFirebase(frISO);}
+}
+function clearBQ(){(BAEKO[U]||[]).forEach(a=>{const el=document.getElementById('bq-'+a.id);if(el){el.value='';el.dataset.filled='';}});}
+function submitBaeko(){
+  const pos=[];
+  (BAEKO[U]||[]).forEach(a=>{const el=document.getElementById('bq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)pos.push({id:a.id,name:a.name,menge:v});});
+  if(!pos.length){toast('Bitte mind. einen Artikel eintragen.');return;}
+  const btn=document.querySelector('[onclick="submitBaeko()"]');
+  if(btn){btn.disabled=true;btn.textContent='⏳ Wird gesendet…';}
+    const sigVal=document.getElementById('sig-name')?.value.trim()||'';
+  const versandFr=getPickerDate('baeko');
+  const wocheMo=moFromDate(versandFr);
+  const wLabel=weekLabelFromMo(new Date(wocheMo));
+  db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.wocheMo===wocheMo&&b.typ==='baeko'));
+  db.bestellungen.push({id:uid(),filiale:U,versanddatum:versandFr,wocheMo,week:wocheMo,wocheLabel:wLabel,datum:new Date().toISOString(),positionen:pos,
+    status:'offen',typ:'baeko',sig:sigVal,fehlmengen:{},
+    statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]});
+  save();clearBQ();clearDraft('baeko');clearBaekoDraftFirebase(versandFr);const sn=document.getElementById('sig-name');if(sn)sn.value='';toast('✅ BÄKO-Bestellung eingegangen!');
+  checkBEx();
+}
+
+// ═══════════════════ METRO BESTELLUNG ═══════════════════
+function renderMetro(){
+  const mc=document.getElementById('mc');
+  const filMetro=METRO[U]||METRO[ALLE_FIL[0]]||[];
+  const kats=[...new Set(filMetro.map(a=>a.kat))];
+  const rows=kats.map(kat=>`<div class="slbl">${kat}</div>`+
+    filMetro.filter(a=>a.kat===kat).map(a=>`<div class="orow">
+      <div><div class="aname">${a.name}</div>
+      </div>
+      <input class="qinp" type="number" min="0" value="" id="mq-${a.id}" placeholder="0" oninput="this.dataset.filled=this.value>0?'1':''">
+    </div>`).join('')).join('');
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">HANDELSWAREN</div>
+    ${renderWeekPicker('metro')}
+    <div id="mal"></div>
+    ${rows}
+    <hr class="div">
+    <div class="slbl">Sonstige Artikel (fehlen auf der Liste?)</div>
+    <textarea id="metro-freitext" placeholder="z.B. 2× Reinigungstabs extra, 1× Sonderartikel…"
+      style="width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--rsm);
+      font-size:13px;font-family:'Inter',sans-serif;min-height:70px;resize:vertical;margin-bottom:10px"></textarea>
+    <hr class="div">
+    <div class="slbl">Unterschrift</div>
+    <input type="text" id="sig-name" placeholder="Ihren Namen eingeben" inputmode="text" autocomplete="name"
+      style="width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:'Inter',sans-serif;background:white;outline:none;margin-top:4px">
+    <div class="brow">
+      <button class="btn btn-p" onclick="submitMetro()">✅ Metro-Bestellung absenden</button>
+      <button class="btn btn-o" onclick="clearMQ()">↺ Zurücksetzen</button>
+    </div></div>`;
+  checkMEx();
+}
+function checkMEx(){
+  const al=document.getElementById('mal');if(!al)return;
+  const frISO=nextWeekFrISO();
+  const moISOM=nextWeekMoISO();
+  const ex=db.bestellungen.find(b=>b.filiale===U&&(b.wocheMo===moISOM||b.versanddatum===frISO)&&b.typ==='metro');
+  if(ex){
+    al.innerHTML=`<div class="banner banner-warn">⚠️ HANDELSWAREN für <strong>${nextWeekLabel()}</strong> bereits bestellt (${stlbl(ex.status)}).</div>`;
+    ex.positionen.forEach(p=>{const el=document.getElementById('mq-'+p.id);if(el){el.value=p.menge;el.dataset.filled='1';}});
+  }else al.innerHTML='';
+}
+function clearMQ(){METRO.forEach(a=>{const el=document.getElementById('mq-'+a.id);if(el){el.value='';el.dataset.filled='';}});}
+function submitMetro(){
+  const pos=[];
+  (METRO[U]||[]).forEach(a=>{const el=document.getElementById('mq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)pos.push({id:a.id,name:a.name,kat:a.kat,vpe:a.vpe||'',menge:v});});
+  if(!pos.length){toast('Bitte mind. einen Artikel eintragen.');return;}
+  const sigValM=document.getElementById('sig-name')?.value.trim()||'';
+  const freitextM=document.getElementById('metro-freitext')?.value.trim()||'';
+  const versandFrM=nextWeekFrISO();const wocheMoM=nextWeekMoISO();
+  db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.wocheMo===wocheMoM&&b.typ==='metro'));
+  db.bestellungen.push({id:uid(),filiale:U,versanddatum:versandFrM,wocheMo:wocheMoM,week:wocheMoM,wocheLabel:nextWeekLabel(),datum:new Date().toISOString(),positionen:pos,
+    status:'offen',typ:'metro',sig:sigValM,freitext:freitextM,fehlmengen:{},
+    statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]});
+  save();clearMQ();const smn=document.getElementById('sig-name');if(smn)smn.value='';const mft=document.getElementById('metro-freitext');if(mft)mft.value='';toast('✅ HW-Bestellung eingegangen!');
+  checkMEx();
+}
+
+// ═══════════════════ SONDERBESTELLUNG ═══════════════════
+let sItems=[];
+function renderSonder(){
+  const mc=document.getElementById('mc');
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🎂 SONDERBESTELLUNG</div>
+    <p style="font-size:13px;color:var(--light);margin-bottom:14px">Geht direkt an die Backstube. Täglich möglich.</p>
+    <div class="sform">
+      <label class="flbl">Datum</label><input type="date" id="sd" value="${today()}">
+      <label class="flbl">Tour / Lieferhinweis</label><input type="text" id="st" placeholder="z.B. Tour 2 – Dienstag früh">
+      <label class="flbl">Bestellung (Freitext)</label>
+      <textarea id="stxt" placeholder="z.B. 30 Stück Croissant extra, Kundenname Müller…" style="min-height:120px"></textarea>
+      <label class="flbl">Ihr Name</label>
+      <input type="text" id="sname" placeholder="Ihren Namen eingeben" inputmode="text" autocomplete="name" style="border-color:var(--border)" oninput="this.style.borderColor=this.value.trim()?'var(--border)':\'red\'">
+    </div>
+    <div class="brow"><button class="btn btn-p" onclick="submitSonder()">📤 Sonderbestellung senden</button></div>
+  </div>`;
+  sItems=[];
+}
+function addSItem(){
+  const sel=document.getElementById('ssel'),id=sel.value;if(!id)return;sel.value='';
+  const allArts=[...(BAEKO[U]||[]),...METRO];
+  const a=allArts.find(x=>x.id===id);if(!a)return;
+  if(sItems.find(s=>s.id===id)){toast('Bereits hinzugefügt.');return;}
+  sItems.push({id:a.id,name:a.name,menge:1});renderSItems();
+}
+function renderSItems(){
+  const l=document.getElementById('slist');if(!l)return;
+  if(!sItems.length){l.innerHTML='';return;}
+  l.innerHTML=sItems.map((s,i)=>`<div class="orow" style="margin-bottom:5px">
+    <div class="aname">${s.name}</div>
+    <input class="qinp" type="number" min="1" value="${s.menge}" oninput="sItems[${i}].menge=parseFloat(this.value)||1">
+    <button class="btn btn-o btn-sm" onclick="sItems.splice(${i},1);renderSItems()">✕</button>
+  </div>`).join('');
+}
+function submitSonder(){
+  const datum=document.getElementById('sd')?.value;
+  const name=(document.getElementById('sname')?.value||'').trim();
+  const text=(document.getElementById('stxt')?.value||'').trim();
+  const tour=(document.getElementById('st')?.value||'').trim();
+  if(!datum){toast('\u26a0\ufe0f Datum angeben.');return;}
+  if(!name){
+    document.getElementById('sname')?.focus();
+    document.getElementById('sname')?.style && (document.getElementById('sname').style.borderColor='red');
+    toast('\u26a0\ufe0f Bitte Namen eintragen.');return;
+  }
+  if(!text){toast('\u26a0\ufe0f Bitte Bestellung eintragen.');return;}
+  db.sonder.push({id:uid(),filiale:U,datum,tour,text,name,artikel:[],status:'offen',erstellt:new Date().toISOString()});
+  save();toast('⭐ Sonderbestellung gesendet!');renderSonder();
+}
+
+// ═══════════════════ BESTELLHISTORIE ═══════════════════
+function renderBestellhistorie(){
+  const mc=document.getElementById('mc');
+  const isAll=U==='Verwaltung'||U==='Backstube';
+  const filOpts=isAll?ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join(''):'';
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">BESTELLHISTORIE</div>
+    <p style="font-size:12px;color:var(--light);margin-bottom:12px">Wann · Von wem · Was bestellt</p>
+    <div class="frow">
+      <input type="date" id="hw" placeholder="Datum filtern" oninput="refreshHist()">
+      ${isAll?`<select id="hfil" onchange="refreshHist()"><option value="">Alle Filialen</option>${filOpts}</select>`:''}
+      
+      <select id="hst" onchange="refreshHist()"><option value="">Alle Status</option><option value="offen">Offen</option><option value="versendet">Versendet</option><option value="angekommen">Angekommen</option><option value="bestaetigt">Bestätigt</option></select>
+    </div>
+    <div id="hlist"></div>
+  </div>`;
+  refreshHist();
+}
+function markVwGesehenAndGo(){
+  db.bestellungen.filter(b=>b.status==='angekommen'&&!b.vwGesehen).forEach(b=>{b.vwGesehen=true;});
+  save();renderPanel('bestellhistorie');
+}
+
+function refreshHist(){
+  const isAll=U==='Verwaltung'||U==='Backstube';
+  const datFilter=document.getElementById('hw')?.value||'';
+  const fil=document.getElementById('hfil')?.value||'';
+  const st=document.getElementById('hst')?.value||'';
+  const list=document.getElementById('hlist');if(!list)return;
+
+  // Bäko + HW Bestellungen
+  let orders=db.bestellungen.filter(b=>{
+    if(U!=='Verwaltung'&&U!=='Backstube'&&b.filiale!==U)return false;
+    if(datFilter&&b.versanddatum!==datFilter&&b.datum.slice(0,10)!==datFilter)return false;
+    if(fil&&b.filiale!==fil)return false;
+    if(st&&b.status!==st)return false;
+    return true;
+  });
+
+  // Sonderbestellungen
+  let sonders=db.sonder.filter(s=>{
+    if(U!=='Verwaltung'&&U!=='Backstube'&&s.filiale!==U)return false;
+    if(datFilter&&s.datum!==datFilter&&s.erstellt.slice(0,10)!==datFilter)return false;
+    if(fil&&s.filiale!==fil)return false;
+    if(st&&s.status!==st)return false;
+    return true;
+  });
+
+  // Alles zusammen nach Datum sortiert
+  const combined=[
+    ...orders.map(o=>({...o,_art:'bestellung',_sortKey:o.datum})),
+    ...sonders.map(s=>({...s,_art:'sonder',_sortKey:s.erstellt}))
+  ].sort((a,b)=>b._sortKey.localeCompare(a._sortKey));
+
+  if(!combined.length){list.innerHTML='<p style="color:var(--light);font-size:13px">Keine Einträge gefunden.</p>';return;}
+
+  list.innerHTML=combined.map(item=>{
+    if(item._art==='sonder'){
+      const lieferdatum=item.datum_liefer||item.datum;
+      const lieferFmt=lieferdatum?new Date(lieferdatum.length>10?lieferdatum:lieferdatum+'T00:00:00').toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'}):null;
+      const eingang=dts(item.erstellt);
+      if(isAll){
+        // Backstube & Verwaltung: bisherige Ansicht unverändert
+        return`<div class="hitem">
+        <div class="hhead" onclick="th(this)">
+          <div>
+            <strong>${fname(item.filiale)}</strong> · 🎂 SONDERBESTELLUNG · ${item.datum}
+            <div style="font-size:11px;color:var(--light);margin-top:2px">📅 ${eingang} · ${item.name||''}</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:7px">
+            <span class="st ${stcls(item.status)}">${stlbl(item.status)}</span>
+            <span style="color:var(--xlight)">›</span>
+          </div>
+        </div>
+        <div class="hbody">
+          ${item.text?`<p style="font-size:13px;margin-bottom:8px">${item.text}</p>`:''}
+          ${item.tour?`<p style="font-size:12px;color:var(--light)">Tour: ${item.tour}</p>`:''}
+          ${(U==='Verwaltung'||U==='Backstube')?`<div class="brow"><button class="btn btn-o btn-sm" onclick="printLZ('${item.id}')">🖨️ Laufzettel</button></div>`:''}
+        </div>
+      </div>`;
+      }
+      // Filial-Ansicht: neues Layout
+      return`<div class="hitem">
+        <div class="hhead" onclick="th(this)">
+          <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+            <div style="background:var(--black);color:white;border-radius:6px;padding:5px 9px;text-align:center;flex-shrink:0;min-width:46px">
+              <div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.04em">für</div>
+              <div style="font-size:14px;font-weight:700;line-height:1.2">${lieferFmt||'–'}</div>
+              ${item.tour?`<div style="font-size:9px;color:#ccc;margin-top:1px">${item.tour}</div>`:''}
+            </div>
+            <div style="flex:1;min-width:0">
+              <div style="font-size:13px;font-weight:700">${item.filiale} · 🎂 Sonderbestellung</div>
+              <div style="font-size:11px;color:var(--light);margin-top:2px">Abgeschickt: ${eingang} · ${item.name||''}</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:7px;flex-shrink:0">
+            <span class="st ${stcls(item.status)}">${stlbl(item.status)}</span>
+            <span style="color:var(--xlight)">›</span>
+          </div>
+        </div>
+        <div class="hbody">
+          ${item.text?`<p style="font-size:13px;margin-bottom:8px">${item.text}</p>`:''}
+        </div>
+      </div>`;
+    }
+    const o=item;
+    const isBaeko=o.typ==='baeko';
+    const fehlCount=o.fehlmengen?Object.values(o.fehlmengen).filter(v=>v>0).length:0;
+    return`<div class="hitem">
+      <div class="hhead" onclick="th(this)">
+        <div>
+          <strong>${fname(o.filiale)}</strong> · ${isBaeko?'🌾 BÄKO':'📦 HANDELSWAREN'} · ${o.wocheLabel||o.versanddatum||o.week}
+          <div style="font-size:11px;color:var(--light);margin-top:2px">📅 ${dts(o.datum)}${o.sig?' · '+o.sig:''}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:7px">
+          ${o.hatAbweichung?`<span class="st" style="background:var(--red-lt);color:var(--red)">⚠️ Abweichung</span>`:fehlCount?`<span class="st st-teilweise">⚠️ ${fehlCount} Fehlmenge(n)</span>`:''}
+          <span class="st ${stcls(o.status)}">${stlbl(o.status)}</span>
+          ${(o.status==='versendet'&&o.filiale===U&&(o.typ==='metro'||o.typ==='baeko'))?`<button class="btn btn-g btn-sm no-print" onclick="event.stopPropagation();openAngekommenModal('${o.id}')">📬 Lieferung bestätigen</button>`:''}
+          <span style="color:var(--xlight)">›</span>
+        </div>
+      </div>
+      <div class="hbody">
+        ${ordTbl(o)}
+        ${fehlCount?fehlTbl(o):''}
+        ${o.statusLog?`<div class="slbl" style="margin-top:12px">Status-Verlauf</div><div class="tline">${o.statusLog.map(h=>`<div class="tli"><div class="tld">${dts(h.datum)} · ${h.by}</div><span class="st ${stcls(h.status)}">${stlbl(h.status)}</span></div>`).join('')}</div>`:''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function ordTbl(o){
+  const hatAnkunft=o.positionen&&o.positionen.some(p=>p.angekommen!==undefined);
+  const hatFehl=o.fehlmengen&&Object.keys(o.fehlmengen).length>0;
+  return`<div class="twrap"><table><thead><tr>
+    <th>Artikel</th><th>Bestellt</th>
+    ${hatFehl?'<th>Gepackt</th><th>Fehlt</th>':''}
+    ${hatAnkunft?'<th>Angekommen</th><th>Diff</th>':''}
+    </tr></thead>
+    <tbody>${o.positionen.map(p=>{
+      const gepackt=hatFehl&&o.fehlmengen[p.id]!==undefined?(p.menge-(o.fehlmengen[p.id]||0)):null;
+      const fehlt=hatFehl&&o.fehlmengen[p.id]>0?o.fehlmengen[p.id]:0;
+      const ang=p.angekommen!==undefined?p.angekommen:null;
+      const diff=ang!==null?ang-p.menge:null;
+      const hasAbw=diff!==null&&diff!==0;
+      return`<tr style="${hasAbw?'background:var(--red-lt)':fehlt?'background:var(--amber-lt)':''}">
+        <td>${p.name}</td><td>${p.menge}</td>
+        ${hatFehl?`<td>${gepackt!==null?gepackt:'–'}</td><td style="color:${fehlt?'var(--red)':'var(--green)'};font-weight:600">${fehlt>0?'−'+fehlt:'✓'}</td>`:''}
+        ${hatAnkunft?`<td style="font-weight:${hasAbw?700:400}">${ang!==null?ang:'–'}</td>
+          <td style="color:${hasAbw?(diff<0?'var(--red)':'var(--amber)'):'var(--green)'};font-weight:700">
+            ${diff!==null?(diff===0?'✓':(diff>0?'+':'')+diff):'–'}
+          </td>`:''}
+      </tr>`;
+    }).join('')}</tbody></table></div>
+    ${o.freitext?`<div style="margin-top:8px;padding:8px 10px;background:var(--cream);border-radius:var(--rsm);font-size:12px">📝 Sonstige Artikel: ${o.freitext}</div>`:''}
+    ${o.ankunftKommentar?`<div style="margin-top:8px;padding:8px 10px;background:var(--amber-lt);border-radius:var(--rsm);font-size:12px">💬 ${o.ankunftKommentar}</div>`:''}
+    ${o.hatAbweichung?`<div class="banner banner-red" style="margin-top:8px">⚠️ Abweichungen bei dieser Lieferung gemeldet</div>`:''}`;
+}
+
+function fehlTbl(o){
+  const fehler=Object.entries(o.fehlmengen).filter(([k,v])=>v>0);
+  if(!fehler.length)return'';
+  const hatKritisch=U==='Verwaltung'&&fehler.some(([id,v])=>{const art=(o.positionen||[]).find(p=>p.id===id);return art&&istKritisch(art.name);});
+  return`<div class="banner" style="margin-top:10px;background:${hatKritisch?'#7f0000':'var(--red-lt)'};color:${hatKritisch?'white':'var(--red)'};border-color:${hatKritisch?'#7f0000':'var(--red)'}">
+    ${hatKritisch?'🚨 <strong>KRITISCHE Fehlmengen!</strong>':'⚠️ Offene Fehlmengen:'} ${fehler.map(([id,v])=>{
+    const p=o.positionen.find(x=>x.id===id);return(p?.name||id)+': −'+v;
+  }).join(', ')}</div>`;
+}
+function confirmArr(id){
+  const o=db.bestellungen.find(x=>x.id===id);if(!o)return;
+  o.status='angekommen';if(!o.statusLog)o.statusLog=[];
+  o.statusLog.push({status:'angekommen',datum:new Date().toISOString(),by:U});
+  save();refreshHist();toast('📬 Als angekommen markiert!');
+}
+
+// ═══════════════════ PACKEN MODAL (B1) ═══════════════════
+function openPackenModal(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const rows=o.positionen.map(p=>{
+    const fehlend=o.fehlmengen&&o.fehlmengen[p.id]>0;
+    return`<div class="pack-row${fehlend?' fehlend':''}">
+      <div><div style="font-weight:500;font-size:13px">${p.name}</div>
+        ${fehlend?`<div style="font-size:11px;color:var(--red)">Noch fehlend: ${o.fehlmengen[p.id]}</div>`:''}
+      </div>
+      <div style="text-align:center;font-size:13px;color:var(--mid)">${p.menge}</div>
+      <input class="pack-inp" type="number" min="0" max="${p.menge}" value="${o.fehlmengen&&o.fehlmengen[p.id]!==undefined?p.menge-(o.fehlmengen[p.id]||0):p.menge}" id="pk-${p.id}" placeholder="${p.menge}">
+    </div>`;
+  }).join('');
+  document.getElementById('modal-container').innerHTML=`
+    <div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-title">📦 Packen – ${fname(o.filiale)} · ${o.typ==='baeko'?'🌾 BÄKO':'HANDELSWAREN'} · Versand ${o.versanddatum?new Date(o.versanddatum).toLocaleDateString('de-DE'):o.week}</div>
+        <div style="display:grid;grid-template-columns:1fr 70px 70px;gap:8px;padding:6px 10px;font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase">
+          <div>Artikel</div><div style="text-align:center">Bestellt</div><div style="text-align:center">Gepackt</div>
+        </div>
+        ${rows}
+        <p style="font-size:12px;color:var(--light);margin-top:10px">Gepackte Menge eintragen. Fehlmengen bleiben als offene Position bestehen.</p>
+        <div class="brow" style="margin-top:14px">
+          <button class="btn btn-p" onclick="submitPacken('${orderId}')">✅ Versand bestätigen</button>
+          <button class="btn btn-o" onclick="closeModal()">Abbrechen</button>
+        </div>
+      </div>
+    </div>`;
+}
+function closeModal(){document.getElementById('modal-container').innerHTML='';}
+function submitPacken(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const fehlmengen={};let hatFehler=false;
+  o.positionen.forEach(p=>{
+    const el=document.getElementById('pk-'+p.id);
+    const gepackt=el?parseFloat(el.value)||0:p.menge;
+    const fehlt=Math.max(0,p.menge-gepackt);
+    if(fehlt>0){fehlmengen[p.id]=fehlt;hatFehler=true;}
+    else fehlmengen[p.id]=0;
+  });
+  o.fehlmengen=fehlmengen;
+  o.status=hatFehler?'teilweise':'versendet';
+  if(!o.statusLog)o.statusLog=[];
+  o.statusLog.push({status:o.status,datum:new Date().toISOString(),by:U,
+    note:hatFehler?'Teilweise versendet – Fehlmengen offen':'Vollständig versendet'});
+  save();closeModal();
+  if(hatFehler){
+    const fehlerListe=Object.entries(fehlmengen).filter(([k,v])=>v>0)
+      .map(([id,v])=>{const p=o.positionen.find(x=>x.id===id);return(p?.name||id)+': −'+v;}).join(', ');
+    toast('⚠️ Teilweise versendet. Fehlmengen: '+fehlerListe);
+  }else toast('✅ Vollständig versendet!');
+  renderVwBest();updateStartBanner();
+}
+
+// ═══════════════════ VW BESTELLUNGEN ═══════════════════
+function renderVwBest(){
+  const mc=document.getElementById('mc');
+  const filOpts=ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('');
+  const isVw=U==='Verwaltung';
+  mc.innerHTML=`
+    ${isVw?`<div class="card" style="margin-bottom:10px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+        <div style="font-size:14px;font-weight:600" id="vw-matrix-title">Wochenübersicht</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap">
+          <button class="btn btn-o btn-sm" onclick="vwMatrixShift(-1)">‹ Vorwoche</button>
+          <button class="btn btn-o btn-sm" onclick="vwMatrixShift(0)">Diese Woche</button>
+          <button class="btn btn-o btn-sm" onclick="vwMatrixShift(1)">Nächste ›</button>
+        </div>
+      </div>
+      <div id="vw-matrix-table"></div>
+    </div>`:''}
+    ${isVw?`<div class="card" style="margin-bottom:10px">
+      <div style="font-weight:600;font-size:13px;margin-bottom:8px">📧 Bäko-Sammelbestellung</div>
+      <p style="font-size:12px;color:var(--mid);margin-bottom:8px">Alle Bäko-Bestellungen gebündelt als PDF → per Mail an Bäko weiterleiten</p>
+      <div class="frow" style="margin-bottom:10px">
+        <label style="font-size:12px;font-weight:600;white-space:nowrap">Woche (Mo):</label>
+        <input type="date" id="pdf-woche" style="font-size:13px;padding:5px 8px;border:1px solid var(--border);border-radius:var(--rsm);flex:1" value="${nextWeekMoISO()}">
+        <button class="btn btn-o btn-sm" onclick="pdfWocheVor()">‹</button>
+        <button class="btn btn-o btn-sm" onclick="pdfWocheNaechste()">›</button>
+      </div>
+      <div class="brow" style="margin-top:0">
+        <button class="btn btn-p btn-sm" onclick="printBaeko()">📧 Bäko-PDF & Mail</button>
+        <button class="btn btn-o btn-sm" onclick="printMetro()">📦 HW-PDF</button>
+        <button class="btn btn-o btn-sm" onclick="openNachzueglerModal()">➕ Nachzügler</button>
+      </div>
+    </div>`:''}
+    <div class="card">
+      <div style="font-size:11px;font-weight:600;color:var(--light);text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px">Alle Bestellungen</div>
+      <div class="frow" style="margin-bottom:12px;flex-wrap:wrap;gap:6px">
+        <input type="date" id="vbw" oninput="refVwB()" placeholder="Datum">
+        <select id="vbf" onchange="refVwB()"><option value="">Alle Filialen</option>${filOpts}</select>
+        <select id="vbt" onchange="refVwB()"><option value="">Alle Typen</option><option value="baeko">Bäko</option><option value="metro">HW</option></select>
+        <select id="vbs" onchange="refVwB()"><option value="">Alle Status</option><option value="offen">Offen</option><option value="teilweise">Teilweise</option><option value="versendet">Versendet</option><option value="angekommen">Angekommen</option><option value="bestaetigt">Bestätigt</option></select>
+      </div>
+      <div id="vblist"></div>
+    </div>`;
+  if(isVw){window._vwWeekOffset=window._vwWeekOffset||0;renderVwMatrix();}
+  refVwB();
+}
+
+function vwMatrixShift(dir){
+  if(dir===0)window._vwWeekOffset=0;
+  else window._vwWeekOffset=(window._vwWeekOffset||0)+dir;
+  renderVwMatrix();
+}
+
+function renderVwMatrix(){
+  const off=window._vwWeekOffset||0;
+  const now=new Date();const dow=now.getDay()||7;
+  const mo=new Date(now);mo.setDate(now.getDate()-(dow-1)+(off*7));mo.setHours(0,0,0,0);
+  const fr=new Date(mo);fr.setDate(mo.getDate()+4);
+  const moISO=mo.toISOString().slice(0,10);
+  const frISO=fr.toISOString().slice(0,10);
+  const kwLabel='KW '+mo.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'})+' – '+fr.toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'});
+  const title=document.getElementById('vw-matrix-title');if(title)title.textContent=kwLabel;
+  const typen=[{id:'baeko',lbl:'BÄKO'},{id:'metro',lbl:'HW'},{id:'reinigung',lbl:'Reinigung'}];
+  const stDot=s=>{
+    if(!s)return`<div style="width:22px;height:22px;border-radius:50%;background:var(--cream);display:inline-flex;align-items:center;justify-content:center;font-size:9px;color:var(--light)">–</div>`;
+    const cfg={offen:{bg:'#FAEEDA',c:'#633806',t:'O'},teilweise:{bg:'#FAEEDA',c:'#633806',t:'T'},versendet:{bg:'#E6F1FB',c:'#0C447C',t:'V'},angekommen:{bg:'#EAF3DE',c:'#27500A',t:'A'},bestaetigt:{bg:'#E1F5EE',c:'#085041',t:'✓'}}[s]||{bg:'var(--cream)',c:'var(--light)',t:'?'};
+    return`<div style="width:22px;height:22px;border-radius:50%;background:${cfg.bg};color:${cfg.c};display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-weight:700">${cfg.t}</div>`;
+  };
+  const rows=ALLE_FIL.map(fil=>{
+    const cells=typen.map(typ=>{
+      if(typ.id==='reinigung'){
+        const best=(db.reinigung||[]).find(r=>r.filiale===fil&&r.datum?.slice(0,10)>=moISO&&r.datum?.slice(0,10)<=frISO);
+        return`<td style="text-align:center;padding:5px 4px;border-bottom:.5px solid var(--border)">${best?stDot('bestaetigt'):stDot(null)}</td>`;
+      }
+      const best=db.bestellungen.find(b=>b.filiale===fil&&b.typ===typ.id&&(b.wocheMo===moISO||b.versanddatum===frISO));
+      return`<td style="text-align:center;padding:5px 4px;border-bottom:.5px solid var(--border)">${stDot(best?.status||null)}</td>`;
+    }).join('');
+    return`<tr><td style="padding:5px 0;border-bottom:.5px solid var(--border);font-size:12px;font-weight:500">${fil}</td>${cells}</tr>`;
+  }).join('');
+  const legend=[{bg:'#FAEEDA',c:'#633806',t:'O · Offen'},{bg:'#E6F1FB',c:'#0C447C',t:'V · Versendet'},{bg:'#EAF3DE',c:'#27500A',t:'A · Angekommen'},{bg:'#E1F5EE',c:'#085041',t:'✓ · Bestätigt'}];
+  const tbl=document.getElementById('vw-matrix-table');if(!tbl)return;
+  tbl.innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:12px">
+    <thead><tr>
+      <th style="text-align:left;font-size:10px;font-weight:600;color:var(--light);text-transform:uppercase;padding:4px 0;border-bottom:.5px solid var(--border)">Filiale</th>
+      ${typen.map(t=>`<th style="text-align:center;font-size:10px;font-weight:600;color:var(--light);text-transform:uppercase;padding:4px;border-bottom:.5px solid var(--border)">${t.lbl}</th>`).join('')}
+    </tr></thead><tbody>${rows}</tbody></table>
+  <div style="display:flex;gap:12px;margin-top:10px;flex-wrap:wrap">
+    ${legend.map(l=>`<span style="font-size:11px;color:var(--mid);display:flex;align-items:center;gap:4px"><span style="width:16px;height:16px;border-radius:50%;background:${l.bg};color:${l.c};display:inline-flex;align-items:center;justify-content:center;font-size:8px;font-weight:700">${l.t[0]}</span>${l.t.slice(4)}</span>`).join('')}
+    <span style="font-size:11px;color:var(--mid);display:flex;align-items:center;gap:4px"><span style="width:16px;height:16px;border-radius:50%;background:var(--cream);display:inline-flex;align-items:center;justify-content:center;font-size:8px;color:var(--light)">–</span>Keine</span>
+  </div>`;
+}
+function refVwB(){
+  const f=document.getElementById('vbf')?.value||'';
+  const t=document.getElementById('vbt')?.value||'';
+  const s=document.getElementById('vbs')?.value||'';
+  const list=document.getElementById('vblist');if(!list)return;
+
+  let orders=db.bestellungen.filter(b=>{
+    if(U==='B1'&&b.typ==='baeko')return false;
+    if(U==='B1'&&b.typ==='metro'&&b.filiale==='B1')return false;
+    if(f&&b.filiale!==f)return false;
+    if(t&&t!=='sonder'&&b.typ!==t)return false;
+    if(t==='sonder')return false;
+    if(s&&b.status!==s)return false;
+    return true;
+  });
+
+  let sonders=(!t||t==='sonder')?(db.sonder||[]).filter(so=>{
+    if(f&&so.filiale!==f)return false;
+    if(s&&so.status!==s)return false;
+    return true;
+  }):[];
+
+  const alleItems=[
+    ...orders.map(o=>({...o,_art:'best',_wMo:o.wocheMo||o.week||moFromDate(o.versanddatum||o.datum.slice(0,10)),_sort:o.datum})),
+    ...sonders.map(so=>({...so,_art:'sonder',_wMo:moFromDate(so.datum||so.erstellt?.slice(0,10)||today()),_sort:so.erstellt||so.datum}))
+  ];
+
+  if(!alleItems.length){list.innerHTML='<p style="color:var(--light);font-size:13px;padding-bottom:14px">Keine Bestellungen.</p>';return;}
+
+  const wMap={};
+  alleItems.forEach(item=>{
+    const wMo=item._wMo||'unbekannt';
+    if(!wMap[wMo])wMap[wMo]=[];
+    wMap[wMo].push(item);
+  });
+  const wKeys=Object.keys(wMap).sort((a,b)=>b.localeCompare(a));
+
+  list.innerHTML=wKeys.map(wMo=>{
+    const gruppe=wMap[wMo].sort((a,b)=>b._sort.localeCompare(a._sort));
+    const wLabel=wMo!=='unbekannt'?new Date(wMo).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric'}):'Unbekannte Woche';
+    const anzOffen=gruppe.filter(i=>i.status==='offen').length;
+
+    const itemsHTML=gruppe.map(item=>{
+      if(item._art==='sonder'){
+        return`<div class="hitem" style="margin-bottom:4px">
+          <div class="hhead" onclick="th(this)" style="padding:10px 14px">
+            <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+              <span style="font-weight:700;font-size:14px;min-width:28px">${item.filiale}</span>
+              <span style="font-size:12px;color:var(--mid)">⭐ Sonder</span>
+              <span style="font-size:12px;color:var(--light)">${item.datum||''}</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+              <span style="font-size:11px;color:var(--light)">${item.erstellt?new Date(item.erstellt).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):''}</span>
+              <span class="st ${stcls(item.status)}">${stlbl(item.status)}</span>
+              <span style="color:var(--xlight);font-size:16px">›</span>
+            </div>
+          </div>
+          <div class="hbody" style="padding:10px 14px">
+            <div style="font-size:13px;white-space:pre-wrap">${item.text||item.bestellung||''}</div>
+            ${item.name?`<div style="font-size:12px;color:var(--light);margin-top:6px">✍️ ${item.name}</div>`:''}
+          </div>
+        </div>`;
+      }
+      const o=item;
+      const fehlCount=o.fehlmengen?Object.values(o.fehlmengen).filter(v=>v>0).length:0;
+      const hatKrit=fehlCount&&Object.entries(o.fehlmengen||{}).some(([id,v])=>{
+        if(v<=0)return false;const art=(o.positionen||[]).find(p=>p.id===id);return art&&istKritisch(art.name);
+      });
+      const bestelltAm=o.datum?new Date(o.datum).toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'';
+      const nachzTag=o.nachzuegler?`<span style="font-size:10px;background:#faeeda;color:#854f0b;padding:1px 6px;border-radius:8px;margin-left:4px;font-weight:600">Nachzügler</span>`:'';
+      const ageBadge=(()=>{
+        if(o.status==='versendet'&&o.typ==='metro'){
+          const vLog=o.statusLog?.slice().reverse().find(l=>l.status==='versendet');
+          const vDat=vLog?new Date(vLog.datum):new Date(o.datum);
+          const age=(new Date()-vDat)/(1000*60*60*24);
+          if(age>4)return`<span class="st" style="background:#faeeda;color:#854f0b">⏰ ${Math.floor(age)}T</span>`;
+        }
+        return`<span class="st ${stcls(o.status)}">${stlbl(o.status)}</span>`;
+      })();
+      return`<div class="hitem" style="margin-bottom:4px">
+        <div class="hhead" onclick="th(this)" style="padding:10px 14px">
+          <div style="display:flex;align-items:center;gap:10px;flex:1;min-width:0">
+            <span style="font-weight:700;font-size:14px;min-width:28px">${o.filiale}</span>
+            <span style="font-size:12px;color:var(--mid);min-width:50px">${o.typ==='baeko'?'🌾 BÄKO':'📦 HW'}</span>
+            <span style="font-size:12px;color:var(--light)">· ${o.positionen.length} Pos.</span>
+            ${nachzTag}
+            ${U==='Verwaltung'&&hatKrit?`<span style="font-size:11px;background:#7f0000;color:white;padding:2px 7px;border-radius:8px;font-weight:600">🚨 Kaffee/Tee/Kaba</span>`:
+              U==='Verwaltung'&&fehlCount?`<span style="font-size:11px;background:var(--amber-lt);color:#854f0b;padding:2px 7px;border-radius:8px">⚠️ ${fehlCount} Fehlmenge(n)</span>`:''}
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
+            <span style="font-size:11px;color:var(--light)">${bestelltAm}</span>
+            ${ageBadge}
+            ${(U==='B1'&&o.typ==='metro'&&o.status==='offen')?`<button class="btn btn-p btn-sm no-print" onclick="event.stopPropagation();openPackenModal('${o.id}')">📦 Packen</button>`:''}
+            <span style="color:var(--xlight);font-size:16px">›</span>
+          </div>
+        </div>
+        <div class="hbody" style="padding:12px 14px">
+          ${ordTbl(o)}
+          ${fehlCount?fehlTbl(o):''}
+          ${o.statusLog&&o.statusLog.length?`
+            <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:8px">
+              <div style="font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase;margin-bottom:5px">Verlauf</div>
+              ${o.statusLog.map(h=>`<div style="display:flex;align-items:center;gap:8px;font-size:12px;margin-bottom:3px">
+                <span style="color:var(--light);min-width:115px">${dts(h.datum)}</span>
+                <span class="st ${stcls(h.status)}">${stlbl(h.status)}</span>
+                <span style="color:var(--mid)">${h.by||''}${h.note?' · '+h.note:''}</span>
+              </div>`).join('')}
+            </div>`:''}
+          <div class="brow no-print" style="margin-top:10px">
+            ${U==='Verwaltung'?`
+            <select style="font-size:12px;padding:5px 9px;border:1.5px solid var(--border);border-radius:var(--rsm);background:white"
+              onchange="setOSt('${o.id}',this.value,()=>{refVwB();if(document.getElementById('vw-matrix'))renderVwMatrix(window._vwWeek||'this');});this.value=''">
+              <option value="">Status ändern…</option>
+              <option value="offen">Offen</option>
+              <option value="versendet">Versendet</option>
+              <option value="angekommen">Angekommen</option>
+              <option value="bestaetigt">Bestätigt</option>
+            </select>
+            ${o.typ==='baeko'?
+              `<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openBaekoEdit('${o.id}')">✏️ Bearbeiten</button>`:
+              `<button class="btn btn-o btn-sm" onclick="event.stopPropagation();openHwEdit('${o.id}')">✏️ Bearbeiten</button>`}
+            <button class="btn btn-o btn-sm" onclick="event.stopPropagation();printSingleOrder('${o.id}')">📄 PDF</button>
+            <button class="btn btn-sm" style="background:none;border:1.5px solid #c0392b;color:#c0392b;font-size:12px;padding:5px 9px;border-radius:var(--rsm);cursor:pointer"
+              onclick="event.stopPropagation();deleteOrder('${o.id}')">🗑️ Löschen</button>`:''}
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    return`<div style="margin-bottom:18px">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1.5px solid var(--border);margin-bottom:8px">
+        <span style="font-size:13px;font-weight:700">📅 Woche ab ${wLabel}</span>
+        ${anzOffen?`<span style="font-size:11px;background:#faeeda;color:#854f0b;padding:2px 8px;border-radius:8px;font-weight:600">${anzOffen} offen</span>`:''}
+        <span style="font-size:12px;color:var(--light);margin-left:auto">${gruppe.length} Bestellung(en)</span>
+      </div>
+      ${itemsHTML}
+    </div>`;
+  }).join('');
+}
+function deleteOrder(id){
+  const o=db.bestellungen.find(x=>x.id===id);if(!o)return;
+  const label=fname(o.filiale)+' · '+(o.typ==='baeko'?'BÄKO':'HW')+' · '+(o.wocheLabel||o.wocheMo||'');
+  if(!confirm('Bestellung wirklich löschen?\n\n'+label+'\n\nDieser Vorgang kann nicht rückgängig gemacht werden.'))return;
+  db.bestellungen=db.bestellungen.filter(x=>x.id!==id);
+  save();toast('🗑️ Bestellung gelöscht.');refVwB();
+  if(document.getElementById('vw-matrix'))renderVwMatrix(window._vwWeek||'this');
+}
+
+// ── HW bearbeiten (Verwaltung) ────────────────────────────────────────────
+function openHwEdit(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const rows=o.positionen.map(p=>{
+    const safeId=(p.id||p.name.replace(/\s/g,'_'));
+    return`<div class="pack-row" style="grid-template-columns:1fr 80px 28px;margin-bottom:5px">
+      <div style="font-size:13px;font-weight:500">${p.name}</div>
+      <input class="pack-inp" type="number" min="0" value="${p.menge}" id="hwe-${safeId}" placeholder="0">
+      <button style="background:none;border:none;color:var(--light);cursor:pointer;font-size:16px;padding:0"
+        onclick="this.closest('.pack-row').remove()">✕</button>
+    </div>`;}).join('');
+  document.getElementById('modal-container').innerHTML=`
+    <div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-title">✏️ HW bearbeiten – ${fname(o.filiale)}</div>
+        <div id="hwe-rows">${rows}</div>
+        <div style="margin-top:10px;border-top:1px solid var(--border);padding-top:10px">
+          <div style="font-size:12px;font-weight:600;color:var(--mid);margin-bottom:6px">Artikel hinzufügen</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <input type="text" id="hwe-free-name" placeholder="Artikelname"
+              style="flex:1;min-width:140px;padding:8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
+            <input type="number" id="hwe-free-menge" min="1" value="1"
+              style="width:70px;padding:8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
+            <button class="btn btn-o btn-sm" onclick="(()=>{const n=document.getElementById('hwe-free-name')?.value.trim();const m=parseFloat(document.getElementById('hwe-free-menge')?.value)||1;if(!n){toast('Name eingeben');return;}const id2='free_'+Date.now();document.getElementById('hwe-rows').innerHTML+=('<div class=\"pack-row\" style=\"grid-template-columns:1fr 80px 28px;margin-bottom:5px\"><div style=\"font-size:13px\">'+(n)+'</div><input class=\"pack-inp\" type=\"number\" min=\"0\" value=\"'+(m)+'\" id=\"hwe-'+(id2)+'\" data-name=\"'+(n)+'\"><button style=\"background:none;border:none;color:var(--light);cursor:pointer;font-size:16px\" onclick=\"this.closest(\'.pack-row\').remove()\">✕</button></div>');document.getElementById('hwe-free-name').value='';})()">+ Add</button>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <label class="flbl">Ihr Name (Pflicht)</label>
+          <input type="text" id="hwe-name" placeholder="Wer hat die Änderung vorgenommen?"
+            style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif">
+        </div>
+        <div class="brow" style="margin-top:14px">
+          <button class="btn btn-p" onclick="submitHwEdit('${orderId}')">💾 Speichern</button>
+          <button class="btn btn-o" onclick="closeModal()">Abbrechen</button>
+        </div>
+      </div>
+    </div>`;
+}
+function submitHwEdit(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const name=document.getElementById('hwe-name')?.value.trim();
+  if(!name){toast('Bitte Namen eintragen.');return;}
+  const neuePos=[];
+  o.positionen.forEach(p=>{
+    const safeId=(p.id||p.name.replace(/\s/g,'_'));
+    const el=document.getElementById('hwe-'+safeId);
+    if(!el)return;const nm=parseFloat(el.value)||0;
+    if(nm>0)neuePos.push({...p,menge:nm});
+  });
+  document.querySelectorAll('#hwe-rows .pack-inp[data-name]').forEach(el=>{
+    const nm=parseFloat(el.value)||0;const n=el.dataset.name;
+    if(nm>0&&n)neuePos.push({id:el.id.replace('hwe-',''),name:n,menge:nm,freiArtikel:true});
+  });
+  o.positionen=neuePos;
+  o.geaendertVon=name+' ('+new Date().toLocaleDateString('de-DE')+')';
+  if(!o.statusLog)o.statusLog=[];
+  o.statusLog.push({status:o.status,datum:new Date().toISOString(),by:name,note:'HW bearbeitet'});
+  save();closeModal();toast('✅ HW-Bestellung gespeichert.');refVwB();
+}
+
+// ── Freier Artikel in BÄKO-Edit ───────────────────────────────────────────
+function addBaekoEditFrei(orderId){
+  const name=document.getElementById('be-free-name')?.value.trim();
+  const menge=parseFloat(document.getElementById('be-free-menge')?.value)||1;
+  if(!name){toast('Bitte Artikelname eingeben.');return;}
+  const rows=document.getElementById('be-rows');if(!rows)return;
+  const freeId='free_'+Date.now();
+  rows.innerHTML+=`<div class="pack-row" style="grid-template-columns:1fr 80px 28px;margin-bottom:5px">
+    <div style="font-size:13px;font-weight:500">${name}<br>
+      <span style="font-size:11px;color:var(--light)">freier Artikel</span></div>
+    <input class="pack-inp" type="number" min="0" value="${menge}" id="be-${freeId}" data-name="${name}" data-free="1">
+    <button style="background:none;border:none;color:var(--light);cursor:pointer;font-size:16px;padding:0"
+      onclick="this.closest('.pack-row').remove()">✕</button>
+  </div>`;
+  document.getElementById('be-free-name').value='';
+  document.getElementById('be-free-menge').value='1';
+}
+
+
+function printBaeko(){
+  const wMo=document.getElementById('pdf-woche')?.value||nextWeekMoISO();
+  // Bestellungen dieser Woche finden – Vergleich auf wocheMo oder week (beide = Montag-ISO)
+  const orders=db.bestellungen.filter(b=>b.typ==='baeko'&&(b.wocheMo===wMo||b.week===wMo));
+  if(!orders.length){toast('Keine Bäko-Bestellungen für diese Woche.');return;}
+
+  const {jsPDF}=window.jspdf;
+  if(!jsPDF){toast('PDF-Bibliothek noch nicht geladen – bitte kurz warten.');return;}
+
+  const doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+  const wLabel=orders[0]?.wocheLabel||w;
+  const datum=new Date().toLocaleDateString('de-DE');
+
+  // Header
+  doc.setFontSize(16);doc.setFont('helvetica','bold');
+  doc.text('Bäcker Bock – BÄKO-Bestellung',14,18);
+  doc.setFontSize(10);doc.setFont('helvetica','normal');
+  doc.text(`Woche: ${wLabel}   ·   Erstellt: ${datum} von ${U}`,14,25);
+  doc.line(14,28,196,28);
+
+  let y=35;
+  orders.forEach(o=>{
+    if(y>260){doc.addPage();y=20;}
+    doc.setFontSize(11);doc.setFont('helvetica','bold');
+    doc.text(fname(o.filiale),14,y);
+    const adr=FILIAL_ADR[o.filiale];
+    if(adr){doc.setFontSize(8.5);doc.setFont('helvetica','normal');doc.setTextColor(100);doc.text(adr,14,y+5);doc.setTextColor(0);y+=4;}
+    y+=2;
+    doc.autoTable({
+      startY:y,
+      head:[['Art.-Nr.','Artikel','Menge']],
+      body:o.positionen.map(p=>[p.id,p.name,String(p.menge)]),
+      styles:{fontSize:9,cellPadding:2},
+      headStyles:{fillColor:[10,10,10],textColor:255,fontStyle:'bold'},
+      columnStyles:{0:{cellWidth:28},2:{cellWidth:18,halign:'center'}},
+      margin:{left:14,right:14},
+      theme:'grid',
+    });
+    y=doc.lastAutoTable.finalY+8;
+  });
+
+  // Unterschrift
+  if(y>250){doc.addPage();y=20;}
+  doc.setFontSize(9);doc.setFont('helvetica','normal');
+  doc.text('Unterschrift: ___________________________',14,y+10);
+
+  // PDF herunterladen
+  const filename=`Baeko_${wLabel.replace(/[^0-9.]/g,'_')}.pdf`;
+  doc.save(filename);
+
+  // mailto öffnen
+  const betreff=encodeURIComponent(`BÄKO-Bestellung Woche ${wLabel}`);
+  const body=encodeURIComponent(`Hallo,\n\nanbei die BÄKO-Bestellung für die Woche ${wLabel}.\n\nFreundliche Grüße\nBäcker Bock`);
+  setTimeout(()=>{
+    window.location.href=`mailto:Michaela.Lauer@baeko-franken.de?subject=${betreff}&body=${body}`;
+  },800);
+
+  toast('✅ PDF heruntergeladen – Mail-Client wird geöffnet.');
+}
+function printMetro(){
+  const wMo=document.getElementById('pdf-woche')?.value||nextWeekMoISO();
+  const orders=db.bestellungen.filter(b=>b.typ==='metro'&&(b.wocheMo===wMo||b.week===wMo));
+  if(!orders.length){toast('Keine Metro-Bestellungen für diese Woche.');return;}
+  const totals={};
+  orders.forEach(o=>o.positionen.forEach(p=>{if(!totals[p.id])totals[p.id]={name:p.name,gesamt:0,filialen:{}};totals[p.id].gesamt+=p.menge;totals[p.id].filialen[o.filiale]=(totals[p.id].filialen[o.filiale]||0)+p.menge;}));
+  const fils=[...new Set(orders.map(o=>o.filiale))].sort();
+  openPrint(pHead(`Metro-Bestellungen KW ${w}`)+`<table><thead><tr><th>Artikel</th>${fils.map(f=>`<th>${f}</th>`).join('')}<th>Gesamt</th></tr></thead>
+    <tbody>${Object.values(totals).map(t=>`<tr><td>${t.name}</td>${fils.map(f=>`<td>${t.filialen[f]||'–'}</td>`).join('')}<td><strong>${t.gesamt}</strong></td></tr>`).join('')}</tbody></table><div class="sig">Unterschrift: ___________________________</div>`+pFoot());
+}
+function printLZ(id){
+  const s=db.sonder.find(x=>x.id===id);if(!s)return;
+  openPrint(pHead(`Laufzettel – ${s.datum}`)+`<p><strong>Filiale:</strong> ${fname(s.filiale)}${s.datum?` · <strong>Datum:</strong> ${s.datum}`:''}${s.tour?` · <strong>Tour:</strong> ${s.tour}`:''}${s.name?` · <strong>Name:</strong> ${s.name}`:''}</p>
+    ${s.artikel.length?`<table style="margin-top:10px"><thead><tr><th>Artikel</th><th>Menge</th></tr></thead><tbody>${s.artikel.map(a=>`<tr><td>${a.name}</td><td>${a.menge}</td></tr>`).join('')}</tbody></table>`:''}<br>
+    ${s.text?`<p style="margin-top:10px;padding:10px;background:#f4f4f4;border-radius:4px">${s.text}</p>`:''}<div class="sig">Unterschrift: ___________________________</div>`+pFoot());
+}
+function printInv(id){
+  const inv=db.inventuren.find(x=>x.id===id);if(!inv)return;
+  openPrint(pHead(`Inventur ${inv.monat}`)+`<p><strong>Bearbeiter:</strong> ${inv.person} · <strong>Datum:</strong> ${new Date(inv.datum).toLocaleString('de-DE')}</p>
+    <table style="margin-top:12px"><thead><tr><th>Artikel</th><th>Soll</th><th>Ist</th><th>Differenz</th><th>Einheit</th></tr></thead>
+    <tbody>${inv.positionen.map(p=>`<tr><td>${p.name}</td><td>${p.soll}</td><td>${p.ist}</td>
+      <td style="color:${p.diff<0?'#c0392b':p.diff>0?'#1a7a3a':'inherit'};font-weight:600">${p.diff>=0?'+':''}${p.diff}</td>
+      <td>${p.unit}</td></tr>`).join('')}</tbody></table>
+    <div class="sig" style="margin-top:40px">Unterschrift: ___________________________________ &nbsp;&nbsp; Datum: _______________</div>`+pFoot());
+}
+
+// ═══════════════════ KÜHLPLÄNE ═══════════════════
+// Struktur: db.kuehltheke[key] = { messungen: [{zeit, temp, name, geraet}], ... }
+// Eine Kühltheke + ein Kühlschrank + eine Sahnemaschine pro Filiale
+// Frühschicht 06-12: Kühltheke 10+12, Kühlschrank 08, Sahnemaschine 08
+// Spätschicht 12-18: Kühltheke 16, Kühlschrank 16, Sahnemaschine 16
+
+const KUEHL_ITEMS = [
+  {id:'kt', name:'Kühltheke', zeiten_frueh:['10:00','12:00'], zeiten_spaet:['16:00']},
+  {id:'ks', name:'Kühlschrank', zeiten_frueh:['08:00'], zeiten_spaet:['16:00']},
+  {id:'sm', name:'Sahnemaschine', zeiten_frueh:['08:00'], zeiten_spaet:['16:00']},
+];
+
+const SCHICHTEN = [
+  {id:'frueh', name:'Frühschicht', von:'06:00', bis:'12:00', zeiten:['08:00','10:00','12:00']},
+  {id:'spaet', name:'Spätschicht', von:'12:00', bis:'18:00', zeiten:['12:00','16:00']},
+];
+
+function getAktuelleSchicht(){
+  const h=new Date().getHours();
+  if(h>=6&&h<12) return 'frueh';
+  if(h>=12&&h<18) return 'spaet';
+  return null;
+}
+
+function kuehlKey(fil,datum,schicht){return `${fil}_${datum}_${schicht}`;}
+
+function renderKuehltheke(){
+  const mc=document.getElementById('mc');
+  const datum=today();
+  const schicht=getAktuelleSchicht();
+  const schichtObj=schicht?SCHICHTEN.find(s=>s.id===schicht):null;
+  if(!db.kuehltheke)db.kuehltheke={};
+  const key=kuehlKey(U,datum,schicht||'manual');
+  if(!db.kuehltheke[key])db.kuehltheke[key]={messungen:{}};
+  const eintrag=db.kuehltheke[key];
+
+  const schichtBanner=schicht?
+    `<div class="banner banner-info">🕐 ${schichtObj.name} (${schichtObj.von}–${schichtObj.bis}) · ${new Date().toLocaleDateString('de-DE')}</div>`:
+    `<div class="banner banner-warn">⚠️ Aktuell keine aktive Schicht. Manuelle Eingabe möglich.</div>`;
+
+  // Baue Messfelder: pro Gerät + Zeit = Temp-Feld + Name-Feld
+  const rows=KUEHL_ITEMS.map(item=>{
+    const zeiten=schicht==='frueh'?item.zeiten_frueh:schicht==='spaet'?item.zeiten_spaet:[...item.zeiten_frueh,...item.zeiten_spaet];
+    return `<div style="background:var(--bg);border:1.5px solid var(--border);border-radius:var(--rsm);padding:14px;margin-bottom:10px">
+      <div style="font-weight:600;font-size:14px;margin-bottom:12px">${item.name}</div>
+      ${zeiten.map(zeit=>{
+        const mKey=item.id+'_'+zeit;
+        const m=eintrag.messungen[mKey]||{temp:'',name:''};
+        const done=m.temp!==''&&m.name!=='';
+        return `<div style="display:grid;grid-template-columns:80px 1fr 1fr auto;gap:8px;align-items:center;margin-bottom:8px;padding:8px;background:${done?'var(--green-lt)':'white'};border-radius:var(--rsm);border:1.5px solid ${done?'var(--green)':'var(--border)'}">
+          <div style="font-weight:600;font-size:13px;text-align:center">${zeit}</div>
+          <div>
+            <div class="flbl" style="margin-bottom:3px">Temperatur</div>
+            <input type="number" step="0.1" value="${m.temp}"
+              placeholder="°C"
+              style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:'Inter',sans-serif;text-align:center"
+              oninput="saveMessung('${key}','${mKey}','temp',this.value)">
+          </div>
+          <div>
+            <div class="flbl" style="margin-bottom:3px">Name</div>
+            <input type="text" value="${m.name}"
+              placeholder="Wer hat gemessen?"
+              style="width:100%;padding:8px 10px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:14px;font-family:'Inter',sans-serif"
+              oninput="saveMessung('${key}','${mKey}','name',this.value)">
+          </div>
+          <div style="font-size:20px;margin-top:18px">${done?'✅':'○'}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('');
+
+  // Prüfe ob alle Felder ausgefüllt
+  const allZeiten=KUEHL_ITEMS.flatMap(item=>
+    (schicht==='frueh'?item.zeiten_frueh:schicht==='spaet'?item.zeiten_spaet:[...item.zeiten_frueh,...item.zeiten_spaet])
+    .map(z=>item.id+'_'+z)
+  );
+  const alleAusgefuellt=allZeiten.every(k=>{const m=eintrag.messungen[k];return m&&m.temp!==''&&m.name!=='';});
+  const istAbgeschlossen=eintrag.abgeschlossen||false;
+
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🌡️ KÜHLPLÄNE</div>
+    ${schichtBanner}
+    ${istAbgeschlossen?`<div class="banner banner-ok">✅ Schicht abgeschlossen um ${eintrag.zeitpunkt?new Date(eintrag.zeitpunkt).toLocaleTimeString('de-DE',{hour:'2-digit',minute:'2-digit'}):''} Uhr</div>`:''}
+    ${rows}
+    <div class="brow">
+      ${!istAbgeschlossen&&alleAusgefuellt?`<button class="btn btn-p" onclick="abschliessenKuehl('${key}')">✅ Schicht abschließen</button>`:''}
+      ${!istAbgeschlossen&&!alleAusgefuellt?`<div style="font-size:12px;color:var(--light);padding:8px">Alle Felder ausfüllen um Schicht abzuschließen.</div>`:''}
+      ${U==='Verwaltung'?`<button class="btn btn-o" onclick="printKuehl('${key}','${datum}','${schicht||'manual'}')">🖨️ Drucken</button>`:''}
+    </div>
+  </div>`;
+}
+
+function saveMessung(key,mKey,field,val){
+  if(!db.kuehltheke)db.kuehltheke={};
+  if(!db.kuehltheke[key])db.kuehltheke[key]={messungen:{}};
+  if(!db.kuehltheke[key].messungen[mKey])db.kuehltheke[key].messungen[mKey]={temp:'',name:''};
+  db.kuehltheke[key].messungen[mKey][field]=val;
+  saveKuehlDB();
+  // Live-Update Checkbox
+  const allZeiten=KUEHL_ITEMS.flatMap(item=>{
+    const schicht=getAktuelleSchicht();
+    return(schicht==='frueh'?item.zeiten_frueh:schicht==='spaet'?item.zeiten_spaet:[...item.zeiten_frueh,...item.zeiten_spaet]).map(z=>item.id+'_'+z);
+  });
+  const alleAusgefuellt=allZeiten.every(k=>{const m=db.kuehltheke[key].messungen[k];return m&&m.temp!==''&&m.name!=='';});
+}
+
+function abschliessenKuehl(key){
+  if(!db.kuehltheke[key])return;
+  db.kuehltheke[key].abgeschlossen=true;
+  db.kuehltheke[key].zeitpunkt=new Date().toISOString();
+  saveKuehlDB();toast('✅ Schicht abgeschlossen.');renderKuehltheke();updateStartBanner();
+}
+function saveKuehlDB(){
+  if(fbReady&&fbRef){
+    fbRef.child('kuehltheke').set(db.kuehltheke).catch(e=>console.error(e));
+  }else{
+    try{localStorage.setItem('bock_db',JSON.stringify(db));}catch{}
+  }
+}
+
+function renderVwKuehltheke(){
+  const mc=document.getElementById('mc');
+  if(!db.kuehltheke){mc.innerHTML='<div class="card"><div class="ctitle">🌡️ Alle Kühltheken</div><p style="color:var(--light)">Keine Einträge.</p></div>';return;}
+  const filOpts=ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('');
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🌡️ Alle Kühlpläne</div>
+    <div class="frow">
+      <input type="date" id="vk-datum" value="${today()}" oninput="refreshVwKuehl()">
+      <select id="vk-fil" onchange="refreshVwKuehl()"><option value="">Alle Filialen</option>${filOpts}</select>
+    </div>
+    <div id="vk-list"></div>
+  </div>`;
+  refreshVwKuehl();
+}
+
+function refreshVwKuehl(){
+  const datum=document.getElementById('vk-datum')?.value||today();
+  const fil=document.getElementById('vk-fil')?.value||'';
+  const list=document.getElementById('vk-list');if(!list)return;
+  if(!db.kuehltheke){list.innerHTML='<p style="color:var(--light)">Keine Einträge.</p>';return;}
+
+  const filialen=fil?[fil]:ALLE_FIL;
+  const schichten=['frueh','spaet'];
+  let html='';
+
+  filialen.forEach(f=>{
+    html+=`<div class="slbl">${f}</div>`;
+    let hatEintrag=false;
+    schichten.forEach(s=>{
+      const key=kuehlKey(f,datum,s);
+      const e=db.kuehltheke[key];
+      if(!e)return;
+      hatEintrag=true;
+      const sObj=SCHICHTEN.find(x=>x.id===s);
+      html+=`<div class="hitem" style="margin-bottom:6px">
+        <div class="hhead" onclick="th(this)">
+          <div><strong>${sObj?.name||s}</strong> · ${f} · ${datum}</div>
+          <div style="display:flex;align-items:center;gap:6px">
+            ${e.abgeschlossen?`<span class="st st-bestaetigt">✅ Abgeschlossen · ${e.name}</span>`:`<span class="st st-offen">Offen</span>`}
+            <span style="color:var(--xlight)">›</span>
+          </div>
+        </div>
+        <div class="hbody">
+          <div class="twrap"><table><thead><tr><th>Gerät</th><th>Zeit</th><th>Temperatur</th><th>Name</th></tr></thead>
+          <tbody>${KUEHL_ITEMS.map(item=>{const zm={frueh:{kt:['10:00','12:00'],ks:['08:00'],sm:['08:00']},spaet:{kt:['16:00'],ks:['16:00'],sm:['16:00']}};const zeiten=(zm[s]||{})[item.id]||[];return zeiten.map(zeit=>{const m=e.messungen?.[item.id+'_'+zeit]||{};return`<tr><td>${item.name}</td><td>${zeit}</td><td>${m.temp||'–'} °C</td><td>${m.name||'–'}</td></tr>`;}).join('');}).join('')}
+          </tbody></table></div>
+        </div>
+      </div>`;
+    });
+    if(!hatEintrag)html+=`<div class="banner banner-warn" style="margin-bottom:8px">⚠️ Keine Einträge für ${datum}</div>`;
+  });
+  list.innerHTML=html||'<p style="color:var(--light)">Keine Einträge.</p>';
+}
+
+function printKuehl(key,datum,schicht){
+  const e=db.kuehltheke?db.kuehltheke[key]:null;
+  const sObj=SCHICHTEN.find(s=>s.id===schicht)||{name:schicht};
+  const zeiten_map={frueh:{kt:['10:00','12:00'],ks:['08:00'],sm:['08:00']},spaet:{kt:['16:00'],ks:['16:00'],sm:['16:00']}};
+  const zm=zeiten_map[schicht]||zeiten_map.frueh;
+  const rows=KUEHL_ITEMS.map(item=>{
+    const zeiten=zm[item.id]||[];
+    return zeiten.map(zeit=>{
+      const m=e?.messungen?.[item.id+'_'+zeit]||{};
+      return `<tr><td>${item.name}</td><td>${zeit}</td><td>${m.temp||'–'} °C</td><td>${m.name||'–'}</td></tr>`;
+    }).join('');
+  }).join('');
+  openPrint(pHead(`Kühlpläne – ${fname(U)} – ${datum}`)+`
+    <p><strong>Filiale:</strong> ${fname(U)} &nbsp;|&nbsp; <strong>Schicht:</strong> ${sObj?.name||schicht} &nbsp;|&nbsp; <strong>Datum:</strong> ${datum}</p>
+    <table style="margin-top:12px"><thead><tr><th>Gerät</th><th>Uhrzeit</th><th>Temperatur</th><th>Gemessen von</th></tr></thead>
+    <tbody>${rows}</tbody></table>`+pFoot());
+}
+
+// ═══════════════════ PUTZPLAN ═══════════════════
+const PUTZ_TAEGLICH = ['Preisschilder gereinigt','Mikrowelle gereinigt'];
+const PUTZ_WOECHENTLICH = ['Brotregal feucht gewischt','Besteckkörbe reinigen','Ablagefächer Theke reinigen',
+  'Ablagefächer Küche reinigen','Preisstchilderschiene Theke aussaugen','Sitzflächen reinigen',
+  'Stühle reinigen','Trennwände reinigen','Unter- und Neben der Kaffeemaschine reinigen',
+  'Eiswürfelbereiter reinigen/desinfizieren','Mülleimer feucht reinigen','Spinnweben Kontrolle',
+  'Aufsteller gereinigt','Kühlzüge gereinigt','Kühlschränke gereinigt'];
+const PUTZ_MONATLICH = ['Hinter Heizkörper reinigen','Lampen reinigen'];
+
+function renderPutzplan(){
+  const mc=document.getElementById('mc');
+  if(!db.putzplan)db.putzplan={};
+  const monat=today().slice(0,7);
+  const datum=today();
+  const daysInMonth=new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate();
+  const today_day=parseInt(datum.slice(8));
+
+  // Wochentag-Header (Mo Di Mi Do Fr Sa So)
+  const wochentage=['Mo','Di','Mi','Do','Fr','Sa','So'];
+  // Erster Tag des Monats
+  const firstDow=new Date(monat+'-01').getDay(); // 0=So
+  const firstMon=(firstDow===0?6:firstDow-1); // 0=Mo
+
+  const dayHeader=Array.from({length:daysInMonth},(_,i)=>{
+    const d=i+1;
+    const dow=(firstMon+i)%7;
+    const isToday=d===today_day;
+    const isWE=dow>=5;
+    return`<th style="font-size:9px;padding:3px 1px;text-align:center;min-width:26px;
+      ${isToday?'background:var(--black);color:white;border-radius:3px':''}
+      ${isWE&&!isToday?'color:var(--light)':''}">
+      <div>${wochentage[dow]}</div><div>${d}</div>
+    </th>`;
+  }).join('');
+
+  const makeSection=(titel,items,typ,emoji)=>{
+    const rows=items.map(item=>{
+      const iKey=`${U}_${monat}_${item}`;
+      const checks=db.putzplan[iKey]||{};
+      if(typ==='taeglich'){
+        const done=checks[datum]||false;
+        return`<div style="display:flex;align-items:center;gap:12px;padding:10px 14px;
+          background:${done?'var(--green-lt)':'white'};border-radius:var(--rsm);
+          border:1.5px solid ${done?'var(--green)':'var(--border)'};margin-bottom:6px">
+          <input type="checkbox" style="width:22px;height:22px;flex-shrink:0;cursor:pointer;accent-color:var(--black)"
+            ${done?'checked':''} onchange="togglePutz('${iKey}','${datum}',this.checked)">
+          <span style="font-size:13px;${done?'text-decoration:line-through;color:var(--light)':''}">${item}</span>
+          ${done?'<span style="margin-left:auto;font-size:12px;color:var(--green)">✓ Erledigt</span>':''}
+        </div>`;
+      }else{
+        const cols=Array.from({length:daysInMonth},(_, i)=>{
+          const d=String(i+1).padStart(2,'0');
+          const dStr=`${monat}-${d}`;
+          const done=checks[dStr]||false;
+          const isToday=dStr===datum;
+          const dow=(firstMon+i)%7;
+          const isWE=dow>=5;
+          return`<td style="text-align:center;padding:2px;background:${isToday?'#f5f5f5':isWE?'#fafafa':''}">
+            <input type="checkbox" style="width:16px;height:16px;cursor:pointer;accent-color:var(--black)"
+              ${done?'checked':''} onchange="togglePutz('${iKey}','${dStr}',this.checked)">
+          </td>`;
+        }).join('');
+        const doneCount=Object.values(checks).filter(Boolean).length;
+        return`<tr>
+          <td style="font-size:12px;padding:6px 12px;white-space:nowrap;min-width:200px">
+            ${item}
+            ${doneCount?`<span style="font-size:10px;color:var(--green);margin-left:6px">(${doneCount}×)</span>`:''}
+          </td>${cols}
+        </tr>`;
+      }
+    }).join('');
+
+    if(typ==='taeglich'){
+      const doneAll=items.every(item=>(db.putzplan[`${U}_${monat}_${item}`]||{})[datum]);
+      return`<div class="card" style="margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="font-size:18px">${emoji}</span>
+          <span style="font-weight:700;font-size:14px">${titel}</span>
+          ${doneAll?`<span class="st st-bestaetigt" style="margin-left:auto">✅ Alles erledigt</span>`:''}
+        </div>
+        ${rows}
+      </div>`;
+    }else{
+      return`<div class="card" style="margin-bottom:12px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <span style="font-size:18px">${emoji}</span>
+          <span style="font-weight:700;font-size:14px">${titel}</span>
+          <span style="font-size:11px;color:var(--light);margin-left:6px">${new Date(monat+'-01').toLocaleDateString('de-DE',{month:'long',year:'numeric'})}</span>
+        </div>
+        <div class="twrap"><table style="font-size:12px;width:100%">
+          <thead><tr><th style="text-align:left;padding:4px 12px;min-width:200px">Aufgabe</th>${dayHeader}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table></div>
+      </div>`;
+    }
+  };
+
+  mc.innerHTML=`<div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+      <div style="font-weight:700;font-size:15px">🧹 Putzplan · ${fname(U)}</div>
+      ${U==='Verwaltung'?`<button class="btn btn-o btn-sm no-print" onclick="window.print()">🖨️ Drucken</button>`:''}
+    </div>
+    ${makeSection('Täglich',PUTZ_TAEGLICH,'taeglich','📋')}
+    ${makeSection('Wöchentliche Aufgaben',PUTZ_WOECHENTLICH,'monatlich','🔄')}
+    ${makeSection('Monatliche Aufgaben',PUTZ_MONATLICH,'monatlich','📅')}
+  </div>`;
+}
+
+// ═══ UPDATE FIREBASE LOAD: auch kuehltheke + putzplan laden ═══
+
+
+// ═══════════════════ BACKSTUBE EINGANGSPROTOKOLL ═══════════════════
+function renderBsProtokoll(){
+  const mc=document.getElementById('mc');
+  const sonders=[...db.sonder].sort((a,b)=>b.erstellt.localeCompare(a.erstellt));
+
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">📜 Eingänge</div>
+    <p style="font-size:12px;color:var(--light);margin-bottom:14px">Alle eingegangenen Sonderbestellungen – wann · von wem</p>
+    <div class="frow">
+      <input type="date" id="bp-datum" oninput="refreshBsProtokoll()" placeholder="Datum filtern">
+      <select id="bp-fil" onchange="refreshBsProtokoll()">
+        <option value="">Alle Filialen</option>
+        ${ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('')}
+      </select>
+    </div>
+    <div id="bp-list"></div>
+  </div>`;
+  refreshBsProtokoll();
+}
+
+function refreshBsProtokoll(){
+  const datum=document.getElementById('bp-datum')?.value||'';
+  const fil=document.getElementById('bp-fil')?.value||'';
+  const list=document.getElementById('bp-list');if(!list)return;
+
+  let sonders=[...db.sonder].filter(s=>{
+    if(datum&&s.erstellt.slice(0,10)!==datum)return false;
+    if(fil&&s.filiale!==fil)return false;
+    return true;
+  }).sort((a,b)=>b.erstellt.localeCompare(a.erstellt));
+
+  if(!sonders.length){
+    list.innerHTML='<p style="color:var(--light);font-size:13px">Keine Eingänge gefunden.</p>';
+    return;
+  }
+
+  list.innerHTML=`<div class="twrap"><table>
+    <thead><tr>
+      <th>Eingegangen</th>
+      <th>Filiale</th>
+      <th>Datum</th>
+      <th>Name</th>
+      <th>Bestellung</th>
+      <th>Status</th>
+    </tr></thead>
+    <tbody>${sonders.map(s=>`<tr>
+      <td style="font-size:12px;white-space:nowrap">${dts(s.erstellt)}</td>
+      <td><strong>${fname(s.filiale)}</strong></td>
+      <td>${s.datum||'–'}</td>
+      <td>${s.name||'–'}</td>
+      <td style="font-size:12px;color:var(--mid);max-width:200px">${s.text||'–'}</td>
+      <td><span class="st ${stcls(s.status)}">${stlbl(s.status)}</span></td>
+    </tr>`).join('')}
+    </tbody>
+  </table></div>`;
+}
+
+
+function renderVwPutzplan(){
+  const mc=document.getElementById('mc');
+  const filOpts=ALLE_FIL.map(f=>`<option value="${f}">${f}</option>`).join('');
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🧹 Alle Putzpläne</div>
+    <div class="frow">
+      <select id="vp-fil" onchange="loadVwPutzplan()"><option value="">Filiale wählen</option>${filOpts}</select>
+      <input type="month" id="vp-mon" value="${today().slice(0,7)}" oninput="loadVwPutzplan()">
+    </div>
+    <div id="vp-content"></div>
+  </div>`;
+}
+
+function loadVwPutzplan(){
+  const fil=document.getElementById('vp-fil')?.value;
+  const mon=document.getElementById('vp-mon')?.value||today().slice(0,7);
+  const div=document.getElementById('vp-content');if(!div)return;
+  if(!fil){div.innerHTML='<p style="color:var(--light)">Filiale wählen.</p>';return;}
+  if(!db.putzplan){div.innerHTML='<p style="color:var(--light)">Keine Einträge.</p>';return;}
+
+  const daysInMonth=new Date(parseInt(mon.slice(0,4)),parseInt(mon.slice(5,7)),0).getDate();
+  const allItems=[...PUTZ_TAEGLICH,...PUTZ_WOECHENTLICH,...PUTZ_MONATLICH];
+  const dayHeaders=Array.from({length:daysInMonth},(_,i)=>
+    `<th style="font-size:10px;padding:3px 1px;text-align:center;min-width:24px">${i+1}</th>`).join('');
+
+  const rows=allItems.map(item=>{
+    const iKey=`${fil}_${mon}_${item}`;
+    const checks=db.putzplan[iKey]||{};
+    const cols=Array.from({length:daysInMonth},(_,i)=>{
+      const d=String(i+1).padStart(2,'0');
+      const done=checks[`${mon}-${d}`]||false;
+      return`<td style="text-align:center;padding:2px">${done?'✅':'·'}</td>`;
+    }).join('');
+    const doneCount=Object.values(checks).filter(Boolean).length;
+    return`<tr>
+      <td style="font-size:12px;padding:5px 10px;white-space:nowrap">${item}${doneCount?` <span style="color:var(--green);font-size:10px">(${doneCount}×)</span>`:''}</td>
+      ${cols}
+    </tr>`;
+  }).join('');
+
+  div.innerHTML=`<div class="twrap"><table style="font-size:12px">
+    <thead><tr><th style="min-width:200px;padding:5px 10px">Aufgabe</th>${dayHeaders}</tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>
+  <div class="brow no-print">${U==='Verwaltung'?`<button class="btn btn-p btn-sm" onclick="window.print()">🖨️ Drucken</button>`:''}</div>`;
+}
+
+// ═══════════════════ ANGEKOMMEN MODAL ═══════════════════
+function openAngekommenModal(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const rows=o.positionen.map(p=>`
+    <div class="pack-row" style="grid-template-columns:1fr 70px 70px">
+      <div style="font-size:13px;font-weight:500">${p.name}<br><span style="font-size:11px;color:var(--light)">${p.id}</span></div>
+      <div style="text-align:center;font-size:13px;color:var(--mid)">${p.menge}</div>
+      <input class="pack-inp" type="number" min="0" value="${p.menge}" id="ang-${p.id}" placeholder="${p.menge}">
+    </div>`).join('');
+
+  document.getElementById('modal-container').innerHTML=`
+    <div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-title">📬 Lieferung bestätigen – ${fname(o.filiale)}</div>
+        <p style="font-size:12px;color:var(--light);margin-bottom:12px">Tatsächlich angekommen Menge eintragen. Bei Abweichung wird die Verwaltung informiert.</p>
+        <div style="display:grid;grid-template-columns:1fr 70px 70px;gap:8px;padding:5px 10px;font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase">
+          <div>Artikel</div><div style="text-align:center">Bestellt</div><div style="text-align:center">Angekommen</div>
+        </div>
+        ${rows}
+        <div style="margin-top:12px">
+          <label class="flbl">Kommentar (optional)</label>
+          <textarea id="ang-kommentar" placeholder="z.B. 3 Stück Espresso fehlten, Karton beschädigt…"
+            style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px;font-family:'Inter',sans-serif;min-height:70px;resize:vertical"></textarea>
+        </div>
+        <div class="brow" style="margin-top:14px">
+          <button class="btn btn-p" onclick="submitAngekommen('${orderId}')">✅ Lieferung bestätigen</button>
+          <button class="btn btn-o" onclick="closeModal()">Abbrechen</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function submitAngekommen(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const kommentar=document.getElementById('ang-kommentar')?.value.trim()||'';
+  const abweichungen=[];
+  o.positionen.forEach(p=>{
+    const el=document.getElementById('ang-'+p.id);
+    const angekommen=el?parseFloat(el.value)||0:p.menge;
+    const diff=angekommen-p.menge;
+    if(diff!==0){
+      abweichungen.push({id:p.id,name:p.name,bestellt:p.menge,angekommen,diff});
+    }
+    p.angekommen=angekommen;
+  });
+  o.abweichungen=abweichungen;
+  o.ankunftKommentar=kommentar;
+  o.hatAbweichung=abweichungen.length>0||kommentar!=='';
+  o.status='angekommen';
+  if(!o.statusLog)o.statusLog=[];
+  o.statusLog.push({
+    status:'angekommen',datum:new Date().toISOString(),by:U,
+    note: abweichungen.length>0
+      ? `⚠️ Abweichungen: ${abweichungen.map(a=>`${a.name}: ${a.bestellt}→${a.angekommen}`).join(', ')}`
+      : kommentar||'Vollständig angekommen'
+  });
+  save();closeModal();
+  if(abweichungen.length>0||kommentar){
+    toast(`📬 Bestätigt – ${abweichungen.length} Abweichung(en) gemeldet`);
+  }else{
+    toast('📬 Lieferung vollständig bestätigt!');
+  }
+  refreshHist();updateStartBanner();
+}
+
+function copyArtToAllFil(){
+  const fil=document.getElementById('art-fil')?.value;
+  if(!fil){toast('Bitte erst Filiale wählen.');return;}
+  const source=BAEKO[fil];
+  if(!source||!source.length){toast('Keine Artikel in dieser Filiale.');return;}
+  if(!confirm(`Artikelliste von ${fil} für ALLE Filialen übernehmen? Bestehende Listen werden ersetzt.`))return;
+  ALLE_FIL.forEach(f=>{
+    if(f!==fil) BAEKO[f]=[...source.map(a=>({...a}))];
+  });
+  saveArtikellisten();renderBaekoArtList();
+  toast(`✅ Liste von ${fil} für alle ${ALLE_FIL.length} Filialen übernommen.`);
+}
+
+function copyMetroToAllFil(){
+  // Handelswaren pro Filiale - Hinweis
+  toast('HW-Liste gilt bereits für alle Filialen.');
+}
+
+function delBaekoArtAlle(artId){
+  ALLE_FIL.forEach(f=>{if(BAEKO[f])BAEKO[f]=BAEKO[f].filter(a=>a.id!==artId);});
+  saveArtikellisten();renderBaekoArtList();toast('✅ Aus allen Filialen gelöscht.');
+}
+
+// ═══ VERWALTUNG: BÄKO BESTELLUNG BEARBEITEN ═══
+function openBaekoEdit(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const fil=o.filiale;
+  const alleArts=BAEKO[fil]||[];
+  // Artikel in Bestellung
+  const posIds=new Set(o.positionen.map(p=>p.id));
+  // Zusätzliche Artikel die noch nicht in Bestellung sind
+  const extras=alleArts.filter(a=>!posIds.has(a.id));
+  const extraOpts=extras.map(a=>`<option value="${a.id}">${a.name} (${a.id})</option>`).join('');
+
+  const rows=o.positionen.map(p=>`
+    <div class="pack-row" style="grid-template-columns:1fr 80px 28px;margin-bottom:5px">
+      <div style="font-size:13px;font-weight:500">${p.name}<br>
+        <span style="font-size:11px;color:var(--light)">${p.id}</span></div>
+      <input class="pack-inp" type="number" min="0" value="${p.menge}" id="be-${p.id}" placeholder="0">
+      <button style="background:none;border:none;color:var(--light);cursor:pointer;font-size:16px;padding:0"
+        onclick="removeBaekoEditPos('${p.id}')">✕</button>
+    </div>`).join('');
+
+  document.getElementById('modal-container').innerHTML=`
+    <div class="modal-overlay" onclick="if(event.target===this)closeModal()">
+      <div class="modal">
+        <div class="modal-title">✏️ Bäko bearbeiten – ${fname(fil)} · ${o.wocheLabel||''}</div>
+        <p style="font-size:12px;color:var(--light);margin-bottom:12px">Mengen anpassen, Artikel entfernen oder ergänzen.</p>
+        <div style="display:grid;grid-template-columns:1fr 80px 28px;gap:8px;padding:5px 10px;
+          font-size:11px;font-weight:700;color:var(--light);text-transform:uppercase;margin-bottom:4px">
+          <div>Artikel</div><div style="text-align:center">Menge</div><div></div>
+        </div>
+        <div id="be-rows">${rows}</div>
+        ${extraOpts?`<div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+          <select id="be-add-sel" style="flex:1;padding:8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
+            <option value="">+ Artikel ergänzen…</option>${extraOpts}
+          </select>
+          <input type="number" id="be-add-menge" min="1" value="1" placeholder="Menge"
+            style="width:70px;padding:8px;border:1.5px solid var(--border);border-radius:var(--rsm);font-size:13px">
+          <button class="btn btn-o btn-sm" onclick="addBaekoEditPos('${orderId}')">+ Add</button>
+        </div>`:''}
+        <div style="margin-top:12px">
+          <label class="flbl">Ihr Name (Pflicht)</label>
+          <input type="text" id="be-name" placeholder="Wer hat die Änderung vorgenommen?"
+            style="width:100%;padding:10px;border:1.5px solid var(--border);border-radius:var(--rsm);
+            font-size:13px;font-family:'Inter',sans-serif">
+        </div>
+        <div class="brow" style="margin-top:14px">
+          <button class="btn btn-p" onclick="submitBaekoEdit('${orderId}')">💾 Änderungen speichern</button>
+          <button class="btn btn-o" onclick="closeModal()">Abbrechen</button>
+        </div>
+      </div>
+    </div>`;
+  // Store orderId for use in add/remove
+  window._baekoEditId=orderId;
+}
+
+function removeBaekoEditPos(posId){
+  const row=document.getElementById('be-'+posId)?.closest('.pack-row');
+  if(row)row.remove();
+}
+
+function addBaekoEditPos(orderId){
+  const sel=document.getElementById('be-add-sel');
+  const id=sel?.value;if(!id)return;
+  const menge=parseFloat(document.getElementById('be-add-menge')?.value)||1;
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const fil=o.filiale;
+  const art=(BAEKO[fil]||[]).find(a=>a.id===id);if(!art)return;
+  const rows=document.getElementById('be-rows');
+  if(rows){
+    rows.innerHTML+=`<div class="pack-row" style="grid-template-columns:1fr 80px 28px;margin-bottom:5px">
+      <div style="font-size:13px;font-weight:500">${art.name}<br>
+        <span style="font-size:11px;color:var(--light)">${art.id}</span></div>
+      <input class="pack-inp" type="number" min="0" value="${menge}" id="be-${art.id}" placeholder="0">
+      <button style="background:none;border:none;color:var(--light);cursor:pointer;font-size:16px;padding:0"
+        onclick="removeBaekoEditPos('${art.id}')">✕</button>
+    </div>`;
+  }
+  // Remove from dropdown
+  sel.querySelector(`option[value="${id}"]`)?.remove();
+  sel.value='';
+}
+
+function submitBaekoEdit(orderId){
+  const o=db.bestellungen.find(x=>x.id===orderId);if(!o)return;
+  const name=document.getElementById('be-name')?.value.trim();
+  if(!name){toast('Bitte Namen eintragen.');return;}
+  const fil=o.filiale;
+  const alleArts=BAEKO[fil]||[];
+  const aenderungen=[];
+  // Neue Positionen aus Modal lesen
+  const neuePos=[];
+  // Bestehende Positionen
+  o.positionen.forEach(p=>{
+    const el=document.getElementById('be-'+p.id);
+    if(!el)return; // wurde entfernt
+    const nm=parseFloat(el.value)||0;
+    if(nm>0){
+      if(nm!==p.menge)aenderungen.push(`${p.name}: ${p.menge}→${nm}`);
+      neuePos.push({...p,menge:nm});
+    }else{
+      aenderungen.push(`${p.name}: entfernt`);
+    }
+  });
+  // Neu hinzugefügte Artikel
+  alleArts.forEach(a=>{
+    if(o.positionen.find(p=>p.id===a.id))return; // bereits vorhanden
+    const el=document.getElementById('be-'+a.id);
+    if(!el)return;
+    const nm=parseFloat(el.value)||0;
+    if(nm>0){
+      neuePos.push({id:a.id,name:a.name,menge:nm});
+      aenderungen.push(`${a.name}: neu +${nm}`);
+    }
+  });
+  o.positionen=neuePos;
+  if(!o.statusLog)o.statusLog=[];
+  o.statusLog.push({
+    status:o.status,datum:new Date().toISOString(),by:name,
+    note:`Bearbeitet: ${aenderungen.length?aenderungen.join(', '):'keine Änderung'}`
+  });
+  save();closeModal();
+  toast(`✅ Bestellung bearbeitet von ${name}`);
+  refVwB();
+}
+
+function changeArtId(typ,fil,idx,newId){
+  if(typ==='baeko'){if(BAEKO[fil]&&BAEKO[fil][idx])BAEKO[fil][idx].id=newId.trim();}
+  else{if(METRO[fil]&&METRO[fil][idx])METRO[fil][idx].id=newId.trim();}
+  showSaveBar();
+}
+function changeBaekoKat(fil,idx,newKat){
+  if(!BAEKO[fil]||!BAEKO[fil][idx])return;
+  BAEKO[fil][idx].kat=newKat;showSaveBar();
+}
+function changeMetroKat(fil,idx,newKat){
+  if(!METRO[fil]||!METRO[fil][idx])return;
+  METRO[fil][idx].kat=newKat;showSaveBar();
+}
+
+// ═══════════════════ REINIGUNG ═══════════════════
+function renderReinigung(){
+  const mc=document.getElementById('mc');
+  const arts=REINIGUNG_ART;
+  const rows=arts.map(a=>`<div class="orow">
+    <div><div class="aname">${a.name}</div></div>
+    <input class="qinp" type="number" min="0" value="" id="rq-${a.id}" placeholder="0" oninput="this.dataset.filled=this.value>0?'1':''">
+  </div>`).join('');
+  const letzte=(db.reinigung||[]).filter(r=>r.filiale===U).sort((a,b)=>(b.datum||'').localeCompare(a.datum||''))[0];
+  const letzteBanner=letzte?`<div class="banner banner-info" style="margin-bottom:14px">ℹ️ Zuletzt bestellt: <strong>${new Date(letzte.datum).toLocaleDateString('de-DE')}</strong> – ${letzte.positionen.map(p=>`${p.name} ×${p.menge}`).join(', ')}</div>`:'';
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🧴 REINIGUNG</div>
+    <p style="font-size:12px;color:var(--light);margin-bottom:14px">Reinigungsmittel bestellen – einmal pro Woche</p>
+    ${letzteBanner}
+    ${rows}
+    <hr class="div">
+    <div class="slbl">Kommentar (optional)</div>
+    <textarea id="rein-kommentar" placeholder="z.B. Nachlieferung Seife dringend…"
+      style="width:100%;padding:11px 13px;border:1.5px solid var(--border);border-radius:var(--rsm);
+      font-size:13px;font-family:'Inter',sans-serif;min-height:60px;resize:vertical;margin-top:4px"></textarea>
+    <div class="brow" style="margin-top:14px">
+      <button class="btn btn-p" onclick="submitReinigung()">✅ Bestellung absenden</button>
+      <button class="btn btn-o" onclick="renderReinigung()">↺ Zurücksetzen</button>
+    </div>
+  </div>`;
+}
+function submitReinigung(){
+  const pos=[];
+  REINIGUNG_ART.forEach(a=>{const el=document.getElementById('rq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)pos.push({id:a.id,name:a.name,menge:v});});
+  if(!pos.length){toast('Bitte mind. einen Artikel eintragen.');return;}
+  const kommentar=document.getElementById('rein-kommentar')?.value.trim()||'';
+  const eintrag={id:uid(),filiale:U,datum:new Date().toISOString(),positionen:pos,kommentar,statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]};
+  if(!db.reinigung)db.reinigung=[];
+  db.reinigung.push(eintrag);
+  save();toast('✅ Reinigungsbestellung eingegangen!');renderReinigung();
+}
+function renderBsReinigung(){
+  const mc=document.getElementById('mc');
+  const alle=(db.reinigung||[]).sort((a,b)=>(b.datum||'').localeCompare(a.datum||''));
+  const rows=alle.length?alle.map(r=>`
+    <div class="orow" style="flex-direction:column;align-items:flex-start;gap:6px;padding:12px 0;border-bottom:1px solid var(--border)">
+      <div style="display:flex;justify-content:space-between;width:100%;align-items:center">
+        <div style="font-weight:600;font-size:14px">${fname(r.filiale)}</div>
+        <div style="font-size:12px;color:var(--light)">${new Date(r.datum).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}</div>
+      </div>
+      <div style="font-size:13px;color:var(--dark)">${r.positionen.map(p=>`${p.name} ×${p.menge}`).join(' · ')}</div>
+      ${r.kommentar?`<div style="font-size:12px;color:var(--mid);font-style:italic">💬 ${r.kommentar}</div>`:''}
+    </div>`).join('')
+  :`<div style="color:var(--light);font-size:13px;padding:20px 0">Noch keine Reinigungsbestellungen eingegangen.</div>`;
+  mc.innerHTML=`<div class="card">
+    <div class="ctitle">🧴 Reinigungsbestellungen</div>
+    <p style="font-size:12px;color:var(--light);margin-bottom:14px">Alle eingegangenen Bestellungen – neueste zuerst</p>
+    ${rows}
+  </div>`;
+}
+function renderVwReinigung(){renderBsReinigung();}
+function printReinigung(id,auto){
+  const r=(db.reinigung||[]).find(x=>x.id===id);if(!r)return;
+  const w=window.open('','_blank');
+  w.document.write(`<html><head><title>Reinigung ${fname(r.filiale)}</title>
+  <style>body{font-family:sans-serif;padding:20px}table{width:100%;border-collapse:collapse}td,th{border:1px solid #ccc;padding:6px 10px}th{background:#f0f0f0}</style></head><body>
+  <h2>🧴 Reinigungsbestellung – ${fname(r.filiale)}</h2>
+  <p style="color:#888;font-size:13px">${new Date(r.datum).toLocaleString('de-DE')}</p>
+  <table><tr><th>Artikel</th><th>Menge</th></tr>
+  ${r.positionen.map(p=>`<tr><td>${p.name}</td><td>${p.menge}</td></tr>`).join('')}
+  </table>${r.kommentar?`<p><strong>Kommentar:</strong> ${r.kommentar}</p>`:''}</body></html>`);
+  w.document.close();if(auto)w.print();
+}
+</script>
+</body>
+</html>

@@ -2890,7 +2890,8 @@ function submitBaeko(){
   const versandFr=getPickerDate('baeko');
   const wocheMo=moFromDate(versandFr);
   const wLabel=weekLabelFromMo(new Date(wocheMo));
-  db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.wocheMo===wocheMo&&b.typ==='baeko'));
+  // Alle bisherigen BÄKO-Bestellungen dieser Filiale für dieselbe Woche entfernen (auch bei abweichendem wocheMo durch alten Bug)
+  db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.typ==='baeko'&&moFromDate(b.wocheMo||b.versanddatum||'')===moFromDate(wocheMo)));
   db.bestellungen.push({id:uid(),filiale:U,versanddatum:versandFr,wocheMo,week:wocheMo,wocheLabel:wLabel,datum:new Date().toISOString(),positionen:pos,
     status:'offen',typ:'baeko',sig:sigVal,fehlmengen:{},
     statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]});
@@ -2947,7 +2948,7 @@ function submitMetro(){
   const sigValM=document.getElementById('sig-name')?.value.trim()||'';
   const freitextM=document.getElementById('metro-freitext')?.value.trim()||'';
   const versandFrM=nextWeekFrISO();const wocheMoM=nextWeekMoISO();
-  db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.wocheMo===wocheMoM&&b.typ==='metro'));
+  db.bestellungen=db.bestellungen.filter(b=>!(b.filiale===U&&b.typ==='metro'&&moFromDate(b.wocheMo||b.versanddatum||'')===moFromDate(wocheMoM)));
   db.bestellungen.push({id:uid(),filiale:U,versanddatum:versandFrM,wocheMo:wocheMoM,week:wocheMoM,wocheLabel:nextWeekLabel(),datum:new Date().toISOString(),positionen:pos,
     status:'offen',typ:'metro',sig:sigValM,freitext:freitextM,fehlmengen:{},
     statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]});
@@ -4748,18 +4749,20 @@ function renderBsReinigung(){
 function renderVwReinigung(){renderBsReinigung();}
 function _printHTML(html,auto){
   if(auto){
-    // iframe-Druck umgeht Popup-Blocker beim automatischen Druck
     const fr=document.createElement('iframe');
-    fr.style.cssText='position:fixed;top:-9999px;left:-9999px;width:210mm;height:297mm;border:none';
+    fr.style.cssText='position:absolute;top:0;left:0;width:1px;height:1px;opacity:0;border:none';
+    fr.onload=()=>{
+      try{
+        fr.contentWindow.focus();
+        fr.contentWindow.print();
+      }catch(e){console.warn('iframe print error:',e);}
+      setTimeout(()=>{if(fr.parentNode)fr.parentNode.removeChild(fr);},3000);
+    };
     document.body.appendChild(fr);
-    fr.contentDocument.open();
-    fr.contentDocument.write(html);
-    fr.contentDocument.close();
-    setTimeout(()=>{fr.contentWindow.focus();fr.contentWindow.print();setTimeout(()=>fr.remove(),2000);},400);
+    fr.srcdoc=html;
   }else{
     const w=window.open('','_blank');
-    w.document.write(html);w.document.close();
-    setTimeout(()=>w.print(),300);
+    if(w){w.document.write(html);w.document.close();setTimeout(()=>w.print(),300);}
   }
 }
 function printBsSonder(id,auto){

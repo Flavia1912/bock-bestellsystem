@@ -2288,28 +2288,22 @@ function initFirebase(){
       // Automatischer Druck für Backstube
       if(U==='Backstube'){
         const erstInit=knownSonderIds.size===0;
+        // ZUERST filtern (bevor neue IDs ins Set kommen), DANN hinzufügen
+        const neueSonder=erstInit?[]:db.sonder.filter(s=>s&&s.id&&!knownSonderIds.has(s.id));
         db.sonder.forEach(s=>s&&s.id&&knownSonderIds.add(s.id));
-        if(!erstInit){
-          const neueSonder=db.sonder.filter(s=>s&&s.id&&!knownSonderIds.has(s.id));
-          // IDs jetzt als bekannt markieren
-          neueSonder.forEach(s=>knownSonderIds.add(s.id));
-          neueSonder.forEach(s=>{
-            showNotif('🖨️ Neue Sonderbestellung',`${s?.filiale||''} wird gedruckt…`);
-            setTimeout(()=>printBsSonder(s.id,true),600);
-          });
-        }
+        neueSonder.forEach(s=>{
+          showNotif('🖨️ Neue Sonderbestellung',`${s?.filiale||''} wird gedruckt…`);
+          setTimeout(()=>printBsSonder(s.id,true),600);
+        });
       }
       if(U==='Backstube'){
         const erstInitR=knownReinIds.size===0;
+        const neueRein=erstInitR?[]:(db.reinigung||[]).filter(r=>r&&r.id&&!knownReinIds.has(r.id));
         (db.reinigung||[]).forEach(r=>r&&r.id&&knownReinIds.add(r.id));
-        if(!erstInitR){
-          const neueRein=(db.reinigung||[]).filter(r=>r&&r.id&&!knownReinIds.has(r.id));
-          neueRein.forEach(r=>knownReinIds.add(r.id));
-          neueRein.forEach(r=>{
-            showNotif('🖨️ Neue Reinigungsbestellung',`${r?.filiale||''} wird gedruckt…`);
-            setTimeout(()=>printReinigung(r.id,true),600);
-          });
-        }
+        neueRein.forEach(r=>{
+          showNotif('🖨️ Neue Reinigungsbestellung',`${r?.filiale||''} wird gedruckt…`);
+          setTimeout(()=>printReinigung(r.id,true),600);
+        });
       }
       lastOrdCount=db.bestellungen.length;
       lastSondCount=db.sonder.length;
@@ -4737,7 +4731,7 @@ function submitReinigung(){
   REINIGUNG_ART.forEach(a=>{const el=document.getElementById('rq-'+a.id);const v=parseFloat(el?.value);if(el&&v>0)pos.push({id:a.id,name:a.name,menge:v});});
   if(!pos.length){toast('Bitte mind. einen Artikel eintragen.');return;}
   const kommentar=document.getElementById('rein-kommentar')?.value.trim()||'';
-  const eintrag={id:uid(),filiale:U,datum:new Date().toISOString(),positionen:pos,kommentar,statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]};
+  const eintrag={id:uid(),filiale:U,datum:new Date().toISOString(),positionen:pos,kommentar,status:'offen',statusLog:[{status:'offen',datum:new Date().toISOString(),by:U}]};
   if(!db.reinigung)db.reinigung=[];
   db.reinigung.push(eintrag);
   save();toast('✅ Reinigungsbestellung eingegangen!');renderReinigung();

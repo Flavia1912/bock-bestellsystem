@@ -321,9 +321,9 @@ hr.div{border:none;border-top:1px solid var(--border);margin:12px 0}
 
 <script>
 // ═══════════════════ STAMMDATEN ═══════════════════
-const PW={B1:'1111',B5:'5555',B7:'7777',B8:'8888',B11:'1100',B12:'1212',B16:'1616',B17:'1717',Bude:'8888',Backstube:'backstube2024',Verwaltung:'admin2024'};
-const NAMEN={B1:'B1',B5:'B5',B7:'B7',B8:'B8',B11:'B11',B12:'B12',B16:'B16',B17:'B17',Bude:'🎄 Bude',Backstube:'Backstube',Verwaltung:'Verwaltung'};
-const ALLE_FIL=['B1','B5','B7','B8','B11','B12','B16','B17','Bude'];
+const PW={B1:'1111',B5:'5555',B7:'7777',B8:'8888',B11:'1100',B12:'1212',B16:'1616',B17:'1717',Backstube:'backstube2024',Verwaltung:'admin2024'};
+const NAMEN={B1:'B1',B5:'B5',B7:'B7',B8:'B8',B11:'B11',B12:'B12',B16:'B16',B17:'B17',Backstube:'Backstube',Verwaltung:'Verwaltung'};
+const ALLE_FIL=['B1','B5','B7','B8','B11','B12','B16','B17'];
 const METRO_FIL=['B1','B5','B7','B8','B11','B12','B16','B17'];
 const LAGER_ART=[
   // Verpackung
@@ -2959,7 +2959,7 @@ const JULI_INVENTUR_IMPORT={
 // BÄKO aus Google Sheet, METRO komplett aus Firebase
 Object.assign(BAEKO,BAEKO_STATIC);
 // METRO startet leer — wird ausschliesslich aus Firebase geladen
-const ALLE_FIL_KEYS=['B1','B5','B7','B8','B11','B12','B16','B17','Bude'];
+const ALLE_FIL_KEYS=['B1','B5','B7','B8','B11','B12','B16','B17'];
 ALLE_FIL_KEYS.forEach(fil=>{if(!METRO[fil])METRO[fil]=[];});
 let _metroLoadedFromFirebase=false;
 
@@ -3362,8 +3362,6 @@ function th(h){h.nextElementSibling.classList.toggle('open');}
 function stlbl(s){return{offen:'Offen',gepackt:'Gepackt',teilweise:'Teilweise',versendet:'Versendet',angekommen:'Angekommen',bestaetigt:'Bestätigt'}[s]||s;}
 function stcls(s){return{offen:'st-offen',gepackt:'st-gepackt',teilweise:'st-teilweise',versendet:'st-versendet',angekommen:'st-angekommen',bestaetigt:'st-bestaetigt'}[s]||'st-offen';}
 function fname(f){return NAMEN[f]||f;}
-function isBudeAktiv(){const d=new Date();const s=new Date(2026,10,12);const e=new Date(2026,11,24);return d>=s&&d<=e;}
-function budeName(){return isBudeAktiv()?'Bude':'[Bude-Zeitraum vorbei]';}
 
 const FILIAL_ADR={
   B1:'Brandstraße 27, 90482 Nürnberg (Laufamholz)',
@@ -3522,12 +3520,9 @@ document.getElementById('lpw').addEventListener('keydown',e=>{if(e.key==='Enter'
 
 // ═══════════════════ NAV ═══════════════════
 function getNav(){
-  const vw=U==='Verwaltung',bs=U==='Backstube',fil=!vw&&!bs,bude=U==='Bude';
+  const vw=U==='Verwaltung',bs=U==='Backstube',fil=!vw&&!bs;
   const items=[{id:'start',lbl:'🏠 Start'}];
-  if(bude){
-    items.push({id:'sonder',lbl:'🎂 SONDERBESTELLUNG'});
-    if(wgSaisonAktiv())items.push({id:'weihnachtsgebaeck',lbl:'🎄 Weihnachtsgebäck'});
-  }else if(fil){
+  if(fil){
     items.push({id:'baeko',lbl:'🌾 BÄKO'});
     if(METRO_FIL.includes(U))items.push({id:'metro',lbl:'⬛ HANDELSWAREN'});
     if(U==='B1')items.push({id:'b1-nachliefern',lbl:'🔄 Nachliefern'});
@@ -3536,7 +3531,11 @@ function getNav(){
     if(wgSaisonAktiv())items.push({id:'weihnachtsgebaeck',lbl:'🎄 Weihnachtsgebäck'});
     if(U==='B1')items.push({id:'inventur',lbl:'🔍 Inventur'});
     items.push({id:'bestellhistorie',lbl:'📜 BESTELLHISTORIE'});
-  }if(bs){
+    // TEMPORÄR AUSGEBLENDET – in Bearbeitung:
+    // items.push({id:'kuehltheke',lbl:'🌡️ KÜHLPLÄNE'});
+    // items.push({id:'putzplan',lbl:'🧹 PUTZPLAN'});
+  }
+    if(bs){
     items.push({id:'bs-sonder',lbl:'🎂 Sonderbestellungen'});
     items.push({id:'bs-reinigung',lbl:'🧴 Reinigungsbestellungen'});
     if(wgSaisonAktiv())items.push({id:'bs-weihnachtsgebaeck',lbl:'🎄 Weihnachtsgebäck'});
@@ -6948,11 +6947,6 @@ function submitWg(){
   if(!pos.length){toast('Bitte mind. einen Artikel eintragen.');return;}
   const eintrag={id:uid(),filiale:U,datum:today(),person:name,positionen:pos};
   if(!db.weihnachtsgebaeck)db.weihnachtsgebaeck=[];
-  // Für Bude: Tägliches Reset - alte Einträge vom gleichen Tag löschen
-  if(U==='Bude'){
-    const heute=today();
-    db.weihnachtsgebaeck=db.weihnachtsgebaeck.filter(e=>!(e.filiale==='Bude'&&e.datum===heute));
-  }
   db.weihnachtsgebaeck.push(eintrag);
   save();
   try{localStorage.removeItem('wg_draft_'+U);}catch{}
@@ -6965,7 +6959,7 @@ function renderWgAuswertung(){
   const istVw=U==='Verwaltung',istBs=U==='Backstube';
   if(!istVw&&!istBs){renderStart();return;}
   const alle=(db.weihnachtsgebaeck||[]).sort((a,b)=>(b.datum||'').localeCompare(a.datum||''));
-  const filialen=['B1','B5','B7','B8','B11','B12','B16','B17','Bude'];
+  const filialen=['B1','B5','B7','B8','B11','B12','B16','B17'];
   const htmlRows=WG_KATEGORIEN.map(kat=>{
     const items=WG_ARTIKEL.filter(a=>a.kategorie===kat);
     return`<div style="margin-bottom:20px;border-bottom:2px solid var(--border);padding-bottom:14px">
